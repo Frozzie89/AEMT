@@ -1,6 +1,5 @@
 package be.helha.groupeB4.dao;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +10,11 @@ import javax.persistence.PersistenceContext;
 import be.helha.groupeB4.entities.Student;
 
 @Stateless
-public class StudentDAO  implements IStudentDAO, Serializable{
+public class StudentDAO implements IStudentDAO{
 
 	@PersistenceContext(unitName = "groupeB4")
 	private EntityManager em; 
+	
 	@Override
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
@@ -22,6 +22,7 @@ public class StudentDAO  implements IStudentDAO, Serializable{
 		return student;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
@@ -45,6 +46,7 @@ public class StudentDAO  implements IStudentDAO, Serializable{
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> getAllStudentByName(String str) {
 		// TODO Auto-generated method stub
@@ -62,7 +64,7 @@ public class StudentDAO  implements IStudentDAO, Serializable{
 		return sortedList;
 	}
 
-	@Override
+	
 	public Student getStudentByID(int idStudent) {
 		// TODO Auto-generated method stub
 		return null;
