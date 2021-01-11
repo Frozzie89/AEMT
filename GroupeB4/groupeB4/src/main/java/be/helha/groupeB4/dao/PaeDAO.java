@@ -33,6 +33,4 @@ public class PaeDAO extends AbstractDAO implements IPaeDAO{
 		return null;
 	}
 
-
-	
 }
