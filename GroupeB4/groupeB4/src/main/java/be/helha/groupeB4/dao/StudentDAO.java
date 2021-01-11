@@ -1,5 +1,6 @@
 package be.helha.groupeB4.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -42,7 +43,18 @@ public class StudentDAO extends AbstractDAO implements IStudentDAO {
 	@Override
 	public List<Student> getAllStudentByName(String str) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Student> toCompareList = new ArrayList<>();
+		toCompareList = em.createQuery("SELECT student From Student student").getResultList();
+		
+		List<Student> sortedList = new ArrayList<>();
+		
+		for(Student s : toCompareList) {
+			if(s.getFirstName().startsWith("str"))
+					sortedList.add(s);
+		}
+		
+		
+		return sortedList;
 	}
 
 	@Override
