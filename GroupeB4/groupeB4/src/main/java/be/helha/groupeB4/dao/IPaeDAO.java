@@ -11,4 +11,6 @@ public interface IPaeDAO {
 	public Pae DeletePae(Pae pae);
 	public Pae UpdatePae(Pae oldPae, Pae newPae);
 	
+	
+	
 }
