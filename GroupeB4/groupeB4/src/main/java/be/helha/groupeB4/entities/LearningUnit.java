@@ -57,8 +57,6 @@ public class LearningUnit implements Serializable{
 		return tmp;
 	}
 	
-	
-
 	//----------------------- GET & SET -----------------------
 	public String getId() {
 		return id;
