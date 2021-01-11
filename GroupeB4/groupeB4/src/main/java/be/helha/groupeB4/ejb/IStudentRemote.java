@@ -2,8 +2,10 @@ package be.helha.groupeB4.ejb;
 
 import java.util.List;
 
-import be.helha.groupeB4.entities.Student;
+import javax.ejb.Remote;
 
+import be.helha.groupeB4.entities.Student;
+@Remote
 public interface IStudentRemote {
 	
 	
