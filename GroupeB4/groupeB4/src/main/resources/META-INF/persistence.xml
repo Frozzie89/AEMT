@@ -5,19 +5,44 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">	
 	
 	
-	<persistence-unit name="groupe4" transaction-type="JTA">
-		  
-		<jta-data-source>jdbc/visiteur2020</jta-data-source> 
-		<class>be.helha.aemt.entities.Visiteur</class>
-		<class>be.helha.aemt.entities.Commande</class>
-		<class>be.helha.aemt.entities.Article</class>
-		<class>be.helha.aemt.entities.Compte</class>
-		<class>be.helha.aemt.entities.Utilisateur</class>
-		<class>be.helha.aemt.entities.Adresse</class>
+	<persistence-unit name="groupeB4" transaction-type="JTA">
+		 
+		
+		<jta-data-source>jdbc/groupeB4</jta-data-source>
+		<class>be.helha.groupeB4.entities.Student</class>
+		<class>be.helha.groupeB4.entities.LearningActivity</class>
+		<class>be.helha.groupeB4.entities.LearningUnit</class>
+		<class>be.helha.groupeB4.entities.Pae</class>
+		
+
+				
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	
 		<properties>
 		    
+
 		</properties>
 	</persistence-unit>
+	
+	
+	
+	<persistence-unit name="groupeB4_Local" transaction-type="RESOURCE_LOCAL">
+		<class>be.helha.groupeB4.entities.Student</class>
+		<class>be.helha.groupeB4.entities.LearningActivity</class>
+		<class>be.helha.groupeB4.entities.LearningUnit</class>
+		<class>be.helha.groupeB4.entities.Pae</class>
+				
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+	
+		<properties>
+		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbutilisateurs2021"/> 
+		    <property name="javax.persistence.schema-generation.database.action" value="create"/>
+		  
+		    <property name="javax.persistence.jdbc.user" value="test"/>
+			<property name="javax.persistence.jdbc.password" value="test"/> 
+
+		</properties>
+	</persistence-unit>
+	
 </persistence>
