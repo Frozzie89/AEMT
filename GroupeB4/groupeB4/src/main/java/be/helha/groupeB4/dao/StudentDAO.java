@@ -1,15 +1,22 @@
 package be.helha.groupeB4.dao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 
 import be.helha.groupeB4.entities.Student;
 
 @Stateless
-public class StudentDAO extends AbstractDAO implements IStudentDAO {
+public class StudentDAO  implements IStudentDAO, Serializable{
 
+	@PersistenceUnit(unitName = "groupeB4")
+	private EntityManager em; //le serveur va fournir le EM pas de new => JTA, c'est le serveur qui gere les transactions
+	
 	@Override
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
