@@ -2,6 +2,7 @@ package be.helha.groupeB4.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ import be.helha.groupeB4.enumeration.ESection;
 public class Student implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private String registrationNumber;
@@ -23,7 +24,7 @@ public class Student implements Serializable{
 	
 	private int bloc;
 	
-	@OneToOne
+	@OneToOne(cascade= CascadeType.ALL)
 	private Pae pae;
 	
 	private ESection section;
