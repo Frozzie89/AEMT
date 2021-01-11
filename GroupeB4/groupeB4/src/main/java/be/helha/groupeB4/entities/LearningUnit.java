@@ -34,6 +34,9 @@ public class LearningUnit implements Serializable{
 	}
 	
 	public boolean addLearning(LearningActivity aa) {
+		if(aaList.contains(aa) || aa == null) {
+			return false;
+		}
 		aaList.add(aa);
 		return true;
 	}
@@ -47,8 +50,14 @@ public class LearningUnit implements Serializable{
 	}
 	
 	public double getMeanGrade() {
-		return 0.;
+		double tmp = 0.;
+		for(int i = 0 ; i < aaList.size() ; i++){
+			tmp += aaList.get(i).getGrade();
+		}
+		return tmp;
 	}
+	
+	
 
 	//----------------------- GET & SET -----------------------
 	public String getId() {

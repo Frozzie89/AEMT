@@ -17,7 +17,7 @@ import be.helha.groupeB4.enumeration.EPaeProgress;
 public class Pae implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@OneToMany(cascade= CascadeType.PERSIST)
 	private List<LearningUnit> ueList;
@@ -35,10 +35,15 @@ public class Pae implements Serializable{
 		this.paeProgress = paeProgress;
 		this.ueList = new ArrayList<LearningUnit>();
 	}
+	public Pae(EPaeProgress paeProgress, List<LearningUnit> ueList) {
+		super();
+		this.paeProgress = paeProgress;
+		this.ueList = ueList;
+	}
 
 
 	public boolean addLearningUnit(LearningUnit ue) {
-		if(ueList.contains(ue)) {
+		if(ueList.contains(ue) || ue == null || ue.getAaList() == null) {
 			return false;
 		}
 		ueList.add(ue);
@@ -76,10 +81,10 @@ public class Pae implements Serializable{
 		this.paeProgress = paeProgress;
 	}
 
-
-	
 	//----------------------- Fin GET & SET -----------------------
-
+	public Pae clone() {
+		return new Pae(this.paeProgress, this.ueList);
+	}
 
 	@Override
 	public String toString() {
