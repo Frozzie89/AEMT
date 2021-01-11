@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">	
+	
+	
+	<persistence-unit name="groupe4" transaction-type="JTA">
+		  
+		<jta-data-source>jdbc/visiteur2020</jta-data-source> 
+		<class>be.helha.aemt.entities.Visiteur</class>
+		<class>be.helha.aemt.entities.Commande</class>
+		<class>be.helha.aemt.entities.Article</class>
+		<class>be.helha.aemt.entities.Compte</class>
+		<class>be.helha.aemt.entities.Utilisateur</class>
+		<class>be.helha.aemt.entities.Adresse</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+	
+		<properties>
+		    
+		</properties>
+	</persistence-unit>
+</persistence>
