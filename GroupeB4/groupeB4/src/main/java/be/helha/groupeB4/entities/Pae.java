@@ -29,7 +29,6 @@ public class Pae implements Serializable{
 		this.ueList = new ArrayList<LearningUnit>();
 	}
 	
-	
 	public Pae(EPaeProgress paeProgress) {
 		super();
 		this.paeProgress = paeProgress;
@@ -40,7 +39,6 @@ public class Pae implements Serializable{
 		this.paeProgress = paeProgress;
 		this.ueList = ueList;
 	}
-
 
 	public boolean addLearningUnit(LearningUnit ue) {
 		if(ueList.contains(ue) || ue == null || ue.getAaList() == null) {
