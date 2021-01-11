@@ -64,6 +64,10 @@ public class Pae implements Serializable{
 		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public List<LearningUnit> getUeList() {
 		return ueList;
 	}
@@ -82,9 +86,6 @@ public class Pae implements Serializable{
 	}
 
 	//----------------------- Fin GET & SET -----------------------
-	public Pae clone() {
-		return new Pae(this.paeProgress, this.ueList);
-	}
 
 	@Override
 	public String toString() {
