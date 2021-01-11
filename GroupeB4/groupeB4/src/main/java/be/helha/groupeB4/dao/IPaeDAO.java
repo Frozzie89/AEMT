@@ -11,4 +11,6 @@ public interface IPaeDAO {
 	Pae deletePae(Pae pae);
 	Pae updatePae(Pae oldPae, Pae newPae);
 	
+	
+	
 }
