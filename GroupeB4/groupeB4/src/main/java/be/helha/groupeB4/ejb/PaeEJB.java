@@ -1,38 +1,40 @@
-package be.helha.groupeB4.dao;
+package be.helha.groupeB4.ejb;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import be.helha.groupeB4.dao.PaeDAO;
 import be.helha.groupeB4.entities.Pae;
 
 @Stateless
-public class PaeDAO extends AbstractDAO implements IPaeDAO{
+public class PaeEJB implements IPaeRemote {
+
+	@EJB
+	private PaeDAO dao;
 
 	@Override
-	public Pae addPAE(Pae pae) {
+	public Pae addPae(Pae pae) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.addPAE(pae);
 	}
 
 	@Override
 	public List<Pae> getAllPaes() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllPaes();
 	}
 
 	@Override
 	public Pae deletePae(Pae pae) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.deletePae(pae);
 	}
 
 	@Override
 	public Pae updatePae(Pae oldPae, Pae newPae) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.updatePae(oldPae, newPae);
 	}
-
-
-	
 }
