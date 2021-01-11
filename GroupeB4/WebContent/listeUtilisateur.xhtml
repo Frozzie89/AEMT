@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f = "http://java.sun.com/jsf/core">
+
+<head>
+
+<title>Next Page</title>
+<meta http-equiv="
+    Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<H1>Listes des utilisateurs</H1>
+
+
+
+<h:dataTable value = "#{utilisateurControl.doSelectAll()}" var = "user">
+   
+    <h:column>                    
+      <f:facet name = "header">id</f:facet>    
+      <h:commandLink value="#{user.id}" action="#{nextControl.doNext()}"/> 
+      <!-- CommandLink n'as jamais fonctioné, je n'ai jamais trouvé l'erreur -->
+            
+      
+   </h:column>
+   
+   <h:column>                    
+      <f:facet name = "header">login</f:facet>                    
+      #{user.login}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">IP</f:facet>
+      #{user.ip}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">pw</f:facet>
+      #{user.password}
+   </h:column>
+   
+   
+   
+</h:dataTable>
+
+</body>
+</html>
