@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ public class LearningUnit implements Serializable{
 	private int totalCredits;
 	private String schoolYear;
 	
-	@OneToMany
+	@OneToMany(cascade= CascadeType.PERSIST)
 	private List<LearningActivity> aaList;
 	
 	public LearningUnit() {
