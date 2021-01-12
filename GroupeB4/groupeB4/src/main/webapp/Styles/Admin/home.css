@@ -1,0 +1,29 @@
+button{
+    margin: auto;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 40px;
+    background: #39603D;    
+    border-radius: 45px;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+form{
+    margin-top: 30px;
+
+}
+
+.btn:hover {
+  background-color:#558f5b;
+  border-color: #A3BCB6;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(57, 96, 61, 0.25);
+}
