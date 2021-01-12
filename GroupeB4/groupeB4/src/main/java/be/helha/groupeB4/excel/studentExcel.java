@@ -306,7 +306,7 @@ public class studentExcel {
 	                // if the value of the cell is a string, the student didn't get a grade (ex :
 	                // PP)
 	                case STRING:
-	                	if(cellGrade.toString().endsWith("°")) {
+	                	if(cellGrade.toString().endsWith("ï¿½")) {
 	                		String tmp = cellGrade.toString().substring(0, cellGrade.toString().length()-1);
 	                		String[] tmpSplit = tmp.split(",", 2);
 	                		if(tmpSplit.length == 1) {

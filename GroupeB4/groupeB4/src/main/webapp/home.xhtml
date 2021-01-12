@@ -17,15 +17,15 @@
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link">Liste des PAE<span
+                <a href="home.xhtml" class="nav-link">Liste des PAE<span
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link">Importer Excel<span
+                <a href="importExcel.xhtml" class="nav-link">Importer Excel<span
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link">Partie Admin<span
+                <a href="Admin/home.xhtml" class="nav-link">Partie Admin<span
                         class="sr-only"></span></a>
             </li>
         </ul>
@@ -74,6 +74,8 @@
                         aria-label="Etudiant" aria-describedby="inputGroup-sizing-default"></input>
                 </div>
             </div>
+            
+          
 
             <!-- filter per PAE status -->
             <div class="col filterPaeStatus">
@@ -94,7 +96,7 @@
 
 <div class="container">
 
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student">
+<h:dataTable class="tableEtudiants table table-striped" value="#{testC.doSelectAll()}" var="student">
 	    <h:column>
     		<f:facet name="header">Nom</f:facet>
 	    		#{student.lastName}
