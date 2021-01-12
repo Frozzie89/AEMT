@@ -1,0 +1,28 @@
+.table {
+    margin: auto;
+    margin-top: 25px;
+    width: 50%;
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.deleteButton {
+    text-align: center;
+}
+
+fa-icon:hover {
+    color: red;
+}
+
+#delHeader {
+    width: 15%;
+    text-align: center;
+}
+
+.btnModalDeleteNo {
+    margin-left: 15px;
+}

@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Home</title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="Styles/importExcel.css" rel="stylesheet" />
 </head>
 <body>
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link NavBarDisconnect" >Se déconnecter<span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Liste des PAE<span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Importer Excel<span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link">Partie Admin<span
+                        class="sr-only"></span></a>
+            </li>
+        </ul>
+        <form style="margin-left: auto" id="formLogo" class="form-inline my-2 my-lg-0">
+            <img id="logoHelha" src="Assets/logo-helha.png" alt="Logo HELHa"></img>
+        </form>
+    </div>
+
+</nav>
+
+
+<h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
+
+<hr></hr>
+
+<form>
+    <div class="form-group">
+        <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
+        <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center><br></br>
+        <input type="file" class="form-control-file" id="inputExcel"></input>
+    </div>
+    <input type="submit" class="btn btn-primary"></input>
+</form>
 
 </body>
 </html>

@@ -1,20 +1,22 @@
 package be.helha.groupeB4.control;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.html.HtmlDataTable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import be.helha.groupeB4.ejb.StudentEJB;
+import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.Student;
-import be.helha.groupeB4.enumeration.ESection;
+import be.helha.groupeB4.excel.studentExcel;
 import test.STDEJB;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class TestC implements Serializable{
 
 	/**
@@ -26,9 +28,9 @@ public class TestC implements Serializable{
 	@Inject
 	private STDEJB ejb;
 	
+	private studentExcel stfu;
 	
 	
-
 	public List<Student> doSelectAll(){
 		System.out.println("Salut");
 		return ejb.getAllStudent(); 
@@ -38,11 +40,13 @@ public class TestC implements Serializable{
 		return ejb.getAllStudentByName("s"); 
 	}
 	
-	public Student add() {
-		Student s2 = new Student("hugo", "levecq", "1776458", "20/21", 2,ESection.INFORMATIQUE_DE_GESTION );		
-		ejb.addStudent(s2);
-		return s2;
+	public List<Student> addLA() {
 		
+		
+		List<Student> maliste = new ArrayList<>();
+		maliste = stfu.test();
+		ejb.addStudent();
+		return maliste;
 	}
 	
 	public String delete() {
