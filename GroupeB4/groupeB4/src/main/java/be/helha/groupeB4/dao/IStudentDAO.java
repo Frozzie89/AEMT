@@ -14,6 +14,4 @@ public interface IStudentDAO {
 	public List<Student> getAllStudentByName(String str);
 	public Student getStudentByID(int idStudent);
 	
-	
-
 }
