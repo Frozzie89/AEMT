@@ -1,0 +1,45 @@
+.col-xs-3{
+    margin-left: 15px;
+}
+
+.filterPaeStatus{
+    margin-left: auto;
+}
+
+.filterStudents{
+    margin-top: 15px;
+}
+
+.col-xs-3{
+	display: inline-block;
+}
+
+#icon-search{
+    max-width:50px;
+    /*height:auto;*/
+}
+
+#logoHelha {
+	display:flex;
+    max-width: 150px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    margin-right: 30px;
+}
+
+li>a {
+    font-weight: bold;
+    font-size: large;
+}
+
+.NavBarDisconnect{
+    cursor: pointer;
+}
+
+.NavBarDisconnect:hover {
+    color: red;
+}
