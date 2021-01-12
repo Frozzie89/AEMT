@@ -9,7 +9,7 @@ import be.helha.groupeB4.dao.StudentDAO;
 import be.helha.groupeB4.entities.Student;
 
 @Stateless
-public class StudentEJB  {
+public class StudentEJB {
 
 	
 	@EJB
