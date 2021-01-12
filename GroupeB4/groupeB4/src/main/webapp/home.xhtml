@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Home</title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container filterStudents">
+    <form>
+        <div class="form-group row">
+            <!-- select/option for section filtering -->
+            <div class="col-xs-3">
+                <select>
+                    <option class="form-control">
+                        <!-- TODO -->
+                    </option>
+                </select>
+            </div>
+
+            <!-- select/option for section filtering -->
+            <div class="col-xs-3">
+                <select>
+                    <option class="form-control">
+                        <!-- TODO -->
+                    </option>
+                </select>
+            </div>
+
+            <!-- search bar for students -->
+            <div class="col-xs-3">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <p>@</p>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Etudiant"
+                        aria-label="Etudiant" aria-describedby="inputGroup-sizing-default"></input>
+                </div>
+            </div>
+
+            <!-- filter per PAE status -->
+            <div class="col-xs-3 filterPaeStatus">
+                <span>Filtrer par : </span>
+                <select>
+                    <option class="form-control">
+                        <!-- TODO -->
+                    </option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student">
+	    <h:column>
+    		<f:facet name="header">Nom</f:facet>
+	    		#{student.lastName}
+    	</h:column>
+    	
+	    <h:column>
+       		<f:facet name="header">Prénom</f:facet>
+	    		#{student.firstName}
+	    </h:column>
+	    
+  	    <h:column>
+       		<f:facet name="header">Matricule</f:facet>
+	    		#{student.registrationNumber}
+	    </h:column>
+	    
+    	<h:column>
+       		<f:facet name="header">Status PAE</f:facet>
+	    		#{student.getPae().getPaeProgress()}
+	    </h:column>
+	</h:dataTable>
+
+
+</body>
+</html>
