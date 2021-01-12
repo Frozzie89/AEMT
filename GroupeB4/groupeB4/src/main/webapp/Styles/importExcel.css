@@ -1,0 +1,80 @@
+#logoExcel{
+    max-width:100px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    min-height: 50vh;
+}
+
+form>input[type=submit]{
+    width: 100%;
+    margin-top: 40px;
+}
+
+form>.form-group>input[type=file]{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.btn{
+    background: #39603D;
+    border-radius: 45px;
+    color: white;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #A3BCB6;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(57, 96, 61, 0.25);
+}
+
+h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+small{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#formLogo{
+    max-width:100%;
+    height:auto;
+}
+#logoHelha {
+	display:flex;
+    max-width: 150px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    margin-right: 30px;
+}
+
+li>a {
+    font-weight: bold;
+    font-size: large;
+}
+
+.NavBarDisconnect{
+    cursor: pointer;
+}
+
+.NavBarDisconnect:hover {
+    color: red;
+}
