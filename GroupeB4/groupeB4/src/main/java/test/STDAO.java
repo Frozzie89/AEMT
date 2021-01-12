@@ -1,5 +1,7 @@
 package test;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +9,16 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.enumeration.ESection;
+import be.helha.groupeB4.excel.InsertStudentFromExcel;
+import be.helha.groupeB4.excel.studentExcel;
 
 @Stateless
 public class STDAO {
@@ -16,13 +26,37 @@ public class STDAO {
 	@PersistenceContext(unitName = "groupeB4")
 	private EntityManager em; 
 	
+	private InsertStudentFromExcel stu;
+	
+	public List<Student> getliste(){
+		List<Student> studs = new ArrayList<Student>();
+		
+		studs = stu.test();
+		addStudents(studs);
+		
+		
+		return studs;
+	
+	}
+	
 	
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
 		em.persist(student);
 		return student;
 	}
-
+	
+	
+	public List<Student> addStudents(List<Student> students) {
+		
+		
+		for (int i=0; i< students.size() ;i++) {
+			em.persist(students.get(i));
+		}
+		return students;
+		
+		
+	}
 	
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
@@ -73,4 +107,6 @@ public class STDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
 }

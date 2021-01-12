@@ -17,14 +17,18 @@ public class STDEJB {
 	
 		return dao.addStudent(student);
 	}
-
 	
+	public List<Student> addStudent() {
+		
+		return dao.getliste();
+	}
 
-	
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
 		return dao.getAllStudent();
 	}
+	
+	
 
 	
 	public Student deleteStudent(Student student) {
@@ -48,6 +52,8 @@ public class STDEJB {
 		// TODO Auto-generated method stub
 		return dao.getStudentByID(idStudent);
 	}
+	
+
 	
 
 }
