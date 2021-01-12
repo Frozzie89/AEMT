@@ -10,10 +10,7 @@ import javax.persistence.PersistenceContext;
 import be.helha.groupeB4.entities.Student;
 
 @Stateless
-public class StudentDAO implements IStudentDAO{
-
-	@PersistenceContext(unitName = "groupeB4")
-	private EntityManager em; 
+public class StudentDAO extends AbstractDAO implements IStudentDAO{
 	
 	@Override
 	public Student addStudent(Student student) {
@@ -22,7 +19,7 @@ public class StudentDAO implements IStudentDAO{
 		return student;
 	}
 
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
@@ -46,7 +43,7 @@ public class StudentDAO implements IStudentDAO{
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> getAllStudentByName(String str) {
 		// TODO Auto-generated method stub
