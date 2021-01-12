@@ -34,7 +34,7 @@ public class TestC implements Serializable{
 	}
 	
 	public Student add() {
-		Student s2 = new Student("hugo", "levecq", "1776458", "20/21", 2,ESection.INFORMATIQUE_DE_GESTION );		
+		Student s2 = new Student("s2", "levecq", "1776458", "20/21", 2,ESection.INFORMATIQUE_DE_GESTION );		
 		ejb.addStudent(s2);
 		return s2;
 		

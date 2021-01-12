@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.enumeration.ESection;
 
 @Stateless
 public class STDAO {
@@ -49,13 +50,18 @@ public class STDAO {
 	public List<Student> getAllStudentByName(String str) {
 		// TODO Auto-generated method stub
 		List<Student> toCompareList = new ArrayList<>();
-		toCompareList = em.createQuery("SELECT student From Student student").getResultList();
+		
+		toCompareList = getAllStudent();
 		
 		List<Student> sortedList = new ArrayList<>();
+		String studentName;
 		
-		for(Student s : toCompareList) {
-			if(s.getFirstName().startsWith("str"))
-					sortedList.add(s);
+		for (int i=0; i< toCompareList.size() ;i++) {
+		    studentName = toCompareList.get(i).getFirstName();
+		    
+		    if(studentName.startsWith(str)) {
+		    	sortedList.add(toCompareList.get(i));
+		    }
 		}
 		
 		
