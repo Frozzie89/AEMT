@@ -259,8 +259,6 @@ public class studentExcel {
     	
     	double gradeAA=0.;
     	
-    	int degresDeMerde = 0;
-    	
         int i = 0, z=0;
     	Row rowLabel, rowType, rowGrade;
         Cell cellLabel, cellType, cellGrade;
