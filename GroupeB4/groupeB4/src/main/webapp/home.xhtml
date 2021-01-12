@@ -17,7 +17,7 @@
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a href="pae-creation.xhtml" class="nav-link">Liste des PAE<span
+                <a href="home.xhtml" class="nav-link">Liste des PAE<span
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
@@ -96,7 +96,7 @@
 
 <div class="container">
 
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student">
+<h:dataTable class="tableEtudiants table table-striped" value="#{testC.doSelectAll()}" var="student">
 	    <h:column>
     		<f:facet name="header">Nom</f:facet>
 	    		#{student.lastName}

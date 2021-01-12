@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.excel.InsertStudentFromExcel;
 import be.helha.groupeB4.excel.studentExcel;
 import test.STDEJB;
 
@@ -27,7 +28,7 @@ public class TestC implements Serializable{
 	@Inject
 	private STDEJB ejb;
 	
-	private studentExcel stfu;
+	private InsertStudentFromExcel stfu;
 	private String nom;
 	
 	
