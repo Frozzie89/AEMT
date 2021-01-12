@@ -48,7 +48,7 @@ public class LearningActivity implements Serializable{
 
 	@Override
 	public String toString() {
-		return "\t"+id + " " + label + ", credit=" + credit + "\n";
+		return "\t"+id + " " + label + ", credit=" + credit ;
 	}
 
 	@Override

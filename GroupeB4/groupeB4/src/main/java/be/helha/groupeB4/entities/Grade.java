@@ -37,4 +37,10 @@ public class Grade implements Serializable{
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "grade: "+ grade;
+	}
+	
 }

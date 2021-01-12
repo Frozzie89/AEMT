@@ -5,12 +5,10 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellReference;
-import org.apache.poi.util.SystemOutLogger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -40,9 +38,9 @@ public class studentExcel {
             sheet = workbook.getSheetAt(0);
 
             nbOfRows = getMaxNbRows(sheet);
-            //createStudents(sheet, nbOfRows);
+            createStudents(sheet, nbOfRows);
             //createLearningUnits(sheet, nbOfRows);
-            createGrade(sheet, nbOfRows);
+            //createGrade(sheet, nbOfRows);
 
             file.close();
             workbook.close();
@@ -50,15 +48,13 @@ public class studentExcel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        //System.out.println(oupas.toString());
-		return oupas;
     }
 
     public static int getMaxNbRows(XSSFSheet sheet) {
         int nb = 0;
 
         CellReference cr = new CellReference("B4");
+        
         Row row = sheet.getRow(cr.getRow());
         Cell cell = row.getCell(cr.getCol());
 
@@ -71,17 +67,25 @@ public class studentExcel {
         return nb;
     }
 
-    public static List<Student> createStudents(XSSFSheet sheet, int sheetSize) {
+    public static void createStudents(XSSFSheet sheet, int sheetSize) {
         // Deviendra un objet Student
         String temporaryStudent;
         String studentNameToSplit, studentMatricule, studentClassString;
         String studentFirstName;
         String studentLastName;
         int studentClass;
-        List<Student> camarche= new ArrayList<>();
+        
+        Student student = new Student();
+        
+        HashMap<LearningActivity, Grade> mapGrade;
 
         CellReference cr = new CellReference("B4");
+        		
         Row row = sheet.getRow(cr.getRow());
+        
+        
+        List<LearningActivity> listActivity = getAllActivitiesFromUnits(createLearningUnits(sheet, sheetSize));
+        //System.out.println(listActivity.toString());
 
         // loop on each students
         for (int i = 1; i < sheetSize; i++) {
@@ -97,14 +101,26 @@ public class studentExcel {
             String[] studentClassSplit = studentClassString.split("B", 2);
             studentClass = Integer.parseInt(studentClassSplit[0]);
             
-            Student student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
-            
-            System.out.println(student.toString());
+            switch(sheet.getSheetName()) {
+            case "IG":
+            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
+            	break;
+            case "AD": 
+            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.ASSISTANT_DE_DIRECTIOn);
+            	break;
+            case "CT":
+            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.COMPTABILITE);
+            	break;
+            default:
+            	break;
+            }
+
+            mapGrade = createGrade(sheet, sheetSize, row, listActivity);
+            student.setBulletin(mapGrade);
 
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
-		return camarche;
 
     }
 
@@ -238,17 +254,17 @@ public class studentExcel {
         return listUnit;
     }
     //HashMap<LearningActivity, Grade>
-    public static void createGrade(XSSFSheet sheet, int sheetSize){
-    	double gradeAA = 0;
-    	int i = 0, compteurActivity = 0;
-    	Grade gradeStudent;
+    public static HashMap<LearningActivity, Grade> createGrade(XSSFSheet sheet, int sheetSize, Row row, List<LearningActivity> listActivity){
     	HashMap<LearningActivity, Grade> mapGrade = new HashMap<>();
-    	List<LearningActivity> listActivity = getAllActivitiesFromUnits(createLearningUnits(sheet, nbOfRows));
     	
-    	Row rowGrades, rowLabel, rowType;
-        Cell cellGrades, cellLabel, cellType;
-        
-        // first cell to read
+    	double gradeAA=0.;
+    	
+    	int degresDeMerde = 0;
+    	
+        int i = 0, z=0;
+    	Row rowLabel, rowType, rowGrade;
+        Cell cellLabel, cellType, cellGrade;
+    	// first cell to read
         cr = new CellReference("E1");
 
         // row of label of UE's and AA's
@@ -257,65 +273,91 @@ public class studentExcel {
         // row of types of columns (if UE or AA)
         rowType = sheet.getRow(cr.getRow() + 1);
         
+        rowGrade = sheet.getRow(row.getRowNum());
+        
         // label of UE's and AA's
         cellLabel = rowLabel.getCell(cr.getCol());
 
         // type of column (if UE or AA)
         cellType = rowType.getCell(cr.getCol());
-
+        
+        cellGrade = rowGrade.getCell(cr.getCol());   
         
         while (!cellLabel.toString().equals("%")) {
-        	//System.out.println(cellLabel.toString()+"-----------");
+            // reading UE
+        		//------------------ idUnit & labelUnit ------------------
+
             // preparation on reading next AA's
             i += 2;
-            cellLabel = rowLabel.getCell(cr.getCol() + i);        
+            cellLabel = rowLabel.getCell(cr.getCol() + i);
             cellType = rowType.getCell(cr.getCol() + i);
+            cellGrade = rowGrade.getCell(cr.getCol() + i);
+
             // while the column is not targetting on a learning unit
             while (cellType != null && !cellType.toString().substring(0, 2).equals("UE")) {
-            	System.out.println("---------------------------"+cellLabel.toString()+"---------------------------");
-			        rowGrades = sheet.getRow(cr.getRow() + 3);
-			        
-			    	// reading students grades
-			        for (int j = 1; j < sheetSize; j++) {
-			            cellGrades = rowGrades.getCell(cr.getCol() + i);
-			            switch (cellGrades.getCellType()) {
-			                // if the value of the cell is a number, it's the value of the grade
-			                case NUMERIC:
-			                    //System.out.println("POINTS : " + cellGrades.toString());
-			                	gradeAA = cellGrades.getNumericCellValue();
-			                    break;
-			
-			                // if the value of the cell is a string, the student didn't get a grade (ex :
-			                // PP)
-			                case STRING:
-			                	//System.out.println(cellGrades.toString());
-			                    if(cellGrades.toString().equals("-")) {
+            	
+            	switch (cellGrade.getCellType()) {
+	                // if the value of the cell is a number, it's the value of the grade
+	                case NUMERIC:
+	                    //System.out.println("POINTS : " + cellGrades.toString());
+	                	gradeAA = cellGrade.getNumericCellValue();
+	                    break;
+	
+	                // if the value of the cell is a string, the student didn't get a grade (ex :
+	                // PP)
+	                case STRING:
+	                	if(cellGrade.toString().endsWith("°")) {
+	                		String tmp = cellGrade.toString().substring(0, cellGrade.toString().length()-1);
+	                		String[] tmpSplit = tmp.split(",", 2);
+	                		if(tmpSplit.length == 1) {
+		                		gradeAA = Double.parseDouble(tmpSplit[0] + ".0");
+	                		}else {
+		                		gradeAA = Double.parseDouble(tmpSplit[0] + "." + tmpSplit[1]);
+	                		}
+	                	}else {
+	                		switch(cellGrade.toString()) {
+			                    case "-":
 			                    	gradeAA = -1;
-			                    }else if(cellGrades.toString().equals("PR")){
+			                    	break;
+			                    case "PR":
 			                    	gradeAA = -2;
-			                    }else if(cellGrades.toString().equals("PP")) {
+			                    	break;
+			                    case "PP":
 			                    	gradeAA = -3;
-			                    }
-			                    break;
-			
-			                // reject any other values
-			                default:
-			                    break;
-			            }
-			            gradeStudent = new Grade(gradeAA);
-			            
-			            System.out.println("Grade: " + gradeStudent.getGrade());
-			            gradeAA = 0;
-			            // jump to next row
-			            rowGrades = sheet.getRow(cr.getRow() + 3 + j);
-			        }
-		        //}
-		        i++;
-                cellLabel = rowLabel.getCell(cr.getCol() + i);
+			                    	break;
+			                    case "D":
+			                    	gradeAA = -4;
+			                    	break;
+			                    case "DV":
+			                    	gradeAA = -5;
+			                    	break;
+			                    case "Z":
+			                    	gradeAA = 0;
+			                    	break;
+			                    default:
+			                    	gradeAA = -10;
+			                    	break;
+	                		}
+	                	}
+	                    break;
+	
+	                // reject any other values
+	                default:
+	                	gradeAA = -10;
+	                    break;
+            	}
+            	Grade g = new Grade(gradeAA);
+            	mapGrade.put(listActivity.get(z), g);
+            	z++;
+                
+            	
+            	i++;
+            	cellLabel = rowLabel.getCell(cr.getCol() + i);
                 cellType = rowType.getCell(cr.getCol() + i);
+                cellGrade = rowGrade.getCell(cr.getCol() + i);
             }
         }
-    	//return mapGrade;
+    	return mapGrade;
     }
     
     public static List<LearningActivity> getAllActivitiesFromUnits(List<LearningUnit> listUnit){
