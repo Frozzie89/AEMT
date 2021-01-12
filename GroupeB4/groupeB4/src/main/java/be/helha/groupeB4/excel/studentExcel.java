@@ -50,6 +50,9 @@ public class studentExcel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        //System.out.println(oupas.toString());
+		return oupas;
     }
 
     public static int getMaxNbRows(XSSFSheet sheet) {
@@ -68,13 +71,14 @@ public class studentExcel {
         return nb;
     }
 
-    public static void createStudents(XSSFSheet sheet, int sheetSize) {
+    public static List<Student> createStudents(XSSFSheet sheet, int sheetSize) {
         // Deviendra un objet Student
         String temporaryStudent;
         String studentNameToSplit, studentMatricule, studentClassString;
         String studentFirstName;
         String studentLastName;
         int studentClass;
+        List<Student> camarche= new ArrayList<>();
 
         CellReference cr = new CellReference("B4");
         Row row = sheet.getRow(cr.getRow());
@@ -100,6 +104,7 @@ public class studentExcel {
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
+		return camarche;
 
     }
 

@@ -2,14 +2,14 @@
 <html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Add member</title>
-<link href="../Bootstrap/css/bootstrap.css" rel="stylesheet"/>
-<link href="../Styles/Admin/add-member.css" rel="stylesheet" />
+<title>Auth</title>
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="Styles/auth.css" rel="stylesheet" />
 </head>
 <body>
 
-<a>Retour vers admin</a>
-<h1>Ajoutez un membre</h1>
+<h1 style="margin-top:50px;margin-bottom:50px;">Authentifiez-vous</h1>
+
 <hr></hr>
 
 <form>
@@ -22,12 +22,7 @@
         <label for="password">Mot de passe : </label>
         <input type="password" class="form-control" id="password"></input>
     </div>
-
-    <div class="form-group">
-        <label for="passwordConfirm">Mot de passe (confirmation) : </label>
-        <input type="password" class="form-control" id="passwordConfirm"></input>
-    </div>
-    <input type="submit" class="btn"></input>
+    <input type="submit" class="btn btn-primary"></input>
 </form>
 
 </body>

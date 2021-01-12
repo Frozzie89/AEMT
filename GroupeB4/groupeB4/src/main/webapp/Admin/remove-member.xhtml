@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Remove member</title>
+<link href="../Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../Styles/Admin/remove-member.css" rel="stylesheet" />
 </head>
 <body>
 
+<a>Retour vers admin</a>
+<h1>Retirez un membre</h1>
+<hr></hr>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Membre</th>
+            <th id="delHeader" style="width: 15%;" scope="col">Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>Nom d'un membre</td>
+            <td class="deleteButton">
+                <p data-toggle="modal" data-target="confirmDelete">@</p>
+            </td>
+        </tr>
+        
+        <!-- <tr> -->
+        <!-- TODO : afficher les membres  -->
+        <!-- </tr> -->
+
+    </tbody>
+</table>
+
 </body>
+
 </html>
