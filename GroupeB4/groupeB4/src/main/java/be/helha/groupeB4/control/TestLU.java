@@ -22,5 +22,17 @@ public class TestLU implements Serializable{
 	public List<LearningUnit> doSelectAll(){
 		return ejb.getAllLearningUnits(); 
 	}
+	
+	public LearningUnit addUE() {
+		double i = System.currentTimeMillis();
+		LearningUnit ue = new LearningUnit("UE"+i,"UE TEST",12,"2020/2021");
+		ejb.addLearningUnit(ue);
+		return ue;
+	}
+	
+	public LearningUnit getUE() {
+		LearningUnit ue = ejb.getLearningUnit("UE1");
+		return ue;
+	}
 
 }

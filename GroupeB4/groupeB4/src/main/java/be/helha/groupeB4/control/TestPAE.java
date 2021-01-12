@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import be.helha.groupeB4.entities.Pae;
+import be.helha.groupeB4.enumeration.EPaeProgress;
 import test.PAEEJB;
 
 @Named
@@ -19,6 +20,17 @@ public class TestPAE implements Serializable {
 	
 	public List<Pae> doSelectAll(){
 		return ejb.getAllPaes(); 
+	}
+	
+	public Pae addPae() {
+		Pae pae = new Pae(EPaeProgress.A_FAIRE);
+		ejb.addPae(pae);
+		return pae;
+	}
+	
+	public Pae deletePae() {
+		return null;
+		//ejb.deletePae(pae);
 	}
 
 }

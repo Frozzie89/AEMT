@@ -101,6 +101,10 @@ public class Student implements Serializable{
 	public ESection getSection() {
 		return section;
 	}
+	
+	public String getSectionValue() {
+		return section.getSection();
+	}
 
 	public void setSection(ESection section) {
 		this.section = section;
@@ -110,8 +114,11 @@ public class Student implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", registrationNumber="
-				+ registrationNumber + ", schoolYear=" + schoolYear + ", bloc=" + bloc + ", pae=" + pae + ", section="
-				+ section.getSection() + "]";
+		return "\nStudent " + id 
+				+ ", " + firstName + ", " + lastName 
+				+ ", " + registrationNumber + ", " + schoolYear 
+				+ ", bloc=" + bloc 
+				+ " section=" + section.getSection() + "\n"
+				+ ", pae:" + pae;
 	}
 }

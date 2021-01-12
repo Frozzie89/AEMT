@@ -7,7 +7,7 @@ public enum EPaeProgress {
 	
 	private String progress;
 	private EPaeProgress(String progres) {
-		this.progress=progress;
+		this.progress=progres;
 	}
 	
 	public String getProgress() {
