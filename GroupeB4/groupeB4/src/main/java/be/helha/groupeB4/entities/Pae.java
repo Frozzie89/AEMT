@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class Pae implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToMany(cascade= CascadeType.PERSIST)
+	@OneToMany(cascade= CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private List<LearningUnit> ueList;
 	
 	private EPaeProgress paeProgress;
