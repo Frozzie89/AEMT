@@ -26,6 +26,7 @@ public class TestC implements Serializable{
 	private STDEJB ejb;
 	
 	public List<Student> doSelectAll(){
+		System.out.println("Salut");
 		return ejb.getAllStudent(); 
 	}
 	
