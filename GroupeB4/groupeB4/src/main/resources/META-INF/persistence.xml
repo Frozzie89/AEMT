@@ -14,6 +14,7 @@
 		<class>be.helha.groupeB4.entities.LearningUnit</class>
 		<class>be.helha.groupeB4.entities.Pae</class>
 		<class>be.helha.groupeB4.entities.Grade</class>
+		<class>be.helha.groupeB4.entities.User</class>
 		
 
 				
@@ -33,6 +34,7 @@
 		<class>be.helha.groupeB4.entities.LearningUnit</class>
 		<class>be.helha.groupeB4.entities.Pae</class>
 		<class>be.helha.groupeB4.entities.Grade</class>
+		<class>be.helha.groupeB4.entities.User</class>
 				
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	
