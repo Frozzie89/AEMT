@@ -28,6 +28,7 @@ public class TestC implements Serializable{
 	private STDEJB ejb;
 	
 	private studentExcel stfu;
+	private String nom;
 	
 	
 	public List<Student> doSelectAll(){
@@ -36,7 +37,7 @@ public class TestC implements Serializable{
 	}
 	
 	public List<Student> doSelectAllName(){
-		return ejb.getAllStudentByName("s"); 
+		return ejb.getAllStudentByName(nom); 
 	}
 	
 	public List<Student> addLA() {
@@ -47,6 +48,16 @@ public class TestC implements Serializable{
 		ejb.addStudent();
 		return maliste;
 	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	
+	
 	
 	
 
