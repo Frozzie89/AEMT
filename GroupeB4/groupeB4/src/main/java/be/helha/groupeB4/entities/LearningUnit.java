@@ -98,8 +98,8 @@ public class LearningUnit implements Serializable{
 
 	@Override
 	public String toString() {
-		return "LearningUnit [id=" + id + ", label=" + label + ", totalCredits=" + totalCredits + ", schoolYear="
-				+ schoolYear + ", aaList=" + aaList + "]";
+		return "\t" + id + " " + label + " " + totalCredits + " crédits, " + schoolYear
+				+ aaList + "\n ";
 	}
 	
 	

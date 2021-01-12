@@ -27,6 +27,7 @@ public class Pae implements Serializable{
 
 	public Pae() {
 		super();
+		paeProgress = paeProgress.A_FAIRE;
 		this.ueList = new ArrayList<LearningUnit>();
 	}
 	
@@ -78,7 +79,9 @@ public class Pae implements Serializable{
 	public EPaeProgress getPaeProgress() {
 		return paeProgress;
 	}
-
+	public String getPaeProgressValue() {
+		return paeProgress.getProgress();
+	}
 
 	public void setPaeProgress(EPaeProgress paeProgress) {
 		this.paeProgress = paeProgress;
@@ -88,7 +91,7 @@ public class Pae implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Pae [id=" + id + ", ueList=" + ueList + ", paeProgress=" + paeProgress + "]";
+		return ueList + "\n, Etat du PAE: " + paeProgress.getProgress() + "\n";
 	}
 	
 	
