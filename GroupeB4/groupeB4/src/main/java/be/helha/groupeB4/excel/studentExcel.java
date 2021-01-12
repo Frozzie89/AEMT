@@ -18,7 +18,11 @@ import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.enumeration.ESection;
 
 public class studentExcel {
-	public static void main(String[] args) {
+	
+	
+	
+	public static List<Student> test(){
+		List<Student> oupas = new ArrayList<>();
         try {
             FileInputStream file = new FileInputStream(
                     new File("C:\\listes.xlsx"));
@@ -30,8 +34,8 @@ public class studentExcel {
             XSSFSheet sheet = workbook.getSheetAt(0);
 
             int nbOfRows = getMaxNbRows(sheet);
-            //createStudents(sheet, nbOfRows);
-            createLearningUnits(sheet, nbOfRows);
+            oupas = createStudents(sheet, nbOfRows);
+            //createLearningUnits(sheet, nbOfRows);
 
             file.close();
             workbook.close();
@@ -39,6 +43,9 @@ public class studentExcel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        //System.out.println(oupas.toString());
+		return oupas;
     }
 
     public static int getMaxNbRows(XSSFSheet sheet) {
@@ -57,13 +64,14 @@ public class studentExcel {
         return nb;
     }
 
-    public static void createStudents(XSSFSheet sheet, int sheetSize) {
+    public static List<Student> createStudents(XSSFSheet sheet, int sheetSize) {
         // Deviendra un objet Student
         String temporaryStudent;
         String studentNameToSplit, studentMatricule, studentClassString;
         String studentFirstName;
         String studentLastName;
         int studentClass;
+        List<Student> camarche= new ArrayList<>();
 
         CellReference cr = new CellReference("B4");
         Row row = sheet.getRow(cr.getRow());
@@ -83,11 +91,13 @@ public class studentExcel {
             studentClass = Integer.parseInt(studentClassSplit[0]);
             
             Student student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
-            System.out.println(student.toString());
+            //system.out.println(student.toString());
+            camarche.add(student);
 
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
+		return camarche;
 
     }
 
