@@ -1,12 +1,18 @@
 package be.helha.groupeB4.entities;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.MapKey;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import be.helha.groupeB4.enumeration.EPaeProgress;
@@ -27,10 +33,19 @@ public class Student implements Serializable{
 	@OneToOne(cascade= CascadeType.ALL)
 	private Pae pae;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="student_learningActivity",
+			joinColumns = {@JoinColumn(name="student_id", referencedColumnName ="id")},
+			inverseJoinColumns = {@JoinColumn(name = "learningActivity_id", referencedColumnName ="id")})
+	@MapKey(name="id")
+	private Map<LearningActivity, Grade> bulletin;
+	
 	private ESection section;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
+		pae = new Pae(EPaeProgress.A_FAIRE);
+		bulletin = new HashMap<>();
 	}
 
 	public Student(String firstName, String lastName, String registrationNumber, String schoolYear, int bloc, ESection section) {
@@ -42,6 +57,7 @@ public class Student implements Serializable{
 		this.bloc = bloc;
 		this.section = section;
 		pae = new Pae(EPaeProgress.A_FAIRE);
+		bulletin = new HashMap<>();
 	}
 
 	
@@ -109,6 +125,15 @@ public class Student implements Serializable{
 	public void setSection(ESection section) {
 		this.section = section;
 	}
+	
+	public Map<LearningActivity, Grade> getBulletin() {
+		return bulletin;
+	}
+
+	public void setBulletin(Map<LearningActivity, Grade> bulletin) {
+		this.bulletin = bulletin;
+	}
+	
 
 	//----------------------- Fin GET & SET -----------------------	
 
@@ -121,4 +146,31 @@ public class Student implements Serializable{
 				+ " section=" + section.getSection() + "\n"
 				+ ", pae:" + pae;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
+	
 }
