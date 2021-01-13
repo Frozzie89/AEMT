@@ -6,14 +6,15 @@ import java.util.List;
 
 import javax.faces.component.html.HtmlDataTable;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import be.helha.groupeB4.ejb.LearningUnitEJB;
+import be.helha.groupeB4.ejb.StudentEJB;
 import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
-import test.LUEJB;
-import test.STDEJB;
 
 @Named
 @SessionScoped
@@ -26,10 +27,10 @@ public class TestC implements Serializable{
 	private HtmlDataTable table;
 	
 	@Inject
-	private STDEJB ejb;
+	private StudentEJB ejb;
 	
 	@Inject
-	private LUEJB ejb2;
+	private LearningUnitEJB ejb2;
 	
 	private InsertStudentFromExcel stfu;
 	private String nom;
@@ -70,8 +71,6 @@ public class TestC implements Serializable{
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
-	
 	
 	public String delete() {
 		Student student = (Student) table.getRowData();

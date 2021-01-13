@@ -2,13 +2,17 @@ package be.helha.groupeB4.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import be.helha.groupeB4.entities.User;
 
-public class UserDAO extends AbstractDAO implements IUserDAO{
+public class UserDAO{
+	
+	@PersistenceContext(unitName = "groupeB4")
+	private EntityManager em; 
 
-	@Override
 	public User addUser(User user) {
 		if (getUser(user.getUserName()) != null) {
 			return null;
@@ -18,12 +22,10 @@ public class UserDAO extends AbstractDAO implements IUserDAO{
 		return user;			
 	}
 
-	@Override
 	public List<User> getAllUsers() {
 		return em.createQuery("SELECT user FROM User user").getResultList();
 	}
 
-	@Override
 	public User deleteUser(User user) {
 		User userToDelete = getUser(user.getUserName());
 		if (userToDelete != null)
@@ -34,7 +36,6 @@ public class UserDAO extends AbstractDAO implements IUserDAO{
 		return null;
 	}
 
-	@Override
 	public User getUser(String userName) {
 		String sqlRequestStr = "SELECT user from User user"
                 + "WHERE user.userName = ?1 ";
