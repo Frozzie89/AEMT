@@ -10,10 +10,10 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import be.helha.groupeB4.entities.LearningActivity;
+import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
-import be.helha.groupeB4.excel.studentExcel;
+import test.LUEJB;
 import test.STDEJB;
 
 @Named
@@ -28,6 +28,9 @@ public class TestC implements Serializable{
 	
 	@Inject
 	private STDEJB ejb;
+	
+	@Inject
+	private LUEJB ejb2;
 	
 	private InsertStudentFromExcel stfu;
 	private String nom;
@@ -46,10 +49,20 @@ public class TestC implements Serializable{
 		
 		
 		List<Student> maliste = new ArrayList<>();
-		maliste = stfu.test();
+		maliste = stfu.createStudents();
 		ejb.addStudent();
 		return maliste;
 	}
+	
+	public List<LearningUnit> addLU() {
+		
+		
+		List<LearningUnit> maliste = new ArrayList<>();
+		maliste = stfu.createLearningUnits();
+		ejb2.addLearningUnits();
+		return maliste;
+	}
+
 
 	public String getNom() {
 		return nom;
