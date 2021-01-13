@@ -27,6 +27,7 @@ public class studentExcel {
     
 	
 	public static void main(String[] args) {
+		System.out.println((char)176);
         try {
             FileInputStream file = new FileInputStream(
                     new File("C:\\listes.xlsx"));
@@ -38,9 +39,9 @@ public class studentExcel {
             sheet = workbook.getSheetAt(0);
 
             nbOfRows = getMaxNbRows(sheet);
-          //createStudents(sheet, nbOfRows);
-            createLearningUnits(sheet, nbOfRows);
-            //createGrade(sheet, nbOfRows);
+          createStudents(sheet, nbOfRows);
+            //createLearningUnits(sheet, nbOfRows);
+          //createGrade(sheet, nbOfRows);
 
             file.close();
             workbook.close();
@@ -305,7 +306,7 @@ public class studentExcel {
 	                // if the value of the cell is a string, the student didn't get a grade (ex :
 	                // PP)
 	                case STRING:
-	                	if(cellGrade.toString().endsWith("�")) {
+	                	if(cellGrade.toString().endsWith(Character.toString((char)176))) {
 	                		String tmp = cellGrade.toString().substring(0, cellGrade.toString().length()-1);
 	                		String[] tmpSplit = tmp.split(",", 2);
 	                		if(tmpSplit.length == 1) {

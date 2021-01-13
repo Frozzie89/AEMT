@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.MapKey;
-import javax.persistence.OneToMany;
+import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToOne;
 
 import be.helha.groupeB4.enumeration.EPaeProgress;
@@ -32,13 +32,18 @@ public class Student implements Serializable{
 	
 	@OneToOne(cascade= CascadeType.ALL)
 	private Pae pae;
-	
-	@OneToMany(cascade = CascadeType.ALL)
+	/*
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="student_learningActivity",
 			joinColumns = {@JoinColumn(name="student_id", referencedColumnName ="id")},
 			inverseJoinColumns = {@JoinColumn(name = "learningActivity_id", referencedColumnName ="id")})
-	@MapKey(name="id")
-	private Map<LearningActivity, Grade> bulletin;
+	@MapKey(name="grade")*/
+	
+	@ElementCollection
+	@CollectionTable(name="student_learningActivity")
+	@MapKeyJoinColumn(name="la_id")
+	@Column(name="Grade")
+	private Map<LearningActivity, Double> bulletin;
 	
 	private ESection section;
 	
@@ -126,11 +131,11 @@ public class Student implements Serializable{
 		this.section = section;
 	}
 	
-	public Map<LearningActivity, Grade> getBulletin() {
+	public Map<LearningActivity, Double> getBulletin() {
 		return bulletin;
 	}
 
-	public void setBulletin(Map<LearningActivity, Grade> bulletin) {
+	public void setBulletin(Map<LearningActivity, Double> bulletin) {
 		this.bulletin = bulletin;
 	}
 	
