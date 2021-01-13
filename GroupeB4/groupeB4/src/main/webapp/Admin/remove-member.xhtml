@@ -12,28 +12,20 @@
 <h1>Retirez un membre</h1>
 <hr></hr>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th scope="col">Membre</th>
-            <th id="delHeader" style="width: 15%;" scope="col">Supprimer</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-            <td>Nom d'un membre</td>
-            <td class="deleteButton">
-                <p data-toggle="modal" data-target="confirmDelete">@</p>
-            </td>
-        </tr>
-        
-        <!-- <tr> -->
-        <!-- TODO : afficher les membres  -->
-        <!-- </tr> -->
-
-    </tbody>
-</table>
+<h:dataTable class="tableEtudiants table table-bordered" value="#{userController.doSelectAll()}" var="user">
+    <h:column>
+   		<f:facet name="header">Membre</f:facet>
+    		#{user.userName}
+   	</h:column>
+    <h:column style="width: 15%;">
+   		<f:facet name="header">Supprimer</f:facet>
+   		<h:form>
+			<h:commandLink action="#{userController.deleteUser(user)}">
+	   			<img id="icon-trash" value="../Assets/fa-icons/trash-alt-solid.svg" alt="delete" ></img>
+			</h:commandLink>
+		</h:form>
+   	</h:column>
+</h:dataTable>
 
 </body>
 

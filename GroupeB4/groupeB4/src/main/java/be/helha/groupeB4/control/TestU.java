@@ -20,7 +20,6 @@ public class TestU implements Serializable{
 	
 	
 	public List<User> doSelectAll(){
-		System.out.println("Salut");
 		return ejb.getAllUsers(); 
 	}
 	

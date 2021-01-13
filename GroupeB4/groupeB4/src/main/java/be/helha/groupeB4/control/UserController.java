@@ -40,6 +40,15 @@ public class UserController implements Serializable{
 	    return "home.xhtml";
 	}
 	
+	public void deleteUser(){
+		User userToDelete = new User(userName, userPassword);
+		ejb.deleteUser(userToDelete);
+	}
+	
+	public void deleteUser(User userToDelete){
+		ejb.deleteUser(userToDelete);
+	}
+	
 	private String encryptSHA256(String stringValue) {
 		MessageDigest digest = null;
 		try {
@@ -53,9 +62,7 @@ public class UserController implements Serializable{
 	
 	    return Base64.getEncoder().encodeToString(hashedByetArray);
 	}
-	public void deleteUser(){
-		// ejb.deleteUser(user);
-	}
+
 	
 
 	public String getUserName() {
