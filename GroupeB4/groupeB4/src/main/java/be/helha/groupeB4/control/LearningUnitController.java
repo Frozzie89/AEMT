@@ -1,5 +1,6 @@
 package be.helha.groupeB4.control;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +10,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import be.helha.groupeB4.ejb.LearningUnitEJB;
-import be.helha.groupeB4.ejb.StudentEJB;
 import be.helha.groupeB4.entities.LearningUnit;
-import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
 @Named
 @SessionScoped
-public class LearningUnitController {
+public class LearningUnitController implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private HtmlDataTable table;
