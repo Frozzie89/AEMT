@@ -10,8 +10,12 @@ public class UserDAO extends AbstractDAO implements IUserDAO{
 
 	@Override
 	public User addUser(User user) {
+		if (getUser(user.getUserName()) != null) {
+			return null;
+		}
+		
 		em.persist(user);
-		return user;
+		return user;			
 	}
 
 	@Override
