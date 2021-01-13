@@ -14,8 +14,12 @@ public class UserDAO{
 	private EntityManager em; 
 
 	public User addUser(User user) {
+		if (getUser(user.getUserName()) != null) {
+			return null;
+		}
+		
 		em.persist(user);
-		return user;
+		return user;			
 	}
 
 	public List<User> getAllUsers() {
