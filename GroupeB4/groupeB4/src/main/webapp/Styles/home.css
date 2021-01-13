@@ -41,10 +41,15 @@
 
 #logoHelha {
 	display:flex;
+	orientation: flex-start;
     max-width: 150px;
     height: auto;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 5vmin;
+}
+
+#formLogo{
+	margin-left:auto;
 }
 
 li {
@@ -56,10 +61,10 @@ li>a {
     font-size: large;
 }
 
-.NavBarDisconnect{
+#NavBarDisconnect{
     cursor: pointer;
 }
 
-.NavBarDisconnect:hover {
+#NavBarDisconnect:hover {
     color: red;
 }

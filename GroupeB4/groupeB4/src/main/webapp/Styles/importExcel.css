@@ -89,11 +89,17 @@ li>a {
 
 #logoHelha {
 	display:flex;
+	orientation: flex-start;
     max-width: 150px;
     height: auto;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 5vmin;
 }
+
+#formLogo{
+	margin-left:auto;
+}
+
 h1{
     text-align: center;
 }

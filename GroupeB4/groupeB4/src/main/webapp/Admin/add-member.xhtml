@@ -8,28 +8,34 @@
 </head>
 <body>
 
-<a href="home.xhtml">Retour vers admin</a>
-<h1>Ajoutez un membre</h1>
+<div class="returnAdmin">
+	<a href="home.xhtml">Retour vers admin</a>
+</div>
+<div class="title">
+	<h1>Ajoutez un membre</h1>
+</div>
+
 <center><hr></hr></center>
 
-
-<form jsf:id="f1">
-    <div class="form-group">
-        <label for="userName">Pseudonyme : </label>
-        <input type="text" class="form-control" id="userName" jsf:value="#{userController.userName}" ></input>
-    </div>
-
-    <div class="form-group">
-        <label for="password">Mot de passe : </label>
-        <input type="password" class="form-control" id="password" jsf:value="#{userController.userPassword}"></input>
-    </div>
-
-    <div class="form-group">
-        <label for="passwordConfirm">Mot de passe (confirmation) : </label>
-        <input type="password" class="form-control" id="passwordConfirm" jsf:value="#{userController.passwordConfirm}"></input>
-    </div>
-    <input type="submit" value="Envoyer" class="btn" jsf:action="#{userController.addUser()}" ></input>
-</form>
+<div class="formUser">
+	<form jsf:id="f1">
+	    <div class="form-group">
+	        <label for="userName">Pseudonyme : </label>
+	        <input type="text" class="form-control" id="userName" jsf:value="#{userController.userName}" ></input>
+	    </div>
+	
+	    <div class="form-group">
+	        <label for="password">Mot de passe : </label>
+	        <input type="password" class="form-control" id="password" jsf:value="#{userController.userPassword}"></input>
+	    </div>
+	
+	    <div class="form-group">
+	        <label for="passwordConfirm">Mot de passe (confirmation) : </label>
+	        <input type="password" class="form-control" id="passwordConfirm" jsf:value="#{userController.passwordConfirm}"></input>
+	    </div>
+	    <input type="submit" value="Envoyer" class="btn" jsf:action="#{userController.addUser()}" ></input>
+	</form>
+</div>
 
 </body>
 </html>
