@@ -16,9 +16,9 @@ public class UserDAO{
 	private EntityManager em; 
 
 	public User addUser(User user) {
-		//if (getUser(user.getUserName()) != null) {
-		//	return null;
-		//}
+		if (getUser(user.getUserName()) != null) {
+			return null;
+		}
 		
 		em.persist(user);
 		return user;			
@@ -39,8 +39,7 @@ public class UserDAO{
 	}
 
 	public User getUser(String userName) {
-		String sqlRequestStr = "SELECT user from User user"
-                + "WHERE user.userName = ?1 ";
+		String sqlRequestStr = "SELECT user from User user WHERE user.userName = ?1 ";
 		TypedQuery<User> query = em.createQuery(sqlRequestStr, User.class);
 		query.setParameter(1, userName);
 		List<User> result = query.getResultList();
