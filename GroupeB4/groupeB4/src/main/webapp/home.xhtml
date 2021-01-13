@@ -94,13 +94,11 @@
 </div>
 
 
-<<<<<<< HEAD
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student" binding="#{testC.table}">
-=======
+
+
 <div class="container">
 
-<h:dataTable class="tableEtudiants table table-striped" value="#{testC.doSelectAll()}" var="student">
->>>>>>> main
+<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student" binding="#{testC.table}">
 	    <h:column>
     		<f:facet name="header">Nom</f:facet>
 	    		#{student.lastName}
@@ -120,14 +118,10 @@
        		<f:facet name="header">Status PAE</f:facet>
 	    		#{student.getPae().getPaeProgressValue()}
 	    </h:column>
-<<<<<<< HEAD
 	    <h:commandLink value="Delete a Hugo" action="#{testC.delete}"/>
 </h:dataTable>
 
-=======
-	</h:dataTable>
 
 </div>
->>>>>>> main
 </body>
 </html>
