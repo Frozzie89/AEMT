@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 
 import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
+import be.helha.groupeB4.entities.Student;
 
 @Stateless
 public class LUEJB {
@@ -19,6 +20,11 @@ public class LUEJB {
 	public LearningUnit addLearningUnit(LearningUnit ue) {
 		// TODO Auto-generated method stub
 		return dao.addLearningUnit(ue);
+	}
+	
+	public List<LearningUnit> addLearningUnits() {
+		
+		return dao.getliste();
 	}
 
 	

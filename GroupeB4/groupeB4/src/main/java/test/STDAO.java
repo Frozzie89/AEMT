@@ -31,7 +31,7 @@ public class STDAO {
 	public List<Student> getliste(){
 		List<Student> studs = new ArrayList<Student>();
 		
-		studs = stu.test();
+		studs = stu.createStudents();
 		addStudents(studs);
 		
 		

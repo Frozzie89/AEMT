@@ -24,6 +24,7 @@
             <web-resource-name>Protected Admin Area</web-resource-name>
             <description></description>
             <url-pattern>/Admin/*</url-pattern>
+            <!--  <url-pattern>/home.xhtml</url-pattern>-->
         </web-resource-collection>
         <auth-constraint>
             <description />
