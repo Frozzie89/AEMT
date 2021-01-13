@@ -38,8 +38,8 @@ public class studentExcel {
             sheet = workbook.getSheetAt(0);
 
             nbOfRows = getMaxNbRows(sheet);
-            createStudents(sheet, nbOfRows);
-            //createLearningUnits(sheet, nbOfRows);
+          //createStudents(sheet, nbOfRows);
+            createLearningUnits(sheet, nbOfRows);
             //createGrade(sheet, nbOfRows);
 
             file.close();
@@ -117,7 +117,7 @@ public class studentExcel {
 
             mapGrade = createGrade(sheet, sheetSize, row, listActivity);
             student.setBulletin(mapGrade);
-            System.out.println(student.toString() + "\n");
+          //  System.out.println(student.toString() + "\n");
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
@@ -251,6 +251,7 @@ public class studentExcel {
             listUnit.add(learningUnit);
             
         }
+        System.out.println(listUnit.toString());
         return listUnit;
     }
     //HashMap<LearningActivity, Grade>
@@ -373,7 +374,7 @@ public class studentExcel {
     		}
     		
     	}
-
+    	//System.out.println(li);
     	return listActivity;
     }
 }
