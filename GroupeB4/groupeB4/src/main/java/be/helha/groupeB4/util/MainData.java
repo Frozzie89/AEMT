@@ -45,7 +45,7 @@ public class MainData {
 		
 		System.out.println(s1);
 		
-		User user = new User("Test", "Test", "ADMIN");
+		User user = new User("u", "u", "ADMIN");
 		System.out.println(user);
 		
 		tx.begin();

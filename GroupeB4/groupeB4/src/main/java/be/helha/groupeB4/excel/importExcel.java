@@ -18,7 +18,7 @@ import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.enumeration.ESection;
 
-public class studentExcel {
+public class importExcel {
 	static XSSFWorkbook workbook;
 	static XSSFSheet sheet;
 	static int nbOfRows;
@@ -38,8 +38,8 @@ public class studentExcel {
             sheet = workbook.getSheetAt(0);
 
             nbOfRows = getMaxNbRows(sheet);
-          //createStudents(sheet, nbOfRows);
-            createLearningUnits(sheet, nbOfRows);
+            createStudents(sheet, nbOfRows);
+            //createLearningUnits(sheet, nbOfRows);
             //createGrade(sheet, nbOfRows);
 
             file.close();
@@ -117,7 +117,7 @@ public class studentExcel {
 
             mapGrade = createGrade(sheet, sheetSize, row, listActivity);
             student.setBulletin(mapGrade);
-          //  System.out.println(student.toString() + "\n");
+
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
@@ -251,7 +251,6 @@ public class studentExcel {
             listUnit.add(learningUnit);
             
         }
-        System.out.println(listUnit.toString());
         return listUnit;
     }
     //HashMap<LearningActivity, Grade>
@@ -305,7 +304,7 @@ public class studentExcel {
 	                // if the value of the cell is a string, the student didn't get a grade (ex :
 	                // PP)
 	                case STRING:
-	                	if(cellGrade.toString().endsWith("°")) {
+	                	if(cellGrade.toString().endsWith("ï¿½")) {
 	                		String tmp = cellGrade.toString().substring(0, cellGrade.toString().length()-1);
 	                		String[] tmpSplit = tmp.split(",", 2);
 	                		if(tmpSplit.length == 1) {
@@ -356,7 +355,6 @@ public class studentExcel {
                 cellGrade = rowGrade.getCell(cr.getCol() + i);
             }
         }
-        System.out.println(mapGrade.toString());
     	return mapGrade;
     }
     
@@ -374,7 +372,7 @@ public class studentExcel {
     		}
     		
     	}
-    	//System.out.println(li);
+
     	return listActivity;
     }
 }
