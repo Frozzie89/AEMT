@@ -29,7 +29,6 @@
         <auth-constraint>
             <description />
             <role-name>ADMIN</role-name>
-            <!-- Todo : rajouter plus de roles -->
         </auth-constraint>
         <!-- <user-data-constraint> -->
         <!-- <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->

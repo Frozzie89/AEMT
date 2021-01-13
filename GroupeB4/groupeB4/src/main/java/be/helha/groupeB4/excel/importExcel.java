@@ -30,6 +30,4 @@ public class importExcel implements Serializable{
 		this.excelFile = excelFile;
 	}
 	
-	
-	
 }
