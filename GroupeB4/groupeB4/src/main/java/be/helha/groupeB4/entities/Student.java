@@ -144,7 +144,8 @@ public class Student implements Serializable{
 				+ ", " + registrationNumber + ", " + schoolYear 
 				+ ", bloc=" + bloc 
 				+ " section=" + section.getSection() + "\n"
-				+ ", pae:" + pae;
+				+ ", pae:" + pae
+				+ "bulletin" + bulletin.toString();
 	}
 
 	@Override

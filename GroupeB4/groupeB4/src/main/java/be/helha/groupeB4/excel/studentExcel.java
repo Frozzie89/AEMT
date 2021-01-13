@@ -117,7 +117,7 @@ public class studentExcel {
 
             mapGrade = createGrade(sheet, sheetSize, row, listActivity);
             student.setBulletin(mapGrade);
-
+            System.out.println(student.toString() + "\n");
             // jump to next row
             row = sheet.getRow(cr.getRow() + i);
         }
@@ -304,7 +304,7 @@ public class studentExcel {
 	                // if the value of the cell is a string, the student didn't get a grade (ex :
 	                // PP)
 	                case STRING:
-	                	if(cellGrade.toString().endsWith("ï¿½")) {
+	                	if(cellGrade.toString().endsWith("°")) {
 	                		String tmp = cellGrade.toString().substring(0, cellGrade.toString().length()-1);
 	                		String[] tmpSplit = tmp.split(",", 2);
 	                		if(tmpSplit.length == 1) {
@@ -355,6 +355,7 @@ public class studentExcel {
                 cellGrade = rowGrade.getCell(cr.getCol() + i);
             }
         }
+        System.out.println(mapGrade.toString());
     	return mapGrade;
     }
     
