@@ -39,7 +39,6 @@
 	            sheet = workbook.getSheetAt(0);
 
 	            nbOfRows = getMaxNbRows(sheet);
-//	            l1 = createStudents(sheet, nbOfRows);
 	            
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -52,7 +51,6 @@
 				file.close();
 				workbook.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             
@@ -75,11 +73,10 @@
 	    }
 
 	    public static List<Student> createStudents() {
-	        // Deviendra un objet Student
+	        // initFile
 	        initFile();
 	    	
 	        // Deviendra un objet Student
-	        String temporaryStudent;
 	        String studentNameToSplit, studentMatricule, studentClassString;
 	        String studentFirstName;
 	        String studentLastName;
@@ -118,7 +115,7 @@
 	            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
 	            	break;
 	            case "AD": 
-	            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.ASSISTANT_DE_DIRECTIOn);
+	            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.ASSISTANT_DE_DIRECTION);
 	            	break;
 	            case "CT":
 	            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.COMPTABILITE);
@@ -136,41 +133,8 @@
 	        }
 	        closeFile();
 	        return listStudent;
-	        
-	    	/*String temporaryStudent;
-	        String studentNameToSplit, studentMatricule, studentClassString;
-	        String studentFirstName;
-	        String studentLastName;
-	        int studentClass;
-	        List<Student> listStudent= new ArrayList<>();
-
-	        CellReference cr = new CellReference("B4");
-	        Row row = sheet.getRow(cr.getRow());
-
-	        // loop on each students
-	        for (int i = 1; i < nbOfRows; i++) {
-	            // get student name, matricule and school class
-	            studentNameToSplit = row.getCell(cr.getCol()).toString();
-	            studentMatricule = row.getCell(cr.getCol() + 1).toString();
-	            studentClassString = row.getCell(cr.getCol() + 2).toString();
-	            
-	            String[] studentNameSplit = studentNameToSplit.split(" ", 2); 
-	            studentLastName = studentNameSplit[0];
-	            studentFirstName = studentNameSplit[1];
-	            
-	            String[] studentClassSplit = studentClassString.split("B", 2);
-	            studentClass = Integer.parseInt(studentClassSplit[0]);
-	            
-	            Student student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
-	            //system.out.println(student.toString());
-	            listStudent.add(student);
-
-	            // jump to next row
-	            row = sheet.getRow(cr.getRow() + i);
-	        }
-			return listStudent;*/
-
 	    }
+	    
 	    public static List<LearningUnit> createLearningUnits() {
 	        initFile();
 	    	
@@ -300,7 +264,7 @@
 	            listUnit.add(learningUnit);
 	            
 	        }
-	        System.out.println(listUnit.toString());
+	        
 	        return listUnit;
 	    }
 	    //HashMap<LearningActivity, Grade>
@@ -402,7 +366,6 @@
 	                cellGrade = rowGrade.getCell(cr.getCol() + i);
 	            }
 	        }
-	        System.out.println(mapGrade.toString());
 	    	return mapGrade;
 	    }
 	    
@@ -420,7 +383,6 @@
 	    		}
 	    		
 	    	}
-	    	//System.out.println(li);
 	    	return listActivity;
 	    }
 	}
