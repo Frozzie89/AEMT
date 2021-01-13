@@ -1,7 +1,5 @@
 package test;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,16 +7,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.util.CellReference;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import be.helha.groupeB4.entities.Student;
-import be.helha.groupeB4.enumeration.ESection;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
-import be.helha.groupeB4.excel.studentExcel;
 
 @Stateless
 public class STDAO {
