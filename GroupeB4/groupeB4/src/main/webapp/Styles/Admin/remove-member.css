@@ -61,3 +61,13 @@ hr{
 	height: 5px;
 	width: 80vmin;
 }
+#icon-trash{
+    max-width:25px;
+    margin-right: 2.5vmin;
+    margin-left: auto;
+    background: none;
+}
+.imageTrash:hover{
+	filter: hue-rotate(180deg);	
+	background: none;
+}
