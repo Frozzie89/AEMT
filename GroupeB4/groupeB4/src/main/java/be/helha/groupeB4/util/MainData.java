@@ -9,6 +9,7 @@ import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Pae;
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.entities.User;
 import be.helha.groupeB4.enumeration.EPaeProgress;
 import be.helha.groupeB4.enumeration.ESection;
 
@@ -44,8 +45,12 @@ public class MainData {
 		
 		System.out.println(s1);
 		
+		User user = new User("Test", "Test", "ADMIN");
+		System.out.println(user);
+		
 		tx.begin();
-		eManager.persist(s1);
+		// eManager.persist(s1);
+		eManager.persist(user);
 		tx.commit();
 		
 		eManager.close();

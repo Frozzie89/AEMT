@@ -1,6 +1,10 @@
 package be.helha.groupeB4.entities;
 
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,13 +19,43 @@ public class User implements Serializable {
 	private Integer id;
 	private String userName;
 	private String password;
+	private String role;
 	
 	public User() {}
 	
 	public User(String userName, String password) {
 		super();
+			
+	    MessageDigest digest = null;
+		try {
+			digest = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    byte[] byteOfTextToHash = password.getBytes(StandardCharsets.UTF_8);
+	    byte[] hashedByetArray = digest.digest(byteOfTextToHash);
+	
+	    this.password = Base64.getEncoder().encodeToString(hashedByetArray);
 		this.userName = userName;
-		this.password = password;
+	}
+	
+	public User(String userName, String password, String role) {
+		super();
+		
+	    MessageDigest digest = null;
+		try {
+			digest = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    byte[] byteOfTextToHash = password.getBytes(StandardCharsets.UTF_8);
+	    byte[] hashedByetArray = digest.digest(byteOfTextToHash);
+	
+	    this.password = Base64.getEncoder().encodeToString(hashedByetArray);
+		this.userName = userName;
+		this.role = role;
 	}
 	
 	@Override
@@ -51,11 +85,10 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", role=" + role + "]";
 	}
-	
-	// GETTERS ET SETTERS
 
+	// GETTERS ET SETTERS
 	public Integer getId() {
 		return id;
 	}
@@ -78,6 +111,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	
