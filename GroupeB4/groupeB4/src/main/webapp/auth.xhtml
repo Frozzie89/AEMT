@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Auth</title>
@@ -12,18 +12,17 @@
 
 <hr></hr>
 
-<form>
+<form method="POST" action="j_security_check">
     <div class="form-group">
         <label for="userName">Pseudonyme : </label>
-        <input type="text" class="form-control" id="userName"></input>
+        <input type="text" class="form-control" id="userName" name="j_username"></input>
     </div>
 
     <div class="form-group">
         <label for="password">Mot de passe : </label>
-        <input type="password" class="form-control" id="password"></input>
+        <input type="password" class="form-control" id="password" name="j_password"></input>
     </div>
     <input type="submit" class="btn btn-primary"></input>
 </form>
-
 </body>
 </html>
