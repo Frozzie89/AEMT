@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,7 +24,7 @@ public class TestC implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	private HtmlDataTable table;
 	
 	@Inject
 	private STDEJB ejb;
@@ -60,6 +61,17 @@ public class TestC implements Serializable{
 	
 	
 	
+	public String delete() {
+		Student student = (Student) table.getRowData();
+		ejb.deleteStudent(student);
+		return "";
+	}
 	
+	public HtmlDataTable getTable() {
+		return table;
+	}
 
+	public void setTable(HtmlDataTable table) {
+		this.table = table;
+	}
 }
