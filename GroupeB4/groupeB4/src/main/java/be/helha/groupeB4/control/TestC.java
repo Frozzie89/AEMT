@@ -12,6 +12,7 @@ import javax.inject.Named;
 
 import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.excel.InsertStudentFromExcel;
 import be.helha.groupeB4.excel.studentExcel;
 import test.STDEJB;
 
@@ -28,7 +29,8 @@ public class TestC implements Serializable{
 	@Inject
 	private STDEJB ejb;
 	
-	private studentExcel stfu;
+	private InsertStudentFromExcel stfu;
+	private String nom;
 	
 	
 	public List<Student> doSelectAll(){
@@ -37,7 +39,7 @@ public class TestC implements Serializable{
 	}
 	
 	public List<Student> doSelectAllName(){
-		return ejb.getAllStudentByName("s"); 
+		return ejb.getAllStudentByName(nom); 
 	}
 	
 	public List<Student> addLA() {
@@ -48,6 +50,16 @@ public class TestC implements Serializable{
 		ejb.addStudent();
 		return maliste;
 	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	
+	
 	
 	public String delete() {
 		Student student = (Student) table.getRowData();

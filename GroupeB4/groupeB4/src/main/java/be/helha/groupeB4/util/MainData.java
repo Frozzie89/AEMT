@@ -9,6 +9,7 @@ import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Pae;
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.entities.User;
 import be.helha.groupeB4.enumeration.EPaeProgress;
 import be.helha.groupeB4.enumeration.ESection;
 
@@ -31,9 +32,9 @@ public class MainData {
 		LearningUnit ue1 = new LearningUnit("UE1", "ue1Label", 10, "y1");
 		LearningUnit ue2 = new LearningUnit("UE2", "ue2Label", 10, "y2");
 		
-		LearningActivity aa1 = new LearningActivity("AA1", "aa1Label", 5, 0.);		
-		LearningActivity aa2 = new LearningActivity("AA2", "aa2Label", 5, 0.);	
-		LearningActivity aa3 = new LearningActivity("AA3", "aa3Label", 5, 0.);	
+		LearningActivity aa1 = new LearningActivity("AA1", "aa1Label", 5);		
+		LearningActivity aa2 = new LearningActivity("AA2", "aa2Label", 5);	
+		LearningActivity aa3 = new LearningActivity("AA3", "aa3Label", 5);	
 		
 		ue1.addLearning(aa1);
 		ue1.addLearning(aa2);
@@ -44,8 +45,12 @@ public class MainData {
 		
 		System.out.println(s1);
 		
+		User user = new User("Test", "Test", "ADMIN");
+		System.out.println(user);
+		
 		tx.begin();
-		eManager.persist(s1);
+		// eManager.persist(s1);
+		eManager.persist(user);
 		tx.commit();
 		
 		eManager.close();

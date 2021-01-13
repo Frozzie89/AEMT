@@ -23,12 +23,12 @@ public class TestLA {
 		return ejb.getAllLearningActivities(); 
 	}
 	
-	public LearningActivity addLA() {
+/*	public LearningActivity addLA() {
 		double i = System.currentTimeMillis();
 		LearningActivity aa = new LearningActivity("AA"+i,"Test",8,10.);
 		ejb.addLearningActivity(aa);
 		return aa;
-	}
+	}*/
 	
 	public LearningActivity getLA() {
 		LearningActivity aa = ejb.getLearningActivity("AA1");

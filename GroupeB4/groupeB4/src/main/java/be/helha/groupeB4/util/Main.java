@@ -18,9 +18,9 @@ public class Main {
 		LearningUnit ue1 = new LearningUnit("UE1", "ue1Label", 10, "y1");
 		LearningUnit ue2 = new LearningUnit("UE2", "ue2Label", 10, "y2");
 		
-		LearningActivity aa1 = new LearningActivity("AA1", "aa1Label", 5, 0.);		
-		LearningActivity aa2 = new LearningActivity("AA2", "aa2Label", 5, 0.);	
-		LearningActivity aa3 = new LearningActivity("AA3", "aa3Label", 5, 0.);	
+		LearningActivity aa1 = new LearningActivity("AA1", "aa1Label", 5);		
+		LearningActivity aa2 = new LearningActivity("AA2", "aa2Label", 5);	
+		LearningActivity aa3 = new LearningActivity("AA3", "aa3Label", 5);	
 		
 		ue1.addLearning(aa1);
 		ue1.addLearning(aa2);
