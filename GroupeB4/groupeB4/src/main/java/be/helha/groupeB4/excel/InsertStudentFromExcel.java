@@ -3,21 +3,19 @@
 
 	import java.io.File;
 	import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+	import java.io.IOException;
+	import java.util.ArrayList;
+	import java.util.HashMap;
+	import java.util.List;
+	
 	import org.apache.poi.ss.usermodel.Cell;
 	import org.apache.poi.ss.usermodel.Row;
 	import org.apache.poi.ss.util.CellReference;
 	import org.apache.poi.xssf.usermodel.XSSFSheet;
 	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import be.helha.groupeB4.entities.Grade;
-import be.helha.groupeB4.entities.LearningActivity;
+	
+	import be.helha.groupeB4.entities.LearningActivity;
 	import be.helha.groupeB4.entities.LearningUnit;
-	import be.helha.groupeB4.entities.Pae;
 	import be.helha.groupeB4.entities.Student;
 	import be.helha.groupeB4.enumeration.ESection;
 
@@ -394,7 +392,6 @@ import be.helha.groupeB4.entities.LearningActivity;
 		                	gradeAA = -10;
 		                    break;
 	            	}
-	            	Grade g = new Grade(gradeAA);
 	            	mapGrade.put(listActivity.get(z), gradeAA);
 	            	z++;
 	                

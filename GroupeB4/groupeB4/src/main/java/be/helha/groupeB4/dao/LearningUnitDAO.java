@@ -59,12 +59,4 @@ public class LearningUnitDAO{
 		// TODO Auto-generated method stub
 		return em.createQuery("SELECT learningUnit FROM LearningUnit learningUnit").getResultList();
 	}
-
-	
-	public List<LearningActivity> getAllLearningActivities() {
-		// TODO Auto-generated method stub
-		return em.createQuery("SELECT learningUnit FROM LearningUnit learningUnit "
-				+ "JOIN learningUnit.aaList learningActivity").getResultList();
-	}
-
 }

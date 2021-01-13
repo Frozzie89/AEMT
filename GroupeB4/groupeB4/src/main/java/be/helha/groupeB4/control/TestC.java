@@ -37,7 +37,6 @@ public class TestC implements Serializable{
 	
 	
 	public List<Student> doSelectAll(){
-		System.out.println("Salut");
 		return ejb.getAllStudent(); 
 	}
 	
@@ -46,8 +45,7 @@ public class TestC implements Serializable{
 	}
 	
 	public List<Student> addLA() {
-		
-		
+
 		List<Student> maliste = new ArrayList<>();
 		maliste = stfu.createStudents();
 		ejb.addStudent();

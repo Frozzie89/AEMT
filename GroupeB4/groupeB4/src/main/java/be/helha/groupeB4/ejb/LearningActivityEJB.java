@@ -32,5 +32,4 @@ public class LearningActivityEJB{
 		// TODO Auto-generated method stub
 		return dao.getAllLearningActivities();
 	}
-	
 }

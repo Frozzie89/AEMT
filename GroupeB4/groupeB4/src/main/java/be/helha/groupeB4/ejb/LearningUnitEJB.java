@@ -39,10 +39,5 @@ public class LearningUnitEJB {
 		return dao.getAllLearningUnits();
 	}
 
-	
-	public List<LearningActivity> getAllLearningActivities() {
-		// TODO Auto-generated method stub
-		return dao.getAllLearningActivities();
-	}
 
 }
