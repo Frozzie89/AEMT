@@ -4,12 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Home</title>
 <link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
-//<link href="Styles/importExcel.css" rel="stylesheet" />
+<link href="Styles/importExcel.css" rel="stylesheet" />
 <link href="Styles/home.css" rel="stylesheet" />
 </head>
 <body>
-
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -34,22 +33,22 @@
             <img id="logoHelha" src="Assets/logo-helha.png" alt="Logo HELHa"></img>
         </form>
     </div>
-
 </nav>
 
 
 <h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
-
-<hr></hr>
-
-<form>
+<center><hr/></center>
+<div class="excelForm">
+<form id="formExcel">
+	<center>
     <div class="form-group">
         <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
         <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center><br></br>
         <input type="file" class="form-control-file" id="inputExcel"></input>
     </div>
-    <input type="submit" class="btn btn-primary"></input>
+    <input type="submit" class="btn btn-primary" id="btnSubmit" value="Importer"></input>
+    </center>
 </form>
-
+</div>
 </body>
 </html>

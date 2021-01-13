@@ -1,11 +1,25 @@
 .col-xs-3{
     margin-left: 15px;
 }
-
-.filterPaeStatus{
-    margin-left: auto;
+.navbar{
+	background-color:#C7DDE0;
 }
-
+.nav-link{
+	color: red;
+}
+.filterPaeStatus{
+    margin-left: 1vmin;
+    margin-right: 2vmin;
+}
+#filtrePae{
+	background-color: #F1F1F1; 
+}
+#filtrePae .formcontrol{
+	background-color: DodgerBlue;
+}
+.formControl{
+	background-color: red;
+}
 .filterStudents{
     margin-top: 15px;
 }
@@ -21,6 +35,7 @@
 
 #icon-search{
     max-width:50px;
+    margin-right: 2.5vmin;
     /*height:auto;*/
 }
 
