@@ -99,7 +99,7 @@
 
 <div class="container">
 
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{testC.doSelectAll()}" var="student" binding="#{testC.table}">
+<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{studentController.doSelectAll()}" var="student" binding="#{studentController.table}">
 	    <h:column>
     		<f:facet name="header">Nom</f:facet>
 	    		#{student.lastName}

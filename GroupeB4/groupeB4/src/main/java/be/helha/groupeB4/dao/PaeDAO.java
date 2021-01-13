@@ -3,26 +3,30 @@ package be.helha.groupeB4.dao;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import be.helha.groupeB4.entities.Pae;
 
 @Stateless
-public class PaeDAO extends AbstractDAO implements IPaeDAO{
+public class PaeDAO{
 
-	@Override
+	@PersistenceContext(unitName = "groupeB4")
+	private EntityManager em; 
+	
 	public Pae addPAE(Pae pae) {
 		// TODO Auto-generated method stub
 		em.persist(pae);
 		return pae;
 	}
 
-	@Override
+	
 	public List<Pae> getAllPaes() {
 		// TODO Auto-generated method stub
 		return em.createQuery("SELECT pae FROM Pae pae").getResultList();
 	}
 
-	@Override
+	
 	public Pae deletePae(Pae pae) {
 		// TODO Auto-generated method stub
 		Pae tmp = findPae(pae);
@@ -33,7 +37,7 @@ public class PaeDAO extends AbstractDAO implements IPaeDAO{
 		return tmp;
 	}
 
-	@Override
+	
 	public Pae updatePae(Pae oldPae, Pae newPae) {
 		// TODO Auto-generated method stub
 		if(oldPae == null || newPae == null || oldPae.getId()<0) {

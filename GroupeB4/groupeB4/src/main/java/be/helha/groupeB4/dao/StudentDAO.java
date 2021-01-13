@@ -8,25 +8,52 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import be.helha.groupeB4.entities.Student;
+import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
 @Stateless
-public class StudentDAO extends AbstractDAO implements IStudentDAO{
+public class StudentDAO{
 	
-	@Override
+	@PersistenceContext(unitName = "groupeB4")
+	private EntityManager em; 
+	
+	private InsertStudentFromExcel stu;
+	
+	public List<Student> getliste(){
+		List<Student> studs = new ArrayList<Student>();
+		
+		studs = stu.createStudents();
+		addStudents(studs);
+		
+		
+		return studs;
+	
+	}
+	
+	
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
 		em.persist(student);
 		return student;
 	}
-
-	//@SuppressWarnings("unchecked")
-	@Override
+	
+	
+	public List<Student> addStudents(List<Student> students) {
+		
+		
+		for (int i=0; i< students.size() ;i++) {
+			em.persist(students.get(i));
+		}
+		return students;
+		
+		
+	}
+	
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
 		return em.createQuery("SELECT student From Student student").getResultList();
 	}
 
-	@Override
+	
 	public Student deleteStudent(Student student) {
 		// TODO Auto-generated method stub
 		 if(student ==null)
@@ -37,24 +64,28 @@ public class StudentDAO extends AbstractDAO implements IStudentDAO{
 		
 	}
 
-	@Override
+
 	public Student updateStudent(Student oldStudent, Student newStudent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	//@SuppressWarnings("unchecked")
-	@Override
+	
 	public List<Student> getAllStudentByName(String str) {
 		// TODO Auto-generated method stub
 		List<Student> toCompareList = new ArrayList<>();
-		toCompareList = em.createQuery("SELECT student From Student student").getResultList();
+		
+		toCompareList = getAllStudent();
 		
 		List<Student> sortedList = new ArrayList<>();
+		String studentName;
 		
-		for(Student s : toCompareList) {
-			if(s.getFirstName().startsWith("str"))
-					sortedList.add(s);
+		for (int i=0; i< toCompareList.size() ;i++) {
+		    studentName = toCompareList.get(i).getFirstName();
+		    
+		    if(studentName.startsWith(str)) {
+		    	sortedList.add(toCompareList.get(i));
+		    }
 		}
 		
 		
@@ -66,5 +97,5 @@ public class StudentDAO extends AbstractDAO implements IStudentDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
