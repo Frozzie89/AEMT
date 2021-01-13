@@ -25,6 +25,7 @@
             <description></description>
           
             <url-pattern>/Admin/home.xhtml</url-pattern>
+            
         </web-resource-collection>
         <auth-constraint>
             <description />
@@ -40,7 +41,7 @@
         <realm-name>groupeB4Realm</realm-name>
         <form-login-config>
             <form-login-page>/auth.xhtml</form-login-page>
-            <form-error-page>/auth.xhtml</form-error-page>
+            <form-error-page>/errorLogin.xhtml</form-error-page>
         </form-login-config>
     </login-config>
   

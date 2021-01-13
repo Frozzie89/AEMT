@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>ErrorLogin</title>
+<link href="../Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link href="../Styles/Admin/auth.css" rel="stylesheet" />
+</head>
+<body>
+<div class="card">
+
+	<div class="card-body">
+		<h1>Connexion</h1>
+
+		<center><hr></hr></center>
+		
+		<form method="POST" action="j_security_check">
+		    <div class="form-group">
+		        <label for="userName">Pseudonyme : </label>
+		        <input type="text" class="form-control" id="userName" name="j_username"></input>
+		    </div>
+		
+		    <div class="form-group">
+		        <label for="password">Mot de passe : </label>
+		        <input type="password" class="form-control" id="password" name="j_password"></input>
+		    </div>
+		    <input type="submit" class="btn" value="Connexion"></input>
+		</form>
+	</div>
+	<div>
+		<h2 style="color:red;">Inconnu</h2>
+	</div>
+
+</div>
+</body>
+</html>

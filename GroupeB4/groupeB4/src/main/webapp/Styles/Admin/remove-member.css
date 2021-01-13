@@ -4,12 +4,6 @@
     width: 50%;
 }
 
-h1 {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
 .deleteButton {
     text-align: center;
 }
@@ -27,8 +21,43 @@ fa-icon:hover {
     margin-left: 15px;
 }
 
-#icon-trash{
-    max-width:50px;
-    margin-right: 2.5vmin;
-    /*height:auto;*/
+.returnAdmin{
+	margin: 1vmin;
+}
+
+a{
+	border-color: black;
+	border-radius: 45px;
+  	text-decoration: none;
+  	display: inline-block;
+  	width: 19.5%;
+  	margin-right: 0.625%;
+  	text-align: center;
+  	line-height: 3;
+  	color: white;
+}
+
+a:link, a:visited, a:focus{
+	background:  #434C54;
+}
+
+a:hover{
+	background: #069B93;
+	color: black;
+}
+
+a:active{
+	background: #C7DDE0;
+	color: black;
+}
+
+h1{
+    margin-top: 1vmin;
+    text-align: center;
+}
+
+hr{
+	position: relative;
+	height: 5px;
+	width: 80vmin;
 }

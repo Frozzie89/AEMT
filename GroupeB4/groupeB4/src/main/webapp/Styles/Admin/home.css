@@ -1,29 +1,68 @@
-button{
-    margin: auto;
-    display: block;
-    margin-bottom: 15px;
-    font-size: 40px;
-    background: #39603D;    
-    border-radius: 45px;
-    color: white;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
 h1{
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 1vmin;
     text-align: center;
 }
 
 form{
     margin-top: 30px;
+}
 
+.btn{
+	margin-top: 3vmin;
+    background: #434C54;
+    border-radius: 45px;
+    color: white;
+    width: 60vmin;;
 }
 
 .btn:hover {
-  background-color:#558f5b;
-  border-color: #A3BCB6;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(57, 96, 61, 0.25);
+    color: #495057;
+    background-color: #069B93;
+    border-color: #06699b;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(6, 155, 147, 0.5);
+}
+
+hr{
+	position: relative;
+	height: 5px;
+	width: 80vmin;
+}
+
+.formDirection{
+	text-align: center;
+	margin-bottom: 5vmin;
+}
+.returnHome{
+	margin: 1vmin;
+}
+
+a{
+	border-color: black;
+	border-radius: 45px;
+  	text-decoration: none;
+  	display: inline-block;
+  	width: 19.5%;
+  	margin-right: 0.625%;
+  	text-align: center;
+  	line-height: 3;
+  	color: white;
+}
+
+a:link, a:visited, a:focus{
+	background:  #434C54;
+}
+
+a:hover{
+	background: #069B93;
+	color: black;
+}
+
+a:active{
+	background: #C7DDE0;
+	color: black;
+}
+.container{
+	width: 60vmin;
+	text-align: center;
 }
