@@ -15,19 +15,19 @@
 <form>
     <div class="form-group">
         <label for="userName">Pseudonyme : </label>
-        <input type="text" class="form-control" id="userName"></input>
+        <input type="text" class="form-control" id="userName" jsf:value="#{UserControl.user.userName}" ></input>
     </div>
 
     <div class="form-group">
         <label for="password">Mot de passe : </label>
-        <input type="password" class="form-control" id="password"></input>
+        <input type="password" class="form-control" id="password" jsf:value="#{UserControl.user.password}"></input>
     </div>
 
     <div class="form-group">
         <label for="passwordConfirm">Mot de passe (confirmation) : </label>
-        <input type="password" class="form-control" id="passwordConfirm"></input>
+        <input type="password" class="form-control" id="passwordConfirm" jsf:value="#{UserControl.passwordConfirm}"></input>
     </div>
-    <input type="submit" class="btn"></input>
+    <input type="submit" class="btn" jsf:action="#{UserControl.addUser()}" ></input>
 </form>
 
 </body>

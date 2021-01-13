@@ -18,7 +18,6 @@ public class MainData {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4_Local");
 		EntityManager eManager = entityManagerFactory.createEntityManager();
 		
