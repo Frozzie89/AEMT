@@ -22,14 +22,25 @@ public class UserController implements Serializable{
 	@Inject
 	private UserEJB ejb;
 	
-	private User user;
+	private String userName, userPassword;
 	private String passwordConfirm;
 	
 	public List<User> doSelectAll(){
 		return ejb.getAllUsers(); 
 	}
 	
-	public User addUser() {
+	public String addUser() {
+		
+		User userToCreate = new User(userName, userPassword, "ADMIN");
+		
+	    if (passwordConfirm.equals(userToCreate.getPassword())) {	    	
+			ejb.addUser(userToCreate);
+	    }
+	    
+	    return "home.xhtml";
+	}
+	
+	private String encryptSHA256(String stringValue) {
 		MessageDigest digest = null;
 		try {
 			digest = MessageDigest.getInstance("SHA-256");
@@ -37,22 +48,41 @@ public class UserController implements Serializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    byte[] byteOfTextToHash = passwordConfirm.getBytes(StandardCharsets.UTF_8);
+	    byte[] byteOfTextToHash = stringValue.getBytes(StandardCharsets.UTF_8);
 	    byte[] hashedByetArray = digest.digest(byteOfTextToHash);
 	
-	    String encodedPasswordConfirm = Base64.getEncoder().encodeToString(hashedByetArray);
-		
-	    
-	    if (encodedPasswordConfirm.equals(user.getPassword())) {	    	
-			ejb.addUser(user);
-	    }
-	    
-	    return user;
+	    return Base64.getEncoder().encodeToString(hashedByetArray);
 	}
 	public void deleteUser(){
-		ejb.deleteUser(user);
+		// ejb.deleteUser(user);
+	}
+	
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = encryptSHA256(passwordConfirm);
 	}
 	
 	
+
 
 }

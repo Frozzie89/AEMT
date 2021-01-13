@@ -2,21 +2,23 @@ package be.helha.groupeB4.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import be.helha.groupeB4.entities.User;
 
+@Stateless
 public class UserDAO{
 	
 	@PersistenceContext(unitName = "groupeB4")
 	private EntityManager em; 
 
 	public User addUser(User user) {
-		if (getUser(user.getUserName()) != null) {
-			return null;
-		}
+		//if (getUser(user.getUserName()) != null) {
+		//	return null;
+		//}
 		
 		em.persist(user);
 		return user;			
