@@ -23,5 +23,17 @@
 </form>
 
 
+<h1>listes des utilisateurs </h1>
+
+<div class="container">
+
+<h:dataTable class="tableEtudiants table table-striped" value="#{testU.doSelectAll()}" var="student">
+	    <h:column>
+    		<f:facet name="header">Nom</f:facet>
+	    		#{student.userName}
+    	</h:column>
+	</h:dataTable>
+
+</div>
 </body>
 </html>
