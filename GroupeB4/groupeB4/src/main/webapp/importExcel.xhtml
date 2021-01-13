@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Home</title>
@@ -35,7 +35,6 @@
     </div>
 </nav>
 
-
 <h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
 <center><hr/></center>
 <div class="excelForm">
@@ -44,11 +43,12 @@
     <div class="form-group">
         <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
         <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center><br></br>
-        <input type="file" class="form-control-file" id="inputExcel"></input>
+        <h:inputFile type="file" value="#{importExcel.excelFile}"></h:inputFile><br></br>
     </div>
-    <input type="submit" class="btn btn-primary" id="btnSubmit" value="Importer"></input>
+     <h:commandButton value="Envoyer" class="btn btn-primary" action="#{importExcel.upload()}" ></h:commandButton>
     </center>
 </form>
 </div>
+
 </body>
 </html>

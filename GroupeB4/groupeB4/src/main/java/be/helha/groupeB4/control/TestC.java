@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.component.html.HtmlDataTable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
