@@ -80,7 +80,6 @@ public class GenStudents {
         for(int sh = 0; sh < workbook.getNumberOfSheets() ; sh++) {
         	
         	sheet = workbook.getSheetAt(sh);
-            
             nbOfRows = getMaxNbRows();
             
             Row row = sheet.getRow(cr.getRow());
@@ -132,6 +131,7 @@ public class GenStudents {
     }
     
     public List<LearningUnit> createLearningUnits(){
+    	
     	List<LearningUnit> list = new ArrayList<>();
     	List<LearningUnit> listBis = new ArrayList<>();
 

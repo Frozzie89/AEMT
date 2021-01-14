@@ -32,11 +32,15 @@ public class ImportExcelController implements Serializable{
 	    try (InputStream input = excelPart.getInputStream()) {
 	        File excelFile = new File(fileName);
 	        GenStudents gs = new GenStudents(new FileInputStream(excelFile));
+	        gs.createLearningUnits();
+	        gs.createStudents();
 	        
 	    }
 	    catch (IOException e) {
 	        // Show faces message?
 	    }
+	    
+	    
 	}
 
 	public Part getExcelPart() {

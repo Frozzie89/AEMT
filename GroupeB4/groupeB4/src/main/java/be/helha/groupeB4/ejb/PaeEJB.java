@@ -25,6 +25,10 @@ public class PaeEJB {
 		// TODO Auto-generated method stub
 		return dao.getAllPaes();
 	}
+	public Pae getPAE(Pae pae) {
+		// TODO Auto-generated method stub
+		return dao.findPae(pae);
+	}
 
 	
 	public Pae deletePae(Pae pae) {

@@ -30,7 +30,7 @@
 	    public static void initFile(){
 	        try {
 	            file = new FileInputStream(
-	                    new File("C:\\Cours\\ListeShortBis.xlsx"));
+	                    new File("C:\\ListeShortBis.xlsx"));
 
 	            // Create Workbook instance holding reference to .xlsx file
 	            workbook = new XSSFWorkbook(file);
