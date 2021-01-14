@@ -20,7 +20,7 @@
             </p:column>
             
         </p:dataTable>-->
-        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectAll()}" var="student">
+        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="student">
         <h:column>
             <f:facet name="header">Nom</f:facet>
                 #{student.label}
