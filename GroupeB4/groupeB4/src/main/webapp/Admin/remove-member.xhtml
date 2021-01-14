@@ -9,7 +9,7 @@
 <body>
 <div class="returnAdmin">
 	<div class="btnReturn">
-		<a href="home.xhtml">Retour vers admin</a>
+		<a id="returnAdmin" href="home.xhtml">Retour vers admin</a>
 	</div>
 </div>
 <div class="title">
@@ -22,12 +22,13 @@
    		<f:facet name="header">Membre</f:facet>
     		#{user.userName}
    	</h:column>
-    <h:column style="width: 15%;">
+    <h:column>
    		<f:facet name="header">Supprimer</f:facet>
    		<h:form>
 			<h:commandLink action="#{userController.deleteUser(user)}">
 	   			<div class="imageTrash">
-	   				<img style="max-width:25px; margin-right: 2.5vmin; margin-left: auto; background: none;" id="icon-trash" src="../Assets/fa-icons/trash-alt-solid.svg" alt="delete" ></img>
+	   				<img  id="icon-trash" src="../Assets/fa-icons/trash-alt-solid.svg" alt="delete" ></img>
+	   				<h2></h2>
 	   			</div>
 			</h:commandLink>
 		</h:form>

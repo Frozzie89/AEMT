@@ -25,7 +25,7 @@ fa-icon:hover {
 	margin: 1vmin;
 }
 
-a{
+#returnAdmin{
 	border-color: black;
 	border-radius: 45px;
   	text-decoration: none;
@@ -37,16 +37,16 @@ a{
   	color: white;
 }
 
-a:link, a:visited, a:focus{
+#returnAdmin:link, #returnAdmin:visited, #returnAdmin:focus{
 	background:  #434C54;
 }
 
-a:hover{
+#returnAdmin:hover{
 	background: #069B93;
 	color: black;
 }
 
-a:active{
+#returnAdmin:active{
 	background: #C7DDE0;
 	color: black;
 }
@@ -61,13 +61,25 @@ hr{
 	height: 5px;
 	width: 80vmin;
 }
+
 #icon-trash{
-    max-width:25px;
-    margin-right: 2.5vmin;
-    margin-left: auto;
-    background: none;
+	margin-left: auto;
+	width: 5%;
+	filter: invert(50%);
 }
-.imageTrash:hover{
-	filter: hue-rotate(180deg);	
-	background: none;
+#icon-trash:hover{
+	filter: none;
+	width: 7.50%
+}
+.imageTrash{
+	text-align: center;
+}
+th{
+	width: 25%;
+	text-align: center;
+	background-color: #069B93;
+	color: #C7DDE0;
+}
+td{
+	text-align: center;
 }
