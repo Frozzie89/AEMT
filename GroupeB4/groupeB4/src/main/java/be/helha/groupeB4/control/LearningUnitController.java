@@ -40,8 +40,9 @@ public class LearningUnitController implements Serializable{
 	
 	public List<LearningUnit> doSelectSectionUE(Student s){
 		List<LearningUnit> listUE = new ArrayList<>();
-		List<LearningUnit> listAllUE = doSelectAll();
-		
+		List<LearningUnit> listAllUE = new ArrayList<>();
+		listAllUE = doSelectAll();
+
 		for(int i = 0; i < listAllUE.size() ; i++) {
 			switch(s.getSection()) {
 				case COMPTABILITE:
@@ -63,8 +64,9 @@ public class LearningUnitController implements Serializable{
 					listUE.add(listAllUE.get(i));
 				break;
 			}
-				
+			
 		}
+		
 		return listUE;
 	}
 }

@@ -45,88 +45,7 @@
 
 
 
-<div class="container filterStudents">
-<!--    <form>
-        <div class="form-group row">
-            select/option for section filtering
-            <div class="col">
-                <select>
-                    <option class="form-control">
-                        TODO : Afficher les sections de l'enum
-                    </option>
-                    <option class="form-control">Comptabilité</option>
-					<option class="form-control">Informatique de gestion</option>
-					<option class="form-control">Assistant de direction</option>
-                </select>
-            </div>
-
-            select/option for section filtering
-            <div class="col">
-                <select>
-                    <option class="form-control">
-                        TODO : Afficher les blocs de la section selectionee
-                    </option>
-                    <option class="form-control">Bloc 1</option>
-					<option class="form-control">Bloc 2</option>
-					<option class="form-control">Bloc 3</option>
-                </select>
-            </div>
-
-            search bar for students
-            <div class="col">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <img class="input-group-text" id="icon-search" alt="icon-search" src="Assets/fa-icons/search-solid.svg" />
-                    </div>
-                    <input type="text" class="form-control" placeholder="Etudiant"
-                        aria-label="Etudiant" aria-describedby="inputGroup-sizing-default"></input>
-                </div>
-            </div>
-            
-          
-
-            filter per PAE status
-            <div class="col filterPaeStatus">
-                <span>Filtrer par : </span>
-                <select id="filtrePae">
-                    <option class="form-control">
-                        TODO : Afficher les status de PAE selon l'enum
-                    </option>
-					<option class="form-control">Tous</option>
-					<option class="form-control">A faire</option>
-					<option class="form-control">Terminé</option>
-                </select>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="container">
-
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{studentController.doSelectAll()}" var="student" binding="#{studentController.table}">
-	    <h:column>
-    		<f:facet name="header">Nom</f:facet>
-	    		#{student.lastName}
-    	</h:column>
-    	
-	    <h:column>
-       		<f:facet name="header">Prénom</f:facet>
-	    		#{student.firstName}
-	    </h:column>
-	    
-  	    <h:column>
-       		<f:facet name="header">Matricule</f:facet>
-	    		#{student.registrationNumber}
-	    </h:column>
-	    
-    	<h:column>
-       		<f:facet name="header">Status PAE</f:facet>
-	    		#{student.getPae().getPaeProgressValue()}
-	    </h:column>
-	    <h:commandLink value="Delete a Hugo" action="#{testC.delete}"/>
-</h:dataTable> -->
-
-
+<div class="tableStudent">
 <h:form>
         <p:dataTable var="student" value="#{fc.students}"
                      filteredValue="#{fc.filteredStudents}"
@@ -140,7 +59,7 @@
                 <h:outputText value="#{student.firstName}"/>
             </p:column>
             
-            <p:column headerText="Prenom" filterBy="#{student.lastName}" filterMatchMode="startsWith">
+            <p:column headerText="Prénom" filterBy="#{student.lastName}" filterMatchMode="startsWith">
                 <h:outputText value="#{student.lastName}"/>
             </p:column>
             

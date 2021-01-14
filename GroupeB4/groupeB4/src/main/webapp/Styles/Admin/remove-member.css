@@ -67,19 +67,23 @@ hr{
 	width: 5%;
 	filter: invert(50%);
 }
+
 #icon-trash:hover{
 	filter: none;
 	width: 7.50%
 }
+
 .imageTrash{
 	text-align: center;
 }
+
 th{
 	width: 25%;
 	text-align: center;
-	background-color: #069B93;
+	background-color: red;
 	color: #C7DDE0;
 }
+
 td{
 	text-align: center;
 }

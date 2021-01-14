@@ -1,5 +1,10 @@
 body{
-	text-align: center;
+	width: 100%;
+	height: 100vmin;
+	background-image: url("../../Assets/campus_helha.jpg");
+	background-position: -24rem -19rem;
+  	background-size: 150%;
+  	position:relative;
 }
 form{
     margin: auto;
@@ -59,7 +64,7 @@ h1{
 hr{
 	position: relative;
 	height: 10px;
-	width: 80vmin;
+	width: 60vmin;
 	margin-top: 8vmin; 
 }
 
@@ -69,16 +74,31 @@ hr{
 #userName{
 	border-radius: 45px;
 }
+
+.cover{
+  background:rgba(0,0,0,0.7);
+  height : 100%;
+  width : 100%;
+  padding-top: 7.5vmin;
+}
+
 .card{
+	width: 40%;
 	border-radius: 45px;
-	margin-top: 3vmin;
-	margin-right: 25%;
-	margin-left: 25%;
+	margin-right: 45%;
+	margin-left: 10%;
+	margin-top: 5px;
 	background-color: #C7DDE0;
 	border-color: #434C54;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   	transition: 0.3s;
+  	text-align:center;
 }
+
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+label{
+	margin-bottom: 10px;
 }
