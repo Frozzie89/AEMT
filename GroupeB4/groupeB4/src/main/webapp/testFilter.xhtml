@@ -15,53 +15,53 @@
     <h2>Primefaces DataTable with filtering</h2>
 
     <h:form>
-        <p:dataTable var="employee" value="#{fc.students}"
+        <p:dataTable var="student" value="#{fc.students}"
                      filteredValue="#{fc.filteredStudents}"
-                     widgetVar="employeeWidget">
+                     widgetVar="studentWidget">
             
-            <p:column headerText="LA" filterBy="#{employee.registrationNumber}" filterMatchMode="contains">
-                <h:outputText value="#{employee.registrationNumber}"/>
+            <p:column headerText="LA" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
+                <h:outputText value="#{student.registrationNumber}"/>
             </p:column>
 
-            <p:column headerText="FirstName" filterBy="#{employee.firstName}" filterMatchMode="contains">
-                <h:outputText value="#{employee.firstName}"/>
+            <p:column headerText="FirstName" filterBy="#{student.firstName}" filterMatchMode="startsWith">
+                <h:outputText value="#{student.firstName}"/>
             </p:column>
             
-            <p:column headerText="LastName" filterBy="#{employee.lastName}" filterMatchMode="contains">
-                <h:outputText value="#{employee.lastName}"/>
+            <p:column headerText="LastName" filterBy="#{student.lastName}" filterMatchMode="startsWith">
+                <h:outputText value="#{student.lastName}"/>
             </p:column>
             
-            <p:column headerText="Section" filterBy="#{employee.section}"
+            <p:column headerText="Section" filterBy="#{student.section}"
                       filterMatchMode="contains">
                 <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
-                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Section..." itemValue="#{null}" noSelectionOption="true" />
                         <f:selectItems value="#{fc.getListSections()}" />
                     </p:selectOneMenu>
                 </f:facet>
-                <h:outputText value="#{employee.getSectionValue()}"/>
+                <h:outputText value="#{student.getSectionValue()}"/>
             </p:column>
 
-            <p:column headerText="Bloc" filterBy="#{employee.bloc}"
+            <p:column headerText="Bloc" filterBy="#{student.bloc}"
                       filterMatchMode="contains">
                 <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
-                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Bloc..." itemValue="#{null}" noSelectionOption="true" />
                         <f:selectItems value="#{fc.getListBloc()}" />
                     </p:selectOneMenu>
                 </f:facet>
-                <h:outputText value="#{employee.bloc}"/>
+                <h:outputText value="#{student.bloc}"/>
             </p:column>
             
-            <p:column headerText="PAE" filterBy="#{employee.pae}"
+            <p:column headerText="PAE" filterBy="#{student.pae}"
                       filterMatchMode="contains">
                 <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
-                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Pae..." itemValue="#{null}" noSelectionOption="true" />
                         <f:selectItems value="#{fc.getListPaeProgress()}" />
                     </p:selectOneMenu>
                 </f:facet>
-                <h:outputText value="#{employee.getPae().getPaeProgressValue()}"/>
+                <h:outputText value="#{student.getPae().getPaeProgressValue()}"/>
             </p:column>
             
 

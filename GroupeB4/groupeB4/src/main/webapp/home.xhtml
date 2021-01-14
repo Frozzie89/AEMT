@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
-<head>
+<html 	xmlns:jsf="http://xmlns.jcp.org/jsf" 
+		xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
+		xmlns:h = "http://java.sun.com/jsf/html" 
+		xmlns:f = "http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Home</title>
 <link href="Styles/home.css" rel="stylesheet" />
 <link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
-</head>
-<body>
+</h:head>
+<h:body>
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-light">
 
@@ -39,33 +43,33 @@
 
 
 <div class="container filterStudents">
-    <form>
+<!--    <form>
         <div class="form-group row">
-            <!-- select/option for section filtering -->
+            select/option for section filtering
             <div class="col">
                 <select>
-                    <!-- <option class="form-control"> -->
-                        <!-- TODO : Afficher les sections de l'enum -->
-                    <!-- </option> -->
+                    <option class="form-control">
+                        TODO : Afficher les sections de l'enum
+                    </option>
                     <option class="form-control">Comptabilité</option>
 					<option class="form-control">Informatique de gestion</option>
 					<option class="form-control">Assistant de direction</option>
                 </select>
             </div>
 
-            <!-- select/option for section filtering -->
+            select/option for section filtering
             <div class="col">
                 <select>
-                    <!-- <option class="form-control"> -->
-                        <!-- TODO : Afficher les blocs de la section selectionee -->
-                    <!-- </option> -->
+                    <option class="form-control">
+                        TODO : Afficher les blocs de la section selectionee
+                    </option>
                     <option class="form-control">Bloc 1</option>
 					<option class="form-control">Bloc 2</option>
 					<option class="form-control">Bloc 3</option>
                 </select>
             </div>
 
-            <!-- search bar for students -->
+            search bar for students
             <div class="col">
                 <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
@@ -78,13 +82,13 @@
             
           
 
-            <!-- filter per PAE status -->
+            filter per PAE status
             <div class="col filterPaeStatus">
                 <span>Filtrer par : </span>
                 <select id="filtrePae">
-                    <!-- <option class="form-control"> -->
-                        <!-- TODO : Afficher les status de PAE selon l'enum -->
-                    <!-- </option> -->
+                    <option class="form-control">
+                        TODO : Afficher les status de PAE selon l'enum
+                    </option>
 					<option class="form-control">Tous</option>
 					<option class="form-control">A faire</option>
 					<option class="form-control">Terminé</option>
@@ -120,9 +124,63 @@
 	    		#{student.getPae().getPaeProgressValue()}
 	    </h:column>
 	    <h:commandLink value="Delete a Hugo" action="#{testC.delete}"/>
-</h:dataTable>
+</h:dataTable> -->
 
+
+<h:form>
+        <p:dataTable var="student" value="#{fc.students}"
+                     filteredValue="#{fc.filteredStudents}"
+                     widgetVar="studentWidget">
+            
+            <p:column headerText="LA" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
+                <h:outputText value="#{student.registrationNumber}"/>
+            </p:column>
+
+            <p:column headerText="FirstName" filterBy="#{student.firstName}" filterMatchMode="startsWith">
+                <h:outputText value="#{student.firstName}"/>
+            </p:column>
+            
+            <p:column headerText="LastName" filterBy="#{student.lastName}" filterMatchMode="startsWith">
+                <h:outputText value="#{student.lastName}"/>
+            </p:column>
+            
+            <p:column headerText="Section" filterBy="#{student.section}"
+                      filterMatchMode="contains">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Section..." itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListSections()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{student.getSectionValue()}"/>
+            </p:column>
+
+            <p:column headerText="Bloc" filterBy="#{student.bloc}"
+                      filterMatchMode="contains">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Bloc..." itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListBloc()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{student.bloc}"/>
+            </p:column>
+            
+            <p:column headerText="PAE" filterBy="#{student.pae}"
+                      filterMatchMode="contains">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
+                        <f:selectItem itemLabel="Pae..." itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListPaeProgress()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{student.getPae().getPaeProgressValue()}"/>
+            </p:column>
+            
+
+        </p:dataTable>
+    </h:form>
 
 </div>
-</body>
+</h:body>
 </html>
