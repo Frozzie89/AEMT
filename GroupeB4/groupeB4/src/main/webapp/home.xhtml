@@ -93,7 +93,7 @@
                         <f:selectItems value="#{fc.getListPaeProgress()}" />
                     </p:selectOneMenu>
                 </f:facet>
-                <h:outputText value="#{student.getPae().getPaeProgressValue()}"/>
+                <h:commandLink value="#{student.getPae().getPaeProgressValue()}" action="#{pc.doSelectPae(student)}"/>
             </p:column>
             
 
