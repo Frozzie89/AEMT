@@ -27,27 +27,11 @@ public class ImportExcelController implements Serializable{
 	private Part excelPart;
 
 	public void loadExcel() {
-		
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4_Local");
-		EntityManager eManager = entityManagerFactory.createEntityManager();
-		
-		EntityTransaction tx = eManager.getTransaction();
-		
-		User user = new User("a", "a");
-		
-		tx.begin();
-		eManager.persist(user);
-		tx.commit();
-		
-		eManager.close();
-		entityManagerFactory.close();
-		
 	    String fileName = Paths.get(excelPart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 	    
 	    try (InputStream input = excelPart.getInputStream()) {
 	        File excelFile = new File(fileName);
 	        GenStudents gs = new GenStudents(new FileInputStream(excelFile));
-	        gs.test();
 	        
 	    }
 	    catch (IOException e) {

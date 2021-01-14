@@ -132,15 +132,15 @@
                      filteredValue="#{fc.filteredStudents}"
                      widgetVar="studentWidget">
             
-            <p:column headerText="LA" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
+            <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
                 <h:outputText value="#{student.registrationNumber}"/>
             </p:column>
 
-            <p:column headerText="FirstName" filterBy="#{student.firstName}" filterMatchMode="startsWith">
+            <p:column headerText="Nom" filterBy="#{student.firstName}" filterMatchMode="startsWith">
                 <h:outputText value="#{student.firstName}"/>
             </p:column>
             
-            <p:column headerText="LastName" filterBy="#{student.lastName}" filterMatchMode="startsWith">
+            <p:column headerText="Prenom" filterBy="#{student.lastName}" filterMatchMode="startsWith">
                 <h:outputText value="#{student.lastName}"/>
             </p:column>
             
@@ -166,7 +166,7 @@
                 <h:outputText value="#{student.bloc}"/>
             </p:column>
             
-            <p:column headerText="PAE" filterBy="#{student.pae}"
+            <p:column headerText="Status PAE" filterBy="#{student.pae}"
                       filterMatchMode="contains">
                 <f:facet name="filter">
                     <p:selectOneMenu onchange="PF('studentWidget').filter()" >
