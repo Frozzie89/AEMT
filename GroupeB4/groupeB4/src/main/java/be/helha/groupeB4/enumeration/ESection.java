@@ -1,7 +1,7 @@
 package be.helha.groupeB4.enumeration;
 
 public enum ESection {
-	COMPTABILITE("Comptabilité"),
+	COMPTABILITE("Comptabilite"),
 	INFORMATIQUE_DE_GESTION("Informatique de gestion"),
 	ASSISTANT_DE_DIRECTION("Assistant de direction");
 	
