@@ -14,8 +14,9 @@ import org.apache.poi.ss.usermodel.Row;
 	import org.apache.poi.ss.util.CellReference;
 	import org.apache.poi.xssf.usermodel.XSSFSheet;
 	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-	
-	import be.helha.groupeB4.entities.LearningActivity;
+
+import be.helha.groupeB4.control.FilterController;
+import be.helha.groupeB4.entities.LearningActivity;
 	import be.helha.groupeB4.entities.LearningUnit;
 	import be.helha.groupeB4.entities.Student;
 	import be.helha.groupeB4.enumeration.ESection;
@@ -31,7 +32,9 @@ import org.apache.poi.ss.usermodel.Row;
 	    
 	    
 		public static void main(String[] args) {
-			List<Student> listStudentTest = createStudents();
+			//List<Student> listStudentTest = createStudents();
+			FilterController fc = new FilterController();
+			fc.getListSections();
 		}
 	
 	    

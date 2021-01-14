@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Home</title>
+<link href="Styles/home.css" rel="stylesheet" />
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+</h:head>
+
+<h:body>
+    <h2>Primefaces DataTable with filtering</h2>
+
+    <h:form>
+        <p:dataTable var="employee" value="#{fc.students}"
+                     filteredValue="#{fc.filteredStudents}"
+                     widgetVar="employeeWidget">
+            
+            <p:column headerText="LA" filterBy="#{employee.registrationNumber}" filterMatchMode="contains">
+                <h:outputText value="#{employee.registrationNumber}"/>
+            </p:column>
+
+            <p:column headerText="FirstName" filterBy="#{employee.firstName}" filterMatchMode="contains">
+                <h:outputText value="#{employee.firstName}"/>
+            </p:column>
+            
+            <p:column headerText="LastName" filterBy="#{employee.lastName}" filterMatchMode="contains">
+                <h:outputText value="#{employee.lastName}"/>
+            </p:column>
+            
+            <p:column headerText="Section" filterBy="#{employee.section}"
+                      filterMatchMode="exact">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
+                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListSections()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{employee.getSectionValue()}"/>
+            </p:column>
+
+            <p:column headerText="Bloc" filterBy="#{employee.bloc}"
+                      filterMatchMode="contains">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
+                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListBloc()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{employee.bloc}"/>
+            </p:column>
+            
+            <p:column headerText="PAE" filterBy="#{employee.pae}"
+                      filterMatchMode="contains">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
+                        <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{fc.getListPaeProgress()}" />
+                    </p:selectOneMenu>
+                </f:facet>
+                <h:outputText value="#{employee.getPae().getPaeProgressValue()}"/>
+            </p:column>
+            
+
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
