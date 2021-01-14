@@ -35,6 +35,7 @@ public class GenStudents {
 		
 		try {
 			workbook = new XSSFWorkbook(this.file);
+			InsertStudentFromExcel.createStudents();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,22 +43,7 @@ public class GenStudents {
 		
 	}
 	
-	public void test()
-	{
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4_Local");
-		EntityManager eManager = entityManagerFactory.createEntityManager();
-		
-		EntityTransaction tx = eManager.getTransaction();
-		
-		User user = new User("a", "a");
-		
-		tx.begin();
-		eManager.persist(user);
-		tx.commit();
-		
-		eManager.close();
-		entityManagerFactory.close();
-	}
+	
 	
 	public void closeFile() {
         try {
