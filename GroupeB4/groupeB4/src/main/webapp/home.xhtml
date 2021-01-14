@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui" xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" xmlns:h = "http://java.sun.com/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Home</title>
@@ -38,12 +38,15 @@
 
 
 
+
+
+
 <div class="container filterStudents">
     <form>
         <div class="form-group row">
             <!-- select/option for section filtering -->
             <div class="col">
-                <select>
+                <select >
                     <!-- <option class="form-control"> -->
                         <!-- TODO : Afficher les sections de l'enum -->
                     <!-- </option> -->
@@ -94,35 +97,30 @@
     </form>
 </div>
 
-
-
-
 <div class="container">
-
-<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{studentController.doSelectAll()}" var="student" binding="#{studentController.table}">
-	    <h:column>
-    		<f:facet name="header">Nom</f:facet>
-	    		#{student.lastName}
-    	</h:column>
-    	
-	    <h:column>
-       		<f:facet name="header">Prénom</f:facet>
-	    		#{student.firstName}
-	    </h:column>
-	    
-  	    <h:column>
-       		<f:facet name="header">Matricule</f:facet>
-	    		#{student.registrationNumber}
-	    </h:column>
-	    
-    	<h:column>
-       		<f:facet name="header">Status PAE</f:facet>
-	    		#{student.getPae().getPaeProgressValue()}
-	    </h:column>
-	    <h:commandLink value="Delete a Hugo" action="#{testC.delete}"/>
-</h:dataTable>
-
-
+	<h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{studentController.doSelectAll()}" var="student" binding="#{studentController.table}">
+		    <h:column>
+	    		<f:facet name="header">Nom</f:facet>
+		    		#{student.lastName}
+	    	</h:column>
+	    	
+		    <h:column>
+	       		<f:facet name="header">Prénom</f:facet>
+		    		#{student.firstName}
+		    </h:column>
+		    
+	  	    <h:column>
+	       		<f:facet name="header">Matricule</f:facet>
+		    		#{student.registrationNumber}
+		    </h:column>
+		    
+	    	<h:column>
+	       		<f:facet name="header">Status PAE</f:facet>
+		    		#{student.getPae().getPaeProgressValue()}
+		    </h:column>
+		    <h:commandLink value="Delete a Hugo" action="#{testC.delete}"/>
+	</h:dataTable>
 </div>
+
 </body>
 </html>
