@@ -38,16 +38,16 @@
 <h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
 <center><hr/></center>
 <div class="excelForm">
-<form id="formExcel">
+<h:form id="formExcel" enctype="multipart/form-data">
 	<center>
     <div class="form-group">
         <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
         <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center><br></br>
-        <h:inputFile type="file" value="#{importExcel.excelFile}"></h:inputFile><br></br>
+        <h:inputFile value="#{importExcelController.excelPart}"></h:inputFile><br></br>
     </div>
-     <h:commandButton value="  Importer  " class="btn btn-primary" action="#{importExcel.upload()}" ></h:commandButton>
+     <h:commandButton value="  Importer  " class="btn btn-primary" action="#{importExcelController.loadExcel()}" ></h:commandButton>
     </center>
-</form>
+</h:form>
 </div>
 
 </body>

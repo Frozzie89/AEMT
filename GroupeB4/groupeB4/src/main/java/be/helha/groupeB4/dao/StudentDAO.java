@@ -58,8 +58,8 @@ public class StudentDAO{
 		// TODO Auto-generated method stub
 		 if(student ==null)
 			 return null;
+		 
 		 em.remove(student);
-	;
 		 return student;
 		
 	}
