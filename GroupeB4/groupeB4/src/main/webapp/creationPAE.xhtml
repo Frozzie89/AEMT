@@ -13,14 +13,20 @@
 <h:body>
 
 <h:form>
-        <p:dataTable var="ue" value="pc.getlists()">
+       <!--  <p:dataTable var="ue" value="#{pc.getlists()}">
             
             <p:column headerText="UE">
                 <h:outputText value="#{ue.label}"/>
             </p:column>
 
             
-        </p:dataTable>
+        </p:dataTable>-->
+         <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="student">
+	    <h:column>
+    		<f:facet name="header">Nom</f:facet>
+	    		#{student.label}
+    	</h:column>
+    	</h:dataTable>
     </h:form>
 
 </h:body>
