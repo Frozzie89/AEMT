@@ -17,7 +17,7 @@ public class MainData {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String tmp = ""+ System.currentTimeMillis()%1000;
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4_Local");
 		EntityManager eManager = entityManagerFactory.createEntityManager();
 		
@@ -28,12 +28,12 @@ public class MainData {
 		
 		Pae p1 = new Pae(EPaeProgress.TERMINE);
 		
-		LearningUnit ue1 = new LearningUnit("UE1", "ue1Label", 10, "y1");
-		LearningUnit ue2 = new LearningUnit("UE2", "ue2Label", 10, "y2");
+		LearningUnit ue1 = new LearningUnit("UE1"+tmp, "ue1Label", 10, "y1");
+		LearningUnit ue2 = new LearningUnit("UE2"+tmp, "ue2Label", 10, "y2");
 		
-		LearningActivity aa1 = new LearningActivity("AA1", "aa1Label", 5);		
-		LearningActivity aa2 = new LearningActivity("AA2", "aa2Label", 5);	
-		LearningActivity aa3 = new LearningActivity("AA3", "aa3Label", 5);	
+		LearningActivity aa1 = new LearningActivity("AA1"+tmp, "aa1Label", 5);		
+		LearningActivity aa2 = new LearningActivity("AA2"+tmp, "aa2Label", 5);	
+		LearningActivity aa3 = new LearningActivity("AA3"+tmp, "aa3Label", 5);	
 		
 		ue1.addLearning(aa1);
 		ue1.addLearning(aa2);
@@ -44,12 +44,12 @@ public class MainData {
 		
 		System.out.println(s1);
 		
-		User user = new User("u", "u", "ADMIN");
+		User user = new User("uazaze", "u", "ADMIN");
 		System.out.println(user);
 		
 		tx.begin();
-		// eManager.persist(s1);
-		eManager.persist(user);
+		 eManager.persist(s1);
+		//eManager.persist(user);
 		tx.commit();
 		
 		eManager.close();

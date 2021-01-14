@@ -17,7 +17,6 @@ import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.enumeration.EPaeProgress;
 import be.helha.groupeB4.enumeration.ESection;
 
-@ManagedBean
 @Named("pc")
 @ViewScoped
 public class PaeController implements Serializable{
@@ -46,8 +45,8 @@ public class PaeController implements Serializable{
 	}
 	
 	
-	public Pae doSelectPae(){
-		
+	public String doSelectPae(Student s){
+/*	
 		Student s1 = new Student("s1", "s1", "la1", "y1", 1, ESection.INFORMATIQUE_DE_GESTION);
 		System.out.println("s1: " + s1.toString());
 		
@@ -71,16 +70,22 @@ public class PaeController implements Serializable{
 		
 		
 		
-		return s1.getPae();
-		//return ejb.getPAE(student.getPae()); 
+		return s1.getPae();*/
+		setStudent(s);
+		return "paeCreation.xhtml?faces-redirect-true";
+			//ejb.getPAE(student.getPae()); 
 	}
 	
 	public List<LearningUnit> getlists(){
-		Pae pae = doSelectPae();
-		
-		return pae.getUeList();
+
+		return student.getPae().getUeList();
 	}
 	
+	public List<LearningUnit> doGetUEFromLUC(){
+		LearningUnitController luc = new LearningUnitController();
+		//return luc.doSelectSectionUE(getStudent());
+		return luc.doSelectAll();
+	}
 	
 	
 	
