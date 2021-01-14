@@ -120,9 +120,13 @@ public class FilterController implements Serializable{
 	public List<String> getListSections(){
 		List<String> listSections = new ArrayList<>();
 
-		for (ESection s : ESection.values()) { 
+	/*	for (ESection s : ESection.values()) { 
 			listSections.add(s.getSection().toString());
-		}
+		}*/
+		
+		listSections.add("Comptabilite");
+		listSections.add("Informatique");
+		listSections.add("Assistant");
 		
 		System.out.println(listSections.toString());
 		return listSections;

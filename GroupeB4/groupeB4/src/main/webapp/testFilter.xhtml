@@ -32,7 +32,7 @@
             </p:column>
             
             <p:column headerText="Section" filterBy="#{employee.section}"
-                      filterMatchMode="exact">
+                      filterMatchMode="contains">
                 <f:facet name="filter">
                     <p:selectOneMenu onchange="PF('employeeWidget').filter()" >
                         <f:selectItem itemLabel="Select dept" itemValue="#{null}" noSelectionOption="true" />
