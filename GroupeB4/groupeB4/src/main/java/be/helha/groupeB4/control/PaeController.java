@@ -32,8 +32,6 @@ public class PaeController implements Serializable{
 	private PaeEJB ejb;
 
 	private Student student ;
-	
-	private List<LearningUnit> 
 
 	public Student getStudent() {
 		return student;
