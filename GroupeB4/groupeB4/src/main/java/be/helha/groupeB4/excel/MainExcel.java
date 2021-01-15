@@ -4,7 +4,7 @@
 	import java.io.File;
 import java.util.List;
 
-import org.primefaces.model.file.UploadedFile;
+import org.primefaces.model.UploadedFile;
 
 import be.helha.groupeB4.dao.StudentDAO;
 import be.helha.groupeB4.control.FilterController;
@@ -40,8 +40,8 @@ import be.helha.groupeB4.entities.LearningActivity;
 			
 			
 			ImportController controller = new ImportController();
-			controller.importXLSX(file);
-			controller.handleImportedFile(file);
+			/*controller.importXLSX(file);
+			controller.handleImportedFile(file);*/
 			
 		}
 	

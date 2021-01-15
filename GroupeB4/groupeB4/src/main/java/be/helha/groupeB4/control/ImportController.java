@@ -14,7 +14,7 @@ import javax.inject.Named;
 
 import org.apache.commons.io.FileUtils;
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.file.UploadedFile;
+import org.primefaces.model.UploadedFile;
 
 import be.helha.groupeB4.ejb.LearningUnitEJB;
 import be.helha.groupeB4.ejb.StudentEJB;
@@ -24,7 +24,7 @@ import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
 @Named("ic")
 @RequestScoped
-public class ImportController implements Serializable {
+public class ImportController {
 	
 	@Inject
 	private StudentEJB ejbStudent;
@@ -40,9 +40,12 @@ public class ImportController implements Serializable {
 		List<LearningUnit> ue = new ArrayList<>();
 		List<Student> students = new ArrayList<>();
 		
+		//Lecture du fichier Excel
 		InsertStudentFromExcel.initFile(l_file);
 		ue = InsertStudentFromExcel.createLearningUnits();
 		students = InsertStudentFromExcel.createStudents();
+		
+		
 		ejbLU.addLearningUnits(ue);		
 		ejbStudent.addStudents(students);
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++ Petite Liste	 ++++++++++++++++++++++++++++++++++++++++++++++++"+ue.toString());
@@ -62,7 +65,7 @@ public class ImportController implements Serializable {
 	public void setFile(UploadedFile l_file) throws IOException {
 		file = new File(l_file.getFileName());
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++ OK SALE MERDE ++++++++++++++++++++++++++++++++++++++++++++++++=");
-		FileUtils.copyInputStreamToFile(l_file.getInputStream(), file);
+		FileUtils.copyInputStreamToFile(l_file.getInputstream(), file);
 		importXLSX(file);
 		
 	}
