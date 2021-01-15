@@ -11,27 +11,26 @@
 <link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-	<h:form>
-	<!--  
-        <p:dataTable var="ue" value="#{pc.getlists()}">
-            
-            <p:column headerText="UE">
-                <h:outputText value="#{ue.label}"/>
-            </p:column>
-            
-        </p:dataTable>-->
-        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="student">
-        <h:column>
-            <f:facet name="header">Nom de l'ue</f:facet>
-                #{student.label}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Nombre de crédits</f:facet>
-                #{student.totalCredits}
-        </h:column>
-        
-        </h:dataTable>
-    </h:form>
+	<div>
+		<h:form>
+			UE disponible
+			<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="ue">
+		        <p:column>
+		            <f:facet name="header">Nom de l'ue</f:facet>
+		                <h:commandLink value="  #{ue.label}" action="#{pc.addUEToPAE(ue)}"/>
+		        </p:column>
+	        </p:dataTable>
+		</h:form>	
+	</div>	
+	<div>
+	    <h:dataTable class="tableEtudiants table table-bordered" value="#{pc.getlists()}" var="pae">
+		    <h:column>
+		   		<f:facet name="header">Membre</f:facet>
+		             <h:commandLink value=" #{pae.label}" action="#{pc.removeUEFromPAE(pae)}"/>
+		   	</h:column>
+		    
+		</h:dataTable>
+    </div>
 
 </h:body> 
 </html>

@@ -42,7 +42,7 @@ public class LearningUnitController implements Serializable{
 		List<LearningUnit> listUE = new ArrayList<>();
 		List<LearningUnit> listAllUE = new ArrayList<>();
 		listAllUE = doSelectAll();
-
+		System.out.println(listAllUE.toString());
 		for(int i = 0; i < listAllUE.size() ; i++) {
 			switch(s.getSection()) {
 				case COMPTABILITE:

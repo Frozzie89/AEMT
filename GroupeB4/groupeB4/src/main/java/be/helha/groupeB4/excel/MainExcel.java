@@ -29,17 +29,17 @@ import be.helha.groupeB4.entities.LearningActivity;
 //			PaeController pc = new PaeController();
 //			System.out.println(pc.doGetUEFromLUC());
 			
-//			LearningUnitController lc = new LearningUnitController();
-//			LearningUnitDAO lud = new LearningUnitDAO();
-//			System.out.println(lud.getAllLearningUnits());
+			//LearningUnitController lc = new LearningUnitController();
+			LearningUnitDAO lud = new LearningUnitDAO();
+			System.out.println(lud.getAllLearningUnits());
 			
-			StudentDAO st = new StudentDAO();
-			System.out.println(st.getAllStudent());
-			
-			UploadedFile file;
-			
-			
-			ImportController controller = new ImportController();
+//			StudentDAO st = new StudentDAO();
+//			System.out.println(st.getAllStudent());
+//			
+//			UploadedFile file;
+//			
+//			
+//			ImportController controller = new ImportController();
 			/*controller.importXLSX(file);
 			controller.handleImportedFile(file);*/
 			

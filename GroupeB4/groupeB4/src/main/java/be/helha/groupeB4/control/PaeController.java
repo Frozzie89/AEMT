@@ -59,6 +59,14 @@ public class PaeController implements Serializable{
 		return luc.doSelectAll();
 	}
 	
+	public void addUEToPAE(LearningUnit lu){
+		student.getPae().addLearningUnit(lu);
+	}
+	
+	public void removeUEFromPAE(LearningUnit lu){
+		student.getPae().removeLearningUnit(lu);
+	}
+	
 	
 	
 
