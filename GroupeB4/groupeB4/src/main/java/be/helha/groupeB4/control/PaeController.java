@@ -30,12 +30,8 @@ public class PaeController implements Serializable{
 	
 	@Inject
 	private PaeEJB ejb;
-	
-	
-	
-	
-	private Student student ;
 
+	private Student student ;
 
 	public Student getStudent() {
 		return student;
