@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.eclipse.persistence.annotations.CascadeOnDelete;
+
 import be.helha.groupeB4.enumeration.EPaeProgress;
 
 @Entity
@@ -20,7 +22,8 @@ public class Pae implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToMany(cascade= CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, orphanRemoval= true,cascade= {CascadeType.ALL})
+	@CascadeOnDelete
 	private List<LearningUnit> ueList;
 	
 	private EPaeProgress paeProgress;

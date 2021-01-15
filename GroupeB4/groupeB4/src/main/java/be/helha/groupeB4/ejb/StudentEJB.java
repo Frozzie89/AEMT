@@ -34,6 +34,10 @@ public class StudentEJB {
 		return dao.getAllStudent();
 	}
 	
+	public void clean() {
+		dao.cleanTables();
+		return;
+	}
 	
 
 	

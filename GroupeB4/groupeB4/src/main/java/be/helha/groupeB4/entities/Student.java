@@ -9,6 +9,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,8 @@ public class Student implements Serializable{
 	
 	private int bloc;
 	
-	@OneToOne(cascade= CascadeType.ALL)
+	@OneToOne(orphanRemoval= true,cascade= CascadeType.ALL)
+	@CascadeOnDelete
 	private Pae pae;
 	/*
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
