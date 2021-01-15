@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToOne;
 
+import org.eclipse.persistence.annotations.CascadeOnDelete;
+
 import be.helha.groupeB4.enumeration.EPaeProgress;
 import be.helha.groupeB4.enumeration.ESection;
 
@@ -43,6 +45,7 @@ public class Student implements Serializable{
 	@CollectionTable(name="student_learningActivity")
 	@MapKeyJoinColumn(name="la_id")
 	@Column(name="Grade")
+	@CascadeOnDelete
 	private Map<LearningActivity, Double> bulletin;
 	
 	private ESection section;

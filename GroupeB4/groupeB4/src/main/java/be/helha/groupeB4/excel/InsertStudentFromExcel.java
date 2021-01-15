@@ -3,7 +3,8 @@
 
 	import java.io.File;
 	import java.io.FileInputStream;
-	import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 	import java.util.ArrayList;
 	import java.util.HashMap;
 	import java.util.List;
@@ -27,8 +28,8 @@
 		
 	    static CellReference cr;
 	    
-	    public static void initFile(){
-	        try {
+	    public static void initFile(File l_file){
+	        /*try {
 	            file = new FileInputStream(
 	                    new File("C:\\Cours\\ListeShortBis.xlsx"));
 
@@ -37,7 +38,19 @@
 	            
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	        }
+	        }*/
+	    	
+	    	try {
+				file = new FileInputStream(l_file);
+				workbook = new XSSFWorkbook(file);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	
 	    }
 		
 		public static void closeFile() {
@@ -59,7 +72,7 @@
 
 	    public static List<Student> createStudents() {
 	        // initFile
-	        initFile();
+	        //initFile();
 	    	
 	        // Deviendra un objet Student
 	        String studentNameToSplit, studentMatricule, studentClassString;
@@ -125,13 +138,13 @@
 		        }
 	        	listActivity = null;
 	        }
-	        closeFile();
+	        //closeFile();
 	        return listStudent;
 	    }
 	    public static List<LearningUnit> createLearningUnits(){
 	    	List<LearningUnit> list = new ArrayList<>();
 	    	List<LearningUnit> listBis = new ArrayList<>();
-	    	initFile();
+	    	//initFile();
 	    	for(int i=0; i < workbook.getNumberOfSheets() ; i++) {
 	    		sheet = workbook.getSheetAt(i);
 	    		listBis = createLearningUnits(sheet);
@@ -359,4 +372,6 @@
 	    	}
 	    	return listActivity;
 	    }
+	    //Learning unit puis etudiant
+	    
 	}
