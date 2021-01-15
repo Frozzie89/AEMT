@@ -20,6 +20,10 @@ public class StudentEJB {
 		return dao.addStudent(student);
 	}
 	
+	public List<Student> addStudents(List<Student> students){
+		return dao.addStudents(students);
+	}
+	
 	public List<Student> addStudent() {
 		
 		return dao.getliste();

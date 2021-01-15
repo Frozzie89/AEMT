@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   xmlns:jsf="http://xmlns.jcp.org/jsf" 
+        xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
+        xmlns:h = "http://java.sun.com/jsf/html" 
+        xmlns:f = "http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Home</title>
+<link href="Styles/home.css" rel="stylesheet" />
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+	<h:form>
+	<!--  
+        <p:dataTable var="ue" value="#{pc.getlists()}">
+            
+            <p:column headerText="UE">
+                <h:outputText value="#{ue.label}"/>
+            </p:column>
+            
+        </p:dataTable>-->
+        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="student">
+        <h:column>
+            <f:facet name="header">Nom de l'ue</f:facet>
+                #{student.label}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Nombre de crédits</f:facet>
+                #{student.totalCredits}
+        </h:column>
+        
+        </h:dataTable>
+    </h:form>
+
+</h:body> 
+</html>
