@@ -22,16 +22,8 @@ public class LearningUnitEJB {
 		return dao.addLearningUnit(ue);
 	}
 	
-	public List<LearningUnit> addLearningUnits(List<LearningUnit> learningUnits) {
-		
-		return dao.addLearningUnits(learningUnits);
-	}
-
-
-	
-	public List<LearningUnit> addLearningUnits() {
-		
-		return dao.getliste();
+	public List<LearningUnit> addLearningUnits(List<LearningUnit> ue) {
+		return dao.addLearningUnits(ue);
 	}
 
 	

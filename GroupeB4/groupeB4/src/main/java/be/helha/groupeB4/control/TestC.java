@@ -57,7 +57,7 @@ public class TestC implements Serializable{
 		
 		List<LearningUnit> maliste = new ArrayList<>();
 		maliste = stfu.createLearningUnits();
-		ejb2.addLearningUnits();
+		//ejb2.addLearningUnits();
 		return maliste;
 	}
 

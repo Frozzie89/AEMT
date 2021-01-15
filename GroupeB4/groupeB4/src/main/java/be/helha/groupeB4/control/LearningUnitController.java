@@ -34,7 +34,7 @@ public class LearningUnitController implements Serializable{
 	public List<LearningUnit> getLearningUnits() {
 		List<LearningUnit> maliste = new ArrayList<>();
 		maliste = stfu.createLearningUnits();
-		ejb.addLearningUnits();
+		ejb.addLearningUnits(maliste);
 		return maliste;
 	}
 	

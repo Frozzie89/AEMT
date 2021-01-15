@@ -9,11 +9,14 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToOne;
+
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 import be.helha.groupeB4.enumeration.EPaeProgress;
 import be.helha.groupeB4.enumeration.ESection;
@@ -30,7 +33,8 @@ public class Student implements Serializable{
 	
 	private int bloc;
 	
-	@OneToOne(cascade= CascadeType.ALL)
+	@OneToOne(orphanRemoval= true,cascade= CascadeType.ALL)
+	@CascadeOnDelete
 	private Pae pae;
 	/*
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -43,6 +47,7 @@ public class Student implements Serializable{
 	@CollectionTable(name="student_learningActivity")
 	@MapKeyJoinColumn(name="la_id")
 	@Column(name="Grade")
+	@CascadeOnDelete
 	private Map<LearningActivity, Double> bulletin;
 	
 	private ESection section;
