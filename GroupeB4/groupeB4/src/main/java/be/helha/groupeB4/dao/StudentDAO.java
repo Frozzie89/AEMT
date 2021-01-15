@@ -26,14 +26,10 @@ public class StudentDAO{
 	
 	
 	public List<Student> addStudents(List<Student> students) {
-		
-		
 		for (int i=0; i< students.size() ;i++) {
 			em.persist(students.get(i));
 		}
 		return students;
-		
-		
 	}
 	
 	public List<Student> getAllStudent() {
@@ -49,7 +45,6 @@ public class StudentDAO{
 		 
 		 em.remove(student);
 		 return student;
-		
 	}
 
 

@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -20,7 +16,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
 import be.helha.groupeB4.entities.Student;
-import be.helha.groupeB4.entities.User;
 import be.helha.groupeB4.enumeration.ESection;
 
 public class GenStudents {
@@ -29,21 +24,22 @@ public class GenStudents {
 	private XSSFSheet sheet;
 	private int nbOfRows;
 	private CellReference cr;
+
+	
 	
 	public GenStudents(FileInputStream file) {
 		this.file = file;
 		
 		try {
 			workbook = new XSSFWorkbook(this.file);
-			InsertStudentFromExcel.createStudents();
+			// InsertStudentFromExcel.createStudents();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-	
-	
 	
 	public void closeFile() {
         try {
@@ -127,6 +123,7 @@ public class GenStudents {
         	listActivity = null;
         }
         closeFile();
+        
         return listStudent;
     }
     
@@ -147,7 +144,6 @@ public class GenStudents {
     }
     
     public List<LearningUnit> createLearningUnits(XSSFSheet sheet) {
-    	
     	String temporaryUE, temporaryAA;
         List<LearningUnit> listUnit = new ArrayList<>();
         
