@@ -20,11 +20,16 @@
             </p:column>
             
         </p:dataTable>-->
-        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="student">
+        <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="student">
         <h:column>
-            <f:facet name="header">Nom</f:facet>
+            <f:facet name="header">Nom de l'ue</f:facet>
                 #{student.label}
         </h:column>
+        <h:column>
+            <f:facet name="header">Nombre de crédits</f:facet>
+                #{student.totalCredits}
+        </h:column>
+        
         </h:dataTable>
     </h:form>
 
