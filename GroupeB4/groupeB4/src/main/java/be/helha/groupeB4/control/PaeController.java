@@ -41,7 +41,6 @@ public class PaeController implements Serializable{
 		this.student = student;
 	}
 	
-	
 	public String doSelectPae(Student s){
 		
 		setStudent(s);

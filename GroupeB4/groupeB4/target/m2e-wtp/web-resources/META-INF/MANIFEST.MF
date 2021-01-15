@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: frozt
-Build-Jdk: 11.0.8
+Built-By: lieve
+Build-Jdk: 11
 Created-By: Maven Integration for Eclipse
 

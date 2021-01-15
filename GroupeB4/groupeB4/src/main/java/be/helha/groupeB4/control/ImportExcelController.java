@@ -45,13 +45,8 @@ public class ImportExcelController implements Serializable{
 	        File excelFile = new File(fileName);
 			
 	        GenStudents gs = new GenStudents(new FileInputStream(excelFile));
-	        List<LearningUnit> learningUnitList = gs.createLearningUnits();
-	        List<Student> studentList = gs.createStudents();
-	        
-	        learningUnitEjb.addLearningUnits(learningUnitList);
-	        studentEjb.addStudents(studentList);
-	        
-	        gs.closeFile();
+	        gs.createLearningUnits();
+	        gs.createStudents();
 	        
 	    }
 	    catch (IOException e) {
