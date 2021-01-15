@@ -41,7 +41,6 @@ public class PaeController implements Serializable{
 		this.student = student;
 	}
 	
-	
 	public String doSelectPae(Student s){
 		
 		setStudent(s);
@@ -59,8 +58,5 @@ public class PaeController implements Serializable{
 		//return luc.doSelectSectionUE(getStudent());
 		return luc.doSelectAll();
 	}
-	
-	
-	
 
 }
