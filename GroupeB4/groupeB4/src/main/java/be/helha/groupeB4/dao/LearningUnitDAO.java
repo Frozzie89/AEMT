@@ -19,16 +19,6 @@ public class LearningUnitDAO{
 	private EntityManager em; 
 	private InsertStudentFromExcel stu;
 	
-	public List<LearningUnit> getliste(){
-		List<LearningUnit> studs = new ArrayList<>();
-		
-		studs = stu.createLearningUnits();
-		addLearningUnits(studs);
-		
-		
-		return studs;
-	
-	}
 	public LearningUnit addLearningUnit(LearningUnit ue) {
 		// TODO Auto-generated method stub
 		em.persist(ue);

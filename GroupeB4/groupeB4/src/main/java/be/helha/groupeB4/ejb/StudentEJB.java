@@ -15,14 +15,18 @@ public class StudentEJB {
 	@EJB
 	private StudentDAO dao;
 
+	public List<Student> addStudent() {
+		return dao.getAllStudent();
+	}
+	
 	public Student addStudent(Student student) {
 	
 		return dao.addStudent(student);
 	}
 	
-	public List<Student> addStudent() {
+	public List<Student> addStudents(List<Student> l_students) {
 		
-		return dao.getliste();
+		return dao.addStudents(l_students);
 	}
 
 	public List<Student> getAllStudent() {

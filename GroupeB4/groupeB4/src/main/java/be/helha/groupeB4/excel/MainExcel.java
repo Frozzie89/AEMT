@@ -1,10 +1,14 @@
 
 	package be.helha.groupeB4.excel;
 
-	import java.util.List;
+	import java.io.File;
+import java.util.List;
+
+import org.primefaces.model.file.UploadedFile;
 
 import be.helha.groupeB4.dao.StudentDAO;
 import be.helha.groupeB4.control.FilterController;
+import be.helha.groupeB4.control.ImportController;
 import be.helha.groupeB4.control.LearningUnitController;
 import be.helha.groupeB4.control.PaeController;
 import be.helha.groupeB4.dao.LearningUnitDAO;
@@ -31,6 +35,13 @@ import be.helha.groupeB4.entities.LearningActivity;
 			
 			StudentDAO st = new StudentDAO();
 			System.out.println(st.getAllStudent());
+			
+			UploadedFile file;
+			
+			
+			ImportController controller = new ImportController();
+			controller.importXLSX(file);
+			controller.handleImportedFile(file);
 			
 		}
 	
