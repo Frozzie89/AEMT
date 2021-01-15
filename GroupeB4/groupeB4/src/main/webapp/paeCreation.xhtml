@@ -13,7 +13,7 @@
 <h:body>
 	<div>
 		<h:form>
-			UE disponible
+			<h1>UE disponible</h1>
 			<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="ue">
 		        <p:column>
 		            <f:facet name="header">Nom de l'ue</f:facet>
@@ -23,13 +23,15 @@
 		</h:form>	
 	</div>	
 	<div>
-	    <h:dataTable class="tableEtudiants table table-bordered" value="#{pc.getlists()}" var="pae">
-		    <h:column>
-		   		<f:facet name="header">Membre</f:facet>
-		             <h:commandLink value=" #{pae.label}" action="#{pc.removeUEFromPAE(pae)}"/>
-		   	</h:column>
-		    
-		</h:dataTable>
+		<h:form>
+			<h1>PAE</h1>
+		    <h:dataTable class="tableEtudiants table table-bordered" value="#{pc.getlists()}" var="pae">
+			    <h:column>
+			   		<f:facet name="header">UE</f:facet>
+			             <h:commandLink value=" #{pae.label}" action="#{pc.removeUEFromPAE(pae)}"/>
+			   	</h:column>
+			</h:dataTable>
+		</h:form>
     </div>
 
 </h:body> 
