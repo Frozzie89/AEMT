@@ -68,3 +68,9 @@ li>a {
 #NavBarDisconnect:hover {
     color: red;
 }
+.tableStudent{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+}
