@@ -21,35 +21,17 @@ public class StudentDAO{
 		
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
-		cleanTables();
+		// cleanTables();
 		em.persist(student);
 		return student;
 	}
 	
 	
-	public void cleanTables() {
-		
-		    Query q1 = em.createQuery("DELETE * FROM learningactivity");
-		    Query q2 = em.createQuery("DELETE * FROM learningunit");
-		    Query q3 = em.createQuery("DELETE * FROM learningunit_learningactivity");
-		    Query q4 = em.createQuery("DELETE * FROM pae");
-		    Query q5 = em.createQuery("DELETE * FROM pae_learningunit");
-		    Query q6 = em.createQuery("DELETE * FROM student");
-
-		    q5.executeUpdate();
-		    q4.executeUpdate();
-		    q3.executeUpdate();
-		    q2.executeUpdate();
-		    q1.executeUpdate();
-		    q6.executeUpdate();
-
-		    
-
-	}
+	
 	
 	
 	public List<Student> addStudents(List<Student> students) {
-		cleanTables();
+		//cleanTables();
 		for (int i=0; i< students.size() ;i++) {
 			em.persist(students.get(i));
 		}

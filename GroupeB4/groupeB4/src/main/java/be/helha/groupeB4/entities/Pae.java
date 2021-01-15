@@ -23,6 +23,7 @@ public class Pae implements Serializable{
 	private Integer id;
 	
 	@OneToMany(fetch = FetchType.EAGER, orphanRemoval= true,cascade= {CascadeType.ALL})
+	@CascadeOnDelete
 	private List<LearningUnit> ueList;
 	
 	private EPaeProgress paeProgress;

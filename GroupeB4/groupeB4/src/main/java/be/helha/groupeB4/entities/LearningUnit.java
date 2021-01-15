@@ -23,6 +23,7 @@ public class LearningUnit implements Serializable{
 	
 	
 	@OneToMany( fetch = FetchType.EAGER, orphanRemoval= true,cascade= {CascadeType.ALL})
+	@CascadeOnDelete
 	private List<LearningActivity> aaList;
 	
 	public LearningUnit() {

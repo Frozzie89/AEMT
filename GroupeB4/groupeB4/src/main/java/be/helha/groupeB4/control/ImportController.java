@@ -44,7 +44,7 @@ public class ImportController {
 		InsertStudentFromExcel.initFile(l_file);
 		ue = InsertStudentFromExcel.createLearningUnits();
 		students = InsertStudentFromExcel.createStudents();
-		
+	//	ejbStudent.clean();
 		
 		ejbLU.addLearningUnits(ue);		
 		ejbStudent.addStudents(students);
