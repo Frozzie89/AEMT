@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="#{request.contextPath}/styles/style.css" type="text/css"/>
+    <link rel="stylesheet" href="#{request.contextPath}/styles/home.css" type="text/css"/>
+    <link href="#{request.contextPath}/javax.faces.resource/theme.css.xhtml?ln=primefaces-aristo" rel="stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/462a7af62d.js" crossorigin="anonymous"></script>
+    <title>Projet PAE Groupe 6</title>
+</h:head>
+
+<h:body>
+    <div class="body-container">
+       
+
+        <div class="uploadxlsx">
+            <h:form>
+                <p:fileUpload fileUploadListener="#{uploadControl.handleFileUpload}" mode="advanced" dragDropSupport="true"
+                              update="messages" sizeLimit="1000000000" allowTypes="/(\.|\/)(xlsx)$/" fileLimit="1"
+                              invalidFileMessage="Le fichier importé n'est pas correct, veuillez choisir un .XLSX"
+                              invalidSizeMessage="Le fichier importé est trop gros, veuillez choisir un fichier plus petit"
+                              fileLimitMessage="Trop de fichier importé, veuillez n'envoyer qu'un seul fichier"/>
+
+                <p:growl id="messages" showDetail="true" />
+            </h:form>
+        </div>
+    </div>
+</h:body>
+
+</html>
