@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 @Entity
 public class LearningUnit implements Serializable{
@@ -18,7 +21,8 @@ public class LearningUnit implements Serializable{
 	private int totalCredits;
 	private String schoolYear;
 	
-	@OneToMany(cascade= CascadeType.PERSIST, fetch = FetchType.EAGER)
+	
+	@OneToMany( fetch = FetchType.EAGER, orphanRemoval= true,cascade= {CascadeType.ALL})
 	private List<LearningActivity> aaList;
 	
 	public LearningUnit() {
