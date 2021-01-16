@@ -37,10 +37,10 @@
 	</div>
 	<div class="tables">
 	
-	<div class="ueReussie">
+ 	<div class="ueReussie">
 			<h:form>
 				<h1>UE reussie</h1>
-				<p:dataTable class="tableEtudiants" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="ue">
+				<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUESucces(pc.getStudent())}" var="ue">
 			        <p:column>
 			            <f:facet name="header">Nom de l'U.E.</f:facet>
 			                <h:commandLink value="  #{ue.label}"/>
@@ -51,7 +51,7 @@
 		<div class="ueDisponible">
 			<h:form>
 				<h1>UE disponible</h1>
-				<p:dataTable class="tableEtudiants" value="#{luc.doSelectSectionUEAvailable(pc.getStudent())}" var="ue">
+				<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="ue">
 			        <p:column>
 			            <f:facet name="header">Nom de l'U.E</f:facet>
 			                <h:commandLink value="  #{ue.label}" action="#{pc.addUEToPAE(ue)}"/>
