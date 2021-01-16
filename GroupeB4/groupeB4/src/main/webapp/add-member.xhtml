@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f = "http://java.sun.com/jsf/core">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Add member</title>
-<link href="../Bootstrap/css/bootstrap.css" rel="stylesheet"/>
-<link href="../Styles/Admin/add-member.css" rel="stylesheet" />
-</head>
-<body>
-
-<div class="returnAdmin">
-	<a href="home.xhtml">Retour vers admin</a>
-</div>
-<div class="title">
-	<h1>Ajoutez un membre</h1>
-</div>
-
-<center><hr></hr></center>
-
-<div class="formUser">
-	<form jsf:id="f1">
-	    <div class="form-group">
-	        <label for="userName">Pseudonyme : </label>
-	        <input type="text" class="form-control" id="userName" jsf:value="#{userController.userName}" ></input>
-	    </div>
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" 
+	  xmlns:h = "http://java.sun.com/jsf/html"
+	  xmlns:f = "http://java.sun.com/jsf/core"
+	  xmlns:ui= "http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Add member</title>
+	<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<link href="Styles/add-member.css" rel="stylesheet" />
+</h:head>
+<h:body>
 	
-	    <div class="form-group">
-	        <label for="password">Mot de passe : </label>
-	        <input type="password" class="form-control" id="password" jsf:value="#{userController.userPassword}"></input>
-	    </div>
+	<div class="navbarAdmin">
+		<ui:include src="navbarAdmin.xhtml"/>
+	</div>
+	<div class="title">
+		<h1>Ajoutez un membre</h1>
+	</div>
 	
-	    <div class="form-group">
-	        <label for="passwordConfirm">Mot de passe (confirmation) : </label>
-	        <input type="password" class="form-control" id="passwordConfirm" jsf:value="#{userController.passwordConfirm}"></input>
-	    </div>
-	    <input type="submit" value="Envoyer" class="btn" jsf:action="#{userController.addUser()}" ></input>
-	</form>
-</div>
+	<center><hr></hr></center>
+	
+	<div class="formUser">
+		<form jsf:id="f1">
+		    <div class="form-group">
+		        <label for="userName">Pseudonyme : </label>
+		        <input type="text" class="form-control" id="userName" jsf:value="#{userController.userName}" ></input>
+		    </div>
+		
+		    <div class="form-group">
+		        <label for="password">Mot de passe : </label>
+		        <input type="password" class="form-control" id="password" jsf:value="#{userController.userPassword}"></input>
+		    </div>
+		
+		    <div class="form-group">
+		        <label for="passwordConfirm">Mot de passe (confirmation) : </label>
+		        <input type="password" class="form-control" id="passwordConfirm" jsf:value="#{userController.passwordConfirm}"></input>
+		    </div>
+		    <input type="submit" value="Envoyer" class="btn" jsf:action="#{userController.addUser()}" ></input>
+		</form>
+	</div>
 
-</body>
+</h:body>
 </html>
