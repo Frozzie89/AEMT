@@ -1,3 +1,7 @@
+body{
+	background-color: #EBE8E2;
+}
+
 form{
     margin: auto;
     width: 50%;
@@ -16,14 +20,14 @@ form>input[type=submit]{
   font-size: 14pt;
 }
 
-.btn{
+.formUser .btn{
 	margin-top: 3vmin;
     background: #434C54;
     border-radius: 45px;
     color: white;
 }
 
-.btn:hover {
+.formUser .btn:hover {
     color: #495057;
     background-color: #069B93;
     border-color: #06699b;
@@ -54,35 +58,9 @@ hr{
 	margin-top: 5vmin;
 }
 
-.returnAdmin{
-	margin: 1vmin;
-}
-
-a{
-	border-color: black;
-	border-radius: 45px;
-  	text-decoration: none;
-  	display: inline-block;
-  	width: 19.5%;
-  	margin-right: 0.625%;
-  	text-align: center;
-  	line-height: 3;
-  	color: white;
-}
-
-a:link, a:visited, a:focus{
-	background:  #434C54;
-}
-
-a:hover{
-	background: #069B93;
-	color: black;
-}
-
-a:active{
-	background: #C7DDE0;
-	color: black;
-}
 .formUser{
 	text-align: center;
+}
+.navbar {
+	height: 25%;
 }

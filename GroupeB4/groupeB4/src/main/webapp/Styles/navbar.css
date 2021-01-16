@@ -1,0 +1,117 @@
+.col-xs-3{
+    margin-left: 15px;
+}
+.navbar{
+	background-color:#C7DDE0;
+}
+.nav-link{
+	color: red;
+}
+.filterPaeStatus{
+    margin-left: 1vmin;
+    margin-right: 2vmin;
+}
+#filtrePae{
+	background-color: #F1F1F1; 
+}
+#filtrePae .formcontrol{
+	background-color: DodgerBlue;
+}
+.formControl{
+	background-color: red;
+}
+.filterStudents{
+    margin-top: 15px;
+}
+
+#logoHelha {
+	display:flex;
+	orientation: flex-start;
+    max-width: 150px;
+    height: auto;
+    margin-left: auto;
+    margin-right: 5vmin;
+}
+
+#formLogo{
+	margin-left:auto;
+}
+
+li {
+    margin-right: 30px;
+}
+
+li>a {
+    font-weight: bold;
+    font-size: large;
+}
+
+#NavBarDisconnect{
+    cursor: pointer;
+}
+
+#NavBarDisconnect:hover {
+    color: red;
+}
+.tableStudent{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+}
+
+.returnHome{
+	margin: 1vmin;
+}
+
+.returnHome a{
+	border-color: black;
+	border-radius: 45px;
+  	text-decoration: none;
+  	display: inline-block;
+  	width: 40vmin;
+  	margin-right: 0.625%;
+  	text-align: center;
+  	line-height: 3;
+  	color: white;
+}
+
+.returnHome a:link, .returnHome a:visited, .returnHome a:focus{
+	background:  #434C54;
+}
+
+.returnHome a:hover{
+	background: #069B93;
+	color: black;
+}
+
+.returnHome a:active{
+	background: #C7DDE0;
+	color: black;
+}
+
+.returnAdmin a{
+	border-color: black;
+	border-radius: 45px;
+  	text-decoration: none;
+  	display: inline-block;
+  	width: 40vmin;
+  	margin-right: 0.625%;
+  	text-align: center;
+  	line-height: 3;
+  	color: white;
+}
+
+.returnAdmin a:link, .returnAdmin a:visited, .returnAdmin a:focus{
+	background:  #434C54;
+}
+
+.returnAdmin a:hover{
+	background: #069B93;
+	color: black;
+}
+
+.returnAdmin a:active{
+	background: #C7DDE0;
+	color: black;
+}

@@ -6,12 +6,24 @@
 		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
         xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Home</title>
-<link href="Styles/paeCreation.css" rel="stylesheet" />
-<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Home</title>
+	<link href="Styles/paeCreation.css" rel="stylesheet" />
+	<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<script type = "text/javascript">
+		function changeColor(){
+			var totalCredits = #{pc.calculCredit()};
+			var creditsToShow = document.getElementById('credits')
+			if(totalCredits > 45){
+				creditsToShow.style.backgroundColor = "green"
+			}
+			else { 
+				creditsToShow.style.backgroundColor = "red"
+			}
+		}
+	</script>
 </h:head>
-<h:body>
+<h:body onload="changeColor();">
 
 	<ui:include src="navbar.xhtml"/>
 	<div class="infoStudent">
@@ -31,8 +43,8 @@
 			        </p:column>
 		        </p:dataTable>
 		</h:form>
-		<div class="credits">
-			<h1>#{pc.calculCredit()}</h1>
+		<div class="credits" id='credits' >
+			#{pc.calculCredit()}
 		</div>	
 	</div>
 	<div class="tables">

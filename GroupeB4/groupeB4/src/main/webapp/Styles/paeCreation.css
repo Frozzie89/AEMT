@@ -1,3 +1,6 @@
+body{
+	background-color: #FEFEE2;
+}
 .tables{
 	display: in-line;
 	margin-top: 5vmin;
@@ -106,6 +109,7 @@
 }
 
 .infoStudent{
+	display: block-inline;
 	width: 75%;
 	margin-top: 5vmin;
 	margin-bottom: 5vmin;
@@ -115,4 +119,8 @@
 
 .infoStudent td{
 	text-align: center;
+}
+
+.credits{
+	width: 10%;
 }
