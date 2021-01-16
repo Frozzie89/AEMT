@@ -6,8 +6,8 @@ public enum EPaeProgress {
 	TERMINE("Termine");
 	
 	private String progress;
-	private EPaeProgress(String progres) {
-		this.progress=progres;
+	private EPaeProgress(String progress) {
+		this.progress=progress;
 	}
 	
 	public String getProgress() {

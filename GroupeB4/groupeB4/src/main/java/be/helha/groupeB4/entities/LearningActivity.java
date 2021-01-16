@@ -10,7 +10,7 @@ public class LearningActivity implements Serializable{
 	@Id
 	private String id;
 	private String label;
-	private int credit;
+	private int credits;
 	
 	public LearningActivity() {
 		// TODO Auto-generated constructor stub
@@ -20,7 +20,7 @@ public class LearningActivity implements Serializable{
 		super();
 		this.id = id;
 		this.label = label;
-		this.credit = credit;
+		this.credits = credit;
 	}
 	
 	//----------------------- GET & SET -----------------------
@@ -36,19 +36,19 @@ public class LearningActivity implements Serializable{
 		this.label = label;
 	}
 
-	public int getCredit() {
-		return credit;
+	public int getCredits() {
+		return credits;
 	}
 
-	public void setCredit(int credit) {
-		this.credit = credit;
+	public void setCredits(int credit) {
+		this.credits = credit;
 	}
 
 	//----------------------- Fin GET & SET -----------------------
 
 	@Override
 	public String toString() {
-		return "\t"+id + " " + label + ", credit=" + credit ;
+		return "\t"+id + " " + label + ", credit=" + credits ;
 	}
 
 	@Override

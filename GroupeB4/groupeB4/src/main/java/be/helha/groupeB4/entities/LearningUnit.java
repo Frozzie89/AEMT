@@ -39,7 +39,7 @@ public class LearningUnit implements Serializable{
 		aaList = new ArrayList<>();
 	}
 	
-	public boolean addLearning(LearningActivity aa) {
+	public boolean addLearningActivity(LearningActivity aa) {
 		if(aaList.contains(aa) || aa == null) {
 			return false;
 		}

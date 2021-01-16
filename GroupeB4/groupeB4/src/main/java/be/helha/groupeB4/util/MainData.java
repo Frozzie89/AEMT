@@ -35,8 +35,8 @@ public class MainData {
 		LearningActivity aa2 = new LearningActivity("AA2"+tmp, "aa2Label", 5);	
 		LearningActivity aa3 = new LearningActivity("AA3"+tmp, "aa3Label", 5);	
 		
-		ue1.addLearning(aa1);
-		ue1.addLearning(aa2);
+		ue1.addLearningActivity(aa1);
+		ue1.addLearningActivity(aa2);
 		
 		p1.addLearningUnit(ue1);
 		

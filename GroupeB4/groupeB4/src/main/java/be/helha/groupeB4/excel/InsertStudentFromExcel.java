@@ -240,7 +240,7 @@ import java.io.IOException;
 	                rowGrades = sheet.getRow(cr.getRow() + 3);
 
 	                learningActivity = new LearningActivity(idActivity, labelActivity, creditAA);
-                    learningUnit.addLearning(learningActivity);
+                    learningUnit.addLearningActivity(learningActivity);
 	                // end of while loop, preparation for next loop
 	                i++;
 	                cellLabel = rowLabel.getCell(cr.getCol() + i);
