@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<html 	xmlns:jsf="http://xmlns.jcp.org/jsf" 
-		xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
-		xmlns:h = "http://java.sun.com/jsf/html" 
-		xmlns:f = "http://java.sun.com/jsf/core"
-		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
-		xmlns:p="http://primefaces.org/ui">
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Home</title>
-<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
-<link href="Styles/importExcel.css" rel="stylesheet" />
-<link href="Styles/home.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Home</title>
+    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="Styles/importExcel.css" rel="stylesheet" />
+    <link href="Styles/home.css" rel="stylesheet" />
 </h:head>
 <h:body>
 
-<ui:include src="navbar.xhtml"/>
+    <ui:include src="navbar.xhtml" />
 
-<h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
+    <h1 style="margin-top: 50px;margin-bottom: 50px;">Importez le fichier Excel des PAE des étudiants</h1>
 
-<center><hr/></center>
-
-<div class="excelForm">
-<h:form id="formExcel" enctype="multipart/form-data">
-	<center>
-    <div class="form-group">
-        <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
-        <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center>
-       	<div class="importedFile">
-       		<h:form>
-       			<p:fileUpload fileUploadListener="#{ic.handleImportedFile}" mode="advanced" dragDropSupport="true"
-       				update="messages" sizeLimit="1000000000" allowTypes="/(\.|\/)(xlsx)$/" fileLimit="1"
-       				invalidFileMessage="Le fichier importé n'est pas valide. Veuillez en choisir un autre"
-       				invalidSizeMessage="Le fichier importé est trop volumineux. Veuillez en choisir un autre"
-       				fileLimitMessage="Il y a trop de fichiers importés. Veuillez n'en choisir qu'un seul"
-       			/>
-       			<p:growl id="messages" showDetail="true"/>
-       		</h:form>
-       	</div>
-    </div>
+    <center>
+        <hr />
     </center>
-</h:form>
-</div>
+
+    <div class="excelForm">
+        <h:form id="formExcel" enctype="multipart/form-data">
+            <center>
+                <div class="form-group">
+                    <img id="logoExcel" src="Assets/logo-excel.png" alt="Fichier Excel"></img>
+                    <center><small class="form-text text-muted">.xlsx ou .xlsm</small> </center>
+                    <div class="importedFile">
+                        <h:form>
+                            <p:fileUpload fileUploadListener="#{ic.handleImportedFile}" mode="advanced"
+                                dragDropSupport="true" update="messages" sizeLimit="1000000000"
+                                allowTypes="/(\.|\/)(xlsx)$/" fileLimit="1"
+                                invalidFileMessage="Le fichier importé n'est pas valide. Veuillez en choisir un autre"
+                                invalidSizeMessage="Le fichier importé est trop volumineux. Veuillez en choisir un autre"
+                                fileLimitMessage="Il y a trop de fichiers importés. Veuillez n'en choisir qu'un seul" />
+                            <p:growl id="messages" showDetail="true" />
+                        </h:form>
+                    </div>
+                </div>
+            </center>
+        </h:form>
+    </div>
 
 </h:body>
+
 </html>

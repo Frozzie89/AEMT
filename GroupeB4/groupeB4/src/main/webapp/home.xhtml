@@ -1,75 +1,70 @@
 <!DOCTYPE html>
-<html 	xmlns:jsf="http://xmlns.jcp.org/jsf" 
-		xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
-		xmlns:h = "http://java.sun.com/jsf/html" 
-		xmlns:f = "http://java.sun.com/jsf/core"
-		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
-		xmlns:p="http://primefaces.org/ui">
+<html xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Home</title>
-<link href="Styles/home.css" rel="stylesheet" />
-<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Home</title>
+    <link href="Styles/home.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
 </h:head>
 <h:body>
 
-	<ui:include src="navbar.xhtml"/>
+    <ui:include src="navbar.xhtml" />
 
-<div class="tableStudent">
-<h:form>
-        <p:dataTable var="student" value="#{fc.students}"
-                     filteredValue="#{fc.filteredStudents}"
-                     widgetVar="studentWidget">
-            
-            <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
-                <h:outputText value="#{student.registrationNumber}"/>
-            </p:column>
+    <div class="tableStudent">
+        <h:form>
+            <p:dataTable var="student" value="#{fc.students}" filteredValue="#{fc.filteredStudents}"
+                widgetVar="studentWidget">
 
-            <p:column headerText="Nom" filterBy="#{student.firstName}" filterMatchMode="startsWith">
-                <h:outputText value="#{student.firstName}"/>
-            </p:column>
-            
-            <p:column headerText="Prénom" filterBy="#{student.lastName}" filterMatchMode="startsWith">
-                <h:outputText value="#{student.lastName}"/>
-            </p:column>
-            
-            <p:column headerText="Section" filterBy="#{student.section}"
-                      filterMatchMode="contains">
-                <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
-                        <f:selectItem itemLabel="Section..." itemValue="#{null}" noSelectionOption="true" />
-                        <f:selectItems value="#{fc.getListSections()}" />
-                    </p:selectOneMenu>
-                </f:facet>
-                <h:outputText value="#{student.getSectionValue()}"/>
-            </p:column>
+                <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
+                    <h:outputText value="#{student.registrationNumber}" />
+                </p:column>
 
-            <p:column headerText="Bloc" filterBy="#{student.bloc}"
-                      filterMatchMode="contains">
-                <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
-                        <f:selectItem itemLabel="Bloc..." itemValue="#{null}" noSelectionOption="true" />
-                        <f:selectItems value="#{fc.getListBloc()}" />
-                    </p:selectOneMenu>
-                </f:facet>
-                <h:outputText value="#{student.bloc}"/>
-            </p:column>
-            
-            <p:column headerText="Status PAE" filterBy="#{student.pae}"
-                      filterMatchMode="contains">
-                <f:facet name="filter">
-                    <p:selectOneMenu onchange="PF('studentWidget').filter()" >
-                        <f:selectItem itemLabel="Pae..." itemValue="#{null}" noSelectionOption="true" />
-                        <f:selectItems value="#{fc.getListPaeProgress()}" />
-                    </p:selectOneMenu>
-                </f:facet>
-                <h:commandLink value="#{student.getPae().getPaeProgressValue()}" action="#{pc.doSelectPae(student)}"/>
-            </p:column>
-            
+                <p:column headerText="Nom" filterBy="#{student.firstName}" filterMatchMode="startsWith">
+                    <h:outputText value="#{student.firstName}" />
+                </p:column>
 
-        </p:dataTable>
-    </h:form>
+                <p:column headerText="Prénom" filterBy="#{student.lastName}" filterMatchMode="startsWith">
+                    <h:outputText value="#{student.lastName}" />
+                </p:column>
 
-</div>
+                <p:column headerText="Section" filterBy="#{student.section}" filterMatchMode="contains">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('studentWidget').filter()">
+                            <f:selectItem itemLabel="Section..." itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItems value="#{fc.getListSections()}" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="#{student.getSectionValue()}" />
+                </p:column>
+
+                <p:column headerText="Bloc" filterBy="#{student.bloc}" filterMatchMode="contains">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('studentWidget').filter()">
+                            <f:selectItem itemLabel="Bloc..." itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItems value="#{fc.getListBloc()}" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="#{student.bloc}" />
+                </p:column>
+
+                <p:column headerText="Status PAE" filterBy="#{student.pae}" filterMatchMode="contains">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('studentWidget').filter()">
+                            <f:selectItem itemLabel="Pae..." itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItems value="#{fc.getListPaeProgress()}" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:commandLink value="#{student.getPae().getPaeProgressValue()}"
+                        action="#{pc.doSelectPae(student)}" />
+                </p:column>
+
+
+            </p:dataTable>
+        </h:form>
+
+    </div>
 </h:body>
+
 </html>

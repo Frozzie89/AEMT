@@ -50,16 +50,17 @@ public class FilterController implements Serializable{
         }
     }
 	
-	
-	
+	// Calls Ejb Method to get all students
 	public List<Student> doSelectAll(){
 		return ejb.getAllStudent(); 
 	}
 	
+	// Calls Ejb Method to get all students by name
 	public List<Student> doSelectAllByName(String nom){
 		return ejb.getAllStudentByName(nom); 
 	}
 	
+	// Calls Ejb Method to add students
 	public List<Student> addLA() {
 		List<Student> maliste = new ArrayList<>();
 		maliste = stfu.createStudents();
@@ -67,6 +68,7 @@ public class FilterController implements Serializable{
 		return maliste;
 	}
 	
+	// Calls Ejb Method to delete a student
 	public String delete() {
 		Student student = (Student) table.getRowData();
 		ejb.deleteStudent(student);

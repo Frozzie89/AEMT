@@ -74,7 +74,7 @@ import java.io.IOException;
 	        // initFile
 	        //initFile();
 	    	
-	        // Deviendra un objet Student
+	        // Student data to scan
 	        String studentNameToSplit, studentMatricule, studentClassString;
 	        String studentFirstName;
 	        String studentLastName;
@@ -88,6 +88,7 @@ import java.io.IOException;
 
 	        CellReference cr = new CellReference("B4");
 	        
+	        // Loop on student columns
 	        for(int sh = 0; sh < workbook.getNumberOfSheets() ; sh++) {
 	        	
 	        	sheet = workbook.getSheetAt(sh);
@@ -114,6 +115,7 @@ import java.io.IOException;
 		            String[] studentClassSplit = studentClassString.split("B", 2);
 		            studentClass = Integer.parseInt(studentClassSplit[0]);
 		            
+		            // create student with scanned data, section depends on excel page name
 		            switch(sheet.getSheetName()) {
 		            case "IG":
 		            	student = new Student(studentLastName, studentFirstName, studentMatricule, "20/21", studentClass, ESection.INFORMATIQUE_DE_GESTION);
@@ -127,7 +129,8 @@ import java.io.IOException;
 		            default:
 		            	break;
 		            }
-	
+		            
+		            // add grades of each students
 		            mapGrade = createGrade(sheet, nbOfRows, row, listActivity);
 		            student.setBulletin(mapGrade);
 		            listStudent.add(student);
@@ -141,6 +144,7 @@ import java.io.IOException;
 	        //closeFile();
 	        return listStudent;
 	    }
+	    
 	    public static List<LearningUnit> createLearningUnits(){
 	    	List<LearningUnit> list = new ArrayList<>();
 	    	List<LearningUnit> listBis = new ArrayList<>();
@@ -160,14 +164,14 @@ import java.io.IOException;
 	    	String temporaryUE, temporaryAA;
 	        List<LearningUnit> listUnit = new ArrayList<>();
 	        
-	        // UE
+	        // data of UE (learning unit)
 	        LearningUnit learningUnit ;
 	    	String idUnit;
 	    	String labelUnit;
 	    	int totalCreditsUnit;
 	    	String schoolYearUnit;
 	        
-	    	// AA
+	    	// data of AA (learning activity)
 	        LearningActivity learningActivity ;
 	        String idActivity;
 	    	String labelActivity;
@@ -175,6 +179,7 @@ import java.io.IOException;
 	    	
 	        int i = 0;
 	        
+	        // types of rows and cells
 	        Row rowLabel, rowType, rowCredits, rowGrades;
 	        Cell cellLabel, cellType, cellCredit, cellGrades;
 	        double gradeAA=0.;

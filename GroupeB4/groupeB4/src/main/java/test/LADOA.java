@@ -11,32 +11,29 @@ import be.helha.groupeB4.entities.LearningActivity;
 
 @Stateless
 public class LADOA {
-	
-	
-	@PersistenceContext(unitName = "groupeB4")
-	private EntityManager em; 
-	
-	public LearningActivity addLearningActivity(LearningActivity aa) {
-		// TODO Auto-generated method stub
-		em.persist(aa);
-		return aa;
-	}
 
-	
-	public LearningActivity getLearningActivity(String identification) {
-		// TODO Auto-generated method stub
-		String sqlRequestStr = "SELECT learningActivity FROM LearningActivity learningActivity "
+    @PersistenceContext(unitName = "groupeB4")
+    private EntityManager em;
+
+    public LearningActivity addLearningActivity(LearningActivity aa) {
+        // TODO Auto-generated method stub
+        em.persist(aa);
+        return aa;
+    }
+
+    public LearningActivity getLearningActivity(String identification) {
+        // TODO Auto-generated method stub
+        String sqlRequestStr = "SELECT learningActivity FROM LearningActivity learningActivity "
                 + "WHERE learningActivity.id = ?1 ";
-		TypedQuery<LearningActivity> query = em.createQuery(sqlRequestStr,LearningActivity.class);
-		query.setParameter(1, identification);
-		List<LearningActivity> result = query.getResultList();
-		return result.isEmpty()? null:result.get(0);
-	}
+        TypedQuery<LearningActivity> query = em.createQuery(sqlRequestStr, LearningActivity.class);
+        query.setParameter(1, identification);
+        List<LearningActivity> result = query.getResultList();
+        return result.isEmpty() ? null : result.get(0);
+    }
 
-	
-	public List<LearningActivity> getAllLearningActivities() {
-		// TODO Auto-generated method stub
-		return em.createQuery("SELECT learningActivity FROM LearningActivity learningActivity").getResultList();
-	}
+    public List<LearningActivity> getAllLearningActivities() {
+        // TODO Auto-generated method stub
+        return em.createQuery("SELECT learningActivity FROM LearningActivity learningActivity").getResultList();
+    }
 
 }

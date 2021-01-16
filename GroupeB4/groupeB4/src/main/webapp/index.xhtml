@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 
@@ -13,22 +11,20 @@
 
     <h:form>
         <p:dataTable var="employee" value="#{employeeBean.employeeList}"
-                     filteredValue="#{employeeBean.filteredEmployeeList}"
-                     widgetVar="employeeWidget">
+            filteredValue="#{employeeBean.filteredEmployeeList}" widgetVar="employeeWidget">
 
             <f:facet name="header">
                 <p:outputPanel>
-                    <h:outputText value="Search all:"/>
-                    <p:inputText id="globalFilter"
-                                 onkeyup="PF('employeeWidget').filter()"
-                                 style="width:150px" placeholder="Search text"/>
+                    <h:outputText value="Search all:" />
+                    <p:inputText id="globalFilter" onkeyup="PF('employeeWidget').filter()" style="width:150px"
+                        placeholder="Search text" />
                 </p:outputPanel>
             </f:facet>
 
             <p:column headerText="Id" filterBy="#{employee.id}" filterMatchMode="contains">
-                <h:outputText value="#{employee.id}"/>
+                <h:outputText value="#{employee.id}" />
             </p:column>
-<!-- 
+            <!-- 
             <p:column headerText="Name" filterBy="#{employee.name}" filterMatchMode="contains">
                 <h:outputText value="#{employee.name}"/>
             </p:column>
@@ -57,4 +53,5 @@
         </p:dataTable>
     </h:form>
 </h:body>
+
 </html>

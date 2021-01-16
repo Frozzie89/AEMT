@@ -1,11 +1,9 @@
-package be.helha.groupeB4.junitTests;
+package be.helha.groupeB4.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import be.helha.groupeB4.dao.StudentDAO;
