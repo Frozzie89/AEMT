@@ -77,12 +77,22 @@ hr{
 	text-align: center;
 }
 
-th{
+.table th{
 	width: 25%;
 	text-align: center;
 	color: #434C54;
 }
 
-td{
+.table td{
 	text-align: center;
+	background: white;
+}
+.tables table{
+	background: #C7DDE0;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #C7DDE0;
+}
+body{
+	background-color: #EBE8E2;
 }
