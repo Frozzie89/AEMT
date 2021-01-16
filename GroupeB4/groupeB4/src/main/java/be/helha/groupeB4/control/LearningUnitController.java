@@ -40,7 +40,7 @@ public class LearningUnitController implements Serializable{
 		return maliste;
 	}
 	
-	public List<LearningUnit> doSelectSectionUE(Student s){
+	public List<LearningUnit> doSelectSectionUESucces(Student s){
 		List<LearningUnit> listUE = new ArrayList<>();
 		List<LearningUnit> listAllUE = new ArrayList<>();
 		List<LearningActivity> listfromBU = new ArrayList<>();
@@ -89,36 +89,13 @@ public class LearningUnitController implements Serializable{
 				  }
 				}
 		}
-	/*	System.out.println(listAllUE.toString());
-		for(int i = 0; i < listAllUE.size() ; i++) {
-			switch(s.getSection()) {
-				case COMPTABILITE:
-					if(listAllUE.get(i).getId().contains("S")) {
-						listUE.add(listAllUE.get(i));
-					}
-					break;
-				case INFORMATIQUE_DE_GESTION:
-					if(listAllUE.get(i).getId().contains("IG")) {
-						listUE.add(listAllUE.get(i));
-					}
-					break;
-				case ASSISTANT_DE_DIRECTION:
-					if(listAllUE.get(i).getId().contains("AD")) {
-						listUE.add(listAllUE.get(i));
-					}
-					break;
-				default: 
-					listUE.add(listAllUE.get(i));
-				break;
-			}
-			
-		}
-		*/
 		return listUE;
 	}
 	
-	public List<LearningUnit> doSelectSectionUEAvailable(Student s){
+	public List<LearningUnit> doSelectSectionUE(Student s){
 		List<LearningUnit> listUE = new ArrayList<>();
+		List<LearningUnit> listUEB1 = new ArrayList<>();
+		List<LearningUnit> listUEB1Test = new ArrayList<>();
 		List<LearningUnit> listAllUE = new ArrayList<>();
 		List<LearningActivity> listfromBU = new ArrayList<>();
 		List<Double> listePointFromBulletin = new ArrayList<>();
@@ -160,37 +137,35 @@ public class LearningUnitController implements Serializable{
 							  }
 						  }
 					}
-					  
-					 
-					
+
 				  }
 				}
 		}
-	/*	System.out.println(listAllUE.toString());
-		for(int i = 0; i < listAllUE.size() ; i++) {
-			switch(s.getSection()) {
-				case COMPTABILITE:
-					if(listAllUE.get(i).getId().contains("S")) {
-						listUE.add(listAllUE.get(i));
+		
+		if(s.getBloc() == 1) {
+			int testNbCredits = 0;
+			listUEB1Test = doSelectSectionUESucces(s);
+			
+			for(LearningUnit ueTest : listUEB1Test) {
+				testNbCredits += ueTest.getTotalCredits();
+			}
+			
+			if(testNbCredits < 30) {
+				for(LearningUnit ueAll : listUE) {
+					if(ueAll.getId().startsWith("0") || ueAll.getId().startsWith("AD1") || ueAll.getId().startsWith("IG1")) {
+						listUEB1.add(ueAll);
 					}
-					break;
-				case INFORMATIQUE_DE_GESTION:
-					if(listAllUE.get(i).getId().contains("IG")) {
-						listUE.add(listAllUE.get(i));
-					}
-					break;
-				case ASSISTANT_DE_DIRECTION:
-					if(listAllUE.get(i).getId().contains("AD")) {
-						listUE.add(listAllUE.get(i));
-					}
-					break;
-				default: 
-					listUE.add(listAllUE.get(i));
-				break;
+					
+				}
+				
+				return listUEB1;
+				
 			}
 			
 		}
-		*/
+		
+		
+
 		return listUE;
 	}
 }
