@@ -1,0 +1,24 @@
+.tables{
+	display: in-line;
+	margin-top: 5vmin;
+}
+
+.ueDisponible{
+	display: inline-table;
+	width: 30%;
+	float: left;
+
+	margin-left: 15%;
+	margin-right: auto;
+	
+}
+
+.pae{
+	display: inline-table;
+	width: 30%;
+	float: right;
+	
+	margin-left: auto;
+	margin-right: 15%;
+	
+}

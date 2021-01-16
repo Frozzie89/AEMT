@@ -3,6 +3,7 @@
 		xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
 		xmlns:h = "http://java.sun.com/jsf/html" 
 		xmlns:f = "http://java.sun.com/jsf/core"
+		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
 		xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -12,38 +13,7 @@
 </h:head>
 <h:body>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-light">
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" id="navBarDisconnect" >Se déconnecter<span
-                        class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a href="home.xhtml" class="nav-link">Liste des PAE<span
-                        class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a href="importExcel.xhtml" class="nav-link">Importer Excel<span
-                        class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a href="Admin/home.xhtml" class="nav-link">Partie Admin<span
-                        class="sr-only"></span></a>
-            </li>
-        </ul>
-        <form id="formLogo" class="form-inline my-2 my-lg-0">
-            <img id="logoHelha" src="Assets/logo-helha.png" alt="Logo HELHa"></img>
-        </form>
-    </div>
-
-</nav>
-
-
-
-
-
+	<ui:include src="navbar.xhtml"/>
 
 <div class="tableStudent">
 <h:form>

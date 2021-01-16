@@ -23,6 +23,7 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(6, 155, 147, 0.5);
 }
+
 #logoExcel{
     max-width:100px;
     height: auto;
@@ -55,15 +56,25 @@ hr{
 	height: 5px;
 	width: 80vmin;
 }
+
 .excelForm{
 	position: center;
 	margin-top: 50px;
 }
+
 #formExcel{
     margin: auto;
     min-height: 50vh;
     
 }
+
 #btnSubmit{
 	margin-top: 10vmin;
+}
+
+.importedFile{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5vmin;
+	width: 45%;
 }
