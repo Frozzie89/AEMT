@@ -117,4 +117,14 @@ public class PaeController implements Serializable{
 		ejbStudent.updateStudent(studentCopy, student);
 	}
 
+	public int calculCredit() {
+		
+		int total = 0;
+		
+		for(LearningUnit ue : student.getPae().getUeList()) {
+			total += ue.getTotalCredits();
+		}
+		
+		return total;
+	}
 }
