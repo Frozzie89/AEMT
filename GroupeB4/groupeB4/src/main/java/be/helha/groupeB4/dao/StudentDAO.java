@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import be.helha.groupeB4.entities.Pae;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
@@ -55,8 +56,28 @@ public class StudentDAO{
 
 
 	public Student updateStudent(Student oldStudent, Student newStudent) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(oldStudent == null || newStudent == null || oldStudent.getId()<0) {
+			return null;
+		}
+		
+		Student tmp = findStudent(oldStudent);
+		if(tmp == null) {
+			return null;
+		}
+		tmp = newStudent;
+		tmp.setId(oldStudent.getId());
+		em.merge(tmp);
+		return tmp;
+		}
+	
+	
+	public Student findStudent(Student s) {
+		Student sFound = em.find(Student.class, s.getId());
+		if(sFound == null) {
+			return null;
+		}
+		return sFound;
 	}
 
 	

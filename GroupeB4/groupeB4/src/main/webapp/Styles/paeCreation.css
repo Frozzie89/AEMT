@@ -5,20 +5,114 @@
 
 .ueDisponible{
 	display: inline-table;
-	width: 30%;
+	width: 25%;
 	float: left;
 
-	margin-left: 15%;
+	margin-left: 7.5%;
 	margin-right: auto;
+	text-align: center;
 	
+}
+
+.ueDisponible th{
+	background: #434C54;
+	color: white;
+	text-align: center;
+	border-color: none;
+}
+
+.ueDisponible td{
+	background: #C7DDE0;
+	text-align: center;
+}
+
+.ueDisponible td:hover{
+	background: #069B93;
+}
+
+.ueDisponible a{
+	color: #434C54;
+}
+.ueDisponible a:hover{
+	color: #C7DDE0;
 }
 
 .pae{
 	display: inline-table;
-	width: 30%;
+	width: 25%;
 	float: right;
 	
 	margin-left: auto;
-	margin-right: 15%;
+	margin-right: 7.5%;
 	
+	text-align: center;
+}
+
+.pae th{
+	background: #434C54;
+	color: white;
+	text-align: center;
+}
+
+.pae td:nth-child(even){
+	background: #eee;
+}
+
+.pae td:nth-child(odd){
+	background: #C7DDE0;
+	text-align: center;
+}
+
+.pae a{
+	color: black;
+}
+.pae a:hover{
+	color: white;
+}
+
+.ueReussie{
+	display: inline-table;
+	width: 25%;
+	float: left;
+
+	margin-left: 7.5%;
+	margin-right: auto;
+	
+	text-align: center;
+}
+
+.ueReussie th{
+	background: #434C54;
+	color: white;
+	text-align: center;
+	border-color: none;
+}
+
+.ueReussie td{
+	background: #C7DDE0;
+	text-align: center;
+}
+
+.ueReussie td:hover{
+	background: #069B93;
+}
+
+.ueReussie a{
+	color: #434C54;
+}
+
+.ueReussie a:hover{
+	color: #C7DDE0;
+}
+
+.infoStudent{
+	width: 75%;
+	margin-top: 5vmin;
+	margin-bottom: 5vmin;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.infoStudent td{
+	text-align: center;
 }

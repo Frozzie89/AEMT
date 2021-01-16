@@ -34,14 +34,7 @@ public class Student implements Serializable{
 	private int bloc;
 	
 	@OneToOne(orphanRemoval= true,cascade= CascadeType.ALL)
-	@CascadeOnDelete
 	private Pae pae;
-	/*
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name="student_learningActivity",
-			joinColumns = {@JoinColumn(name="student_id", referencedColumnName ="id")},
-			inverseJoinColumns = {@JoinColumn(name = "learningActivity_id", referencedColumnName ="id")})
-	@MapKey(name="grade")*/
 	
 	@ElementCollection
 	@CollectionTable(name="student_learningActivity")
@@ -131,6 +124,7 @@ public class Student implements Serializable{
 	public String getSectionValue() {
 		return section.getSection();
 	}
+	
 
 	public void setSection(ESection section) {
 		this.section = section;
@@ -181,6 +175,10 @@ public class Student implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
