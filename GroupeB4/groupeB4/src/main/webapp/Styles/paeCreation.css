@@ -22,3 +22,47 @@
 	margin-right: 15%;
 	
 }
+
+
+.ueDisponible th{
+	background: #434C54;
+	color: white;
+	text-align: center;
+	border-color: none;
+}
+
+.ueDisponible td{
+	background: #C7DDE0;
+}
+
+.ueDisponible td:hover{
+	background: #069B93;
+}
+
+.ueDisponible a{
+	color: #434C54;
+}
+.ueDisponible a:hover{
+	color: #C7DDE0;
+}
+
+.pae th{
+	background: #434C54;
+	color: white;
+	text-align: center;
+}
+
+.pae td:nth-child(even){
+	background: #eee;
+}
+
+.pae td:nth-child(odd){
+	background: #C7DDE0;
+}
+
+.pae a{
+	color: black;
+}
+.pae a:hover{
+	color: white;
+}
