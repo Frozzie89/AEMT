@@ -131,6 +131,7 @@ public class Student implements Serializable{
 	public String getSectionValue() {
 		return section.getSection();
 	}
+	
 
 	public void setSection(ESection section) {
 		this.section = section;
@@ -181,6 +182,10 @@ public class Student implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	

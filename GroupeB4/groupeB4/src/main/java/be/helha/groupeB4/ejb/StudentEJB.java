@@ -48,7 +48,7 @@ public class StudentEJB {
 
 	
 	public Student updateStudent(Student oldStudent, Student newStudent) {
-		return null;
+		return dao.updateStudent(oldStudent, newStudent);
 	}
 
 	

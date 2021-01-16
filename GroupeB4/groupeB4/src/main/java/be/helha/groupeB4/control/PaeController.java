@@ -92,7 +92,8 @@ public class PaeController implements Serializable{
 	
 	public void removeUEFromPAE(LearningUnit lu){
 		student.getPae().removeLearningUnit(lu);
-		updatePae();
+	//	updatePae();
+		updateStudent();
 	}
 	
 	
@@ -110,6 +111,10 @@ public class PaeController implements Serializable{
 	
 	public void updatePae() {
 		ejb.updatePae(studentCopy.getPae(), student.getPae());
+	}
+	
+	public void updateStudent() {
+		ejbStudent.updateStudent(studentCopy, student);
 	}
 
 }
