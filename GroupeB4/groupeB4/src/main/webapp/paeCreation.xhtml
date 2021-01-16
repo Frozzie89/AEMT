@@ -21,7 +21,7 @@
 				<h1>UE reussie</h1>
 				<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUE(pc.getStudent())}" var="ue">
 			        <p:column>
-			            <f:facet name="header">Nom de l'ue</f:facet>
+			            <f:facet name="header">Nom de l'U.E.</f:facet>
 			                <h:commandLink value="  #{ue.label}"/>
 			        </p:column>
 		        </p:dataTable>
@@ -32,7 +32,7 @@
 				<h1>UE disponible</h1>
 				<p:dataTable class="tableEtudiants table table-striped table-bordered" value="#{luc.doSelectSectionUEAvailable(pc.getStudent())}" var="ue">
 			        <p:column>
-			            <f:facet name="header">Nom de l'ue</f:facet>
+			            <f:facet name="header">Nom de l'U.E</f:facet>
 			                <h:commandLink value="  #{ue.label}" action="#{pc.addUEToPAE(ue)}"/>
 			        </p:column>
 		        </p:dataTable>
@@ -43,7 +43,7 @@
 				<h1>PAE</h1>
 			    <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="pae">
 				    <h:column>
-				   		<f:facet name="header">UE</f:facet>
+				   		<f:facet name="header">U.E.</f:facet>
 				             <h:commandLink value=" #{pae.label}" action="#{pc.removeUEFromPAE(pae)}"/>
 				   	</h:column>
 				</h:dataTable>
