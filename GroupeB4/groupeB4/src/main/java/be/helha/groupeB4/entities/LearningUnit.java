@@ -94,10 +94,20 @@ public class LearningUnit implements Serializable{
 	
 	//----------------------- Fin GET & SET -----------------------
 
+	
+	public String toStringAAList() {
+		String tmp ="";
+		
+		for(LearningActivity a : aaList) {
+			tmp += a.toString()+"\n";
+		}
+		return tmp;
+	}
+
 	@Override
 	public String toString() {
-		return "\t" + id + " " + label + " " + totalCredits + " crédits, " + schoolYear
-				+ aaList + "\n ";
+		return "LearningUnit [id=" + id + ", label=" + label + ", totalCredits=" + totalCredits + ", schoolYear="
+				+ schoolYear + ", aaList=" + aaList + "]";
 	}
 
 	@Override
