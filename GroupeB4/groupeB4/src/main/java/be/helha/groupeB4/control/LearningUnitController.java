@@ -40,7 +40,7 @@ public class LearningUnitController implements Serializable{
 		return maliste;
 	}
 	
-	public List<LearningUnit> doSelectSectionUESucces(Student s){
+	public List<LearningUnit> doSelectSectionUESuccess(Student s){
 		List<LearningUnit> listUE = new ArrayList<>();
 		List<LearningUnit> listAllUE = new ArrayList<>();
 		List<LearningActivity> listfromBU = new ArrayList<>();
@@ -144,7 +144,7 @@ public class LearningUnitController implements Serializable{
 		
 		if(s.getBloc() == 1) {
 			int testNbCredits = 0;
-			listUEB1Test = doSelectSectionUESucces(s);
+			listUEB1Test = doSelectSectionUESuccess(s);
 			
 			for(LearningUnit ueTest : listUEB1Test) {
 				testNbCredits += ueTest.getTotalCredits();

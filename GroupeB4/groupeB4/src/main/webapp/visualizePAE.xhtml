@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html 	xmlns:jsf="http://xmlns.jcp.org/jsf" 
+		xmlns:c = "http://xmlns.jcp.org/jsp/jstl/core" 
+		xmlns:h = "http://java.sun.com/jsf/html" 
+		xmlns:f = "http://java.sun.com/jsf/core"
+		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Visualize a PAE</title>
+<link href="Styles/home.css" rel="stylesheet" />
+<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+</h:head>
+<h:body>
+
+		<div class="pae" >
+			<h:form>
+				<h1>PAE</h1>
+				<p:dataTable id="pae" class="tableEtudiants table table-striped table-bordered" value="#{pc.paeList}" var="pae">
+				
+							<p:column>
+						  	 	<h:outputText value="#{pae.id}"></h:outputText>
+						   	</p:column>
+						   	
+						    <p:column>
+						   		<f:facet name="header">U.E.</f:facet>
+						             <h:outputText value="#{pae.label}"></h:outputText>
+						   	</p:column>
+						   		
+						   
+						   	<p:column>
+						   		<h:outputText value="#{pae.totalCredits}"></h:outputText>
+						   	</p:column>
+						   	<p:row></p:row>
+						   	<p:column>
+						   	 	<h:outputText  value="#{pae.getAaList()}" />
+						   	</p:column>
+						    </p:dataTable>
+						   
+						
+						 <h:commandLink value="pdf generator2001">
+					        <p:dataExporter type="pdf" target="pae" fileName="#{pc.student.getLastName()}" pageOnly="true" />
+		  				  </h:commandLink>
+			</h:form>
+		</div>
+</h:body>
+
+
+
+</html>

@@ -11,6 +11,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.apache.commons.io.FileUtils;
 import org.primefaces.event.FileUploadEvent;
@@ -26,6 +28,9 @@ import be.helha.groupeB4.excel.InsertStudentFromExcel;
 @RequestScoped
 public class ImportController {
 	
+	@PersistenceContext(unitName = "groupeB4")
+	private EntityManager em; 
+	
 	@Inject
 	private StudentEJB ejbStudent;
 	
@@ -36,15 +41,19 @@ public class ImportController {
 	File file;
 	
 	public void importXLSX(File l_file) {
-		
+		//ejbStudent.clean();
 		List<LearningUnit> ue = new ArrayList<>();
 		List<Student> students = new ArrayList<>();
+		List<Student> studentToDel = new ArrayList<>();
+		
+		
+		
 		
 		//Lecture du fichier Excel
 		InsertStudentFromExcel.initFile(l_file);
 		ue = InsertStudentFromExcel.createLearningUnits();
 		students = InsertStudentFromExcel.createStudents();
-	//	ejbStudent.clean();
+		
 		
 		ejbLU.addLearningUnits(ue);		
 		ejbStudent.addStudents(students);
@@ -66,8 +75,13 @@ public class ImportController {
 		file = new File(l_file.getFileName());
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++ OK SALE MERDE ++++++++++++++++++++++++++++++++++++++++++++++++=");
 		FileUtils.copyInputStreamToFile(l_file.getInputstream(), file);
+		cleanTable();
 		importXLSX(file);
 		
+	}
+	
+	public void cleanTable() {
+		ejbStudent.clean();
 	}
 	
 	

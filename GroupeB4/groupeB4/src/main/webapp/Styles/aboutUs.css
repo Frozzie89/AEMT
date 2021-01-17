@@ -1,0 +1,32 @@
+#bodyUs{
+	background: #EAC1BF;
+}
+.groupCard{
+	width: 80%;
+	text-align:center;
+}
+#cardUs{
+	width:30%;
+	height: 25vmin;
+	background-color: #C44B80;
+	text-align: center;
+	box-shadow: 0 2px 8px 2px rgba(196, 75, 128, 1);
+	margin-left: 5vmin;
+}
+#cardUs h5{
+	font-size: 8pt;
+	color: #3C4645;
+}
+
+#cardUs p{ 
+	font-size: 6pt;
+	color: CECC99;
+}
+
+.imageCard{
+	height: 10vw;
+	width:10vw;
+	border-radius: 90px;
+	margin-top: 1vmin;
+	margin-left:1vmin;
+}

@@ -39,6 +39,8 @@ public class ImportExcelController implements Serializable{
 	private Part excelPart;
 
 	public void loadExcel() {
+		
+		studentEjb.clean();
 	    String fileName = Paths.get(excelPart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 	    
 	    try (InputStream input = excelPart.getInputStream()) {

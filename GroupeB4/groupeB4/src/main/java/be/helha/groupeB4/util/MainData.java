@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
@@ -48,7 +49,19 @@ public class MainData {
 		System.out.println(user);
 		
 		tx.begin();
-		 eManager.persist(s1);
+		  
+
+		    Query q1 = eManager.createQuery("DELETE FROM Student");
+		    Query q4 = eManager.createQuery("DELETE FROM LearningActivity");
+		    Query q2 = eManager.createQuery("DELETE FROM Pae");
+		    Query q3 = eManager.createQuery("DELETE FROM LearningUnit");
+
+		    q1.executeUpdate();
+		    q2.executeUpdate();
+		    q3.executeUpdate();
+		    q4.executeUpdate();
+
+		   
 		//eManager.persist(user);
 		tx.commit();
 		
