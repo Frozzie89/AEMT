@@ -71,15 +71,19 @@
 		        </p:dataTable>
 			</h:form>	
 		</div>	
-		<div class="pae">
+		<div class="pae" >
 			<h:form>
 				<h1>PAE</h1>
-			    <h:dataTable class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="pae">
+			    <h:dataTable id="tbl" class="tableEtudiants table table-striped table-bordered" value="#{pc.getlists()}" var="pae">
 				    <h:column>
 				   		<f:facet name="header">U.E.</f:facet>
 				             <h:commandLink value=" #{pae.label}" action="#{pc.removeUEFromPAE(pae)}"/>
 				   	</h:column>
 				</h:dataTable>
+				
+				 <h:commandLink value="pdf generator2001" action="visualizePAE.xhtml">
+			      
+  				  </h:commandLink>
 			</h:form>
 	    </div>
 	</div>

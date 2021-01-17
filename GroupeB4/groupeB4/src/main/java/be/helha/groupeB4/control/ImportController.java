@@ -47,6 +47,8 @@ public class ImportController {
 		List<Student> studentToDel = new ArrayList<>();
 		
 		
+		
+		
 		//Lecture du fichier Excel
 		InsertStudentFromExcel.initFile(l_file);
 		ue = InsertStudentFromExcel.createLearningUnits();

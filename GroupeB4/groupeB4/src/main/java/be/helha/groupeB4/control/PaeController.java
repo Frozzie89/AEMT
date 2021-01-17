@@ -39,6 +39,7 @@ public class PaeController implements Serializable{
 
 	private Student student ;
 	private Student studentCopy ;
+	private List<LearningUnit> paeList;
 	
 	private List<LearningUnit> listUEAvailable;
 
@@ -75,7 +76,7 @@ public class PaeController implements Serializable{
 	}
 	
 	public List<LearningUnit> getlists(){
-
+		setPaeList(student.getPae().getUeList());
 		return student.getPae().getUeList();
 	}
 	
@@ -126,5 +127,13 @@ public class PaeController implements Serializable{
 		}
 		
 		return total;
+	}
+
+	public List<LearningUnit> getPaeList() {
+		return paeList;
+	}
+
+	public void setPaeList(List<LearningUnit> paeList) {
+		this.paeList = paeList;
 	}
 }
