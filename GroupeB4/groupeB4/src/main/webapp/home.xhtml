@@ -17,7 +17,7 @@
 
 <div class="tableStudent">
 <h:form>
-        <p:dataTable var="student" value="#{fc.students}"
+        <p:dataTable id="tbl" var="student" value="#{fc.students}"
                      filteredValue="#{fc.filteredStudents}"
                      widgetVar="studentWidget">
             
@@ -67,6 +67,11 @@
             
 
         </p:dataTable>
+        
+         <h:commandLink value="pdf generator2001">
+			        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
+  				  </h:commandLink>
+  				  
     </h:form>
 
 </div>
