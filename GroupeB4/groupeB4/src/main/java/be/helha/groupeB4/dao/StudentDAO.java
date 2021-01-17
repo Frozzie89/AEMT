@@ -5,10 +5,18 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.SystemException;
+import javax.transaction.UserTransaction;
 
-import be.helha.groupeB4.entities.Pae;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
@@ -19,6 +27,7 @@ public class StudentDAO{
 	private EntityManager em; 
 	
 	private InsertStudentFromExcel stu;
+	UserTransaction utx;
 		
 	public Student addStudent(Student student) {
 		// TODO Auto-generated method stub
@@ -41,6 +50,7 @@ public class StudentDAO{
 	
 	public List<Student> getAllStudent() {
 		// TODO Auto-generated method stub
+		
 		return em.createQuery("SELECT student From Student student").getResultList();
 	}
 
@@ -108,21 +118,30 @@ public class StudentDAO{
 		return null;
 	}
 	
-	public void cleanTables() {
+	public void cleanTables()  {
+		
 
-        Query q1 = em.createQuery("DELETE * FROM learningactivity");
-        Query q2 = em.createQuery("DELETE * FROM learningunit");
-        Query q3 = em.createQuery("DELETE * FROM learningunit_learningactivity");
-        Query q4 = em.createQuery("DELETE * FROM pae");
-        Query q5 = em.createQuery("DELETE * FROM pae_learningunit");
-        Query q6 = em.createQuery("DELETE * FROM student");
-        
-        q5.executeUpdate();
-        q4.executeUpdate();
-        q3.executeUpdate();
-        q2.executeUpdate();
-        q1.executeUpdate();
-        q6.executeUpdate();
+//		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4");
+//		EntityManager eManager = entityManagerFactory.createEntityManager();
+//		EntityTransaction tx = eManager.getTransaction();
+
+		   	Query q1 = em.createQuery("DELETE FROM Student");
+		    Query q4 = em.createQuery("DELETE FROM LearningActivity");
+		    Query q2 = em.createQuery("DELETE FROM Pae");
+		    Query q3 = em.createQuery("DELETE FROM LearningUnit");
+
+		    q1.executeUpdate();
+		    q2.executeUpdate();
+		    q3.executeUpdate();
+		    q4.executeUpdate();
+
+//		    tx.commit();
+//			
+//			eManager.close();
+//			entityManagerFactory.close();
+		
+
+		
 	}
 	
 }

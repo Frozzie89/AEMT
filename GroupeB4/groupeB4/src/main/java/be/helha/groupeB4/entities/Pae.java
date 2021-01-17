@@ -22,7 +22,7 @@ public class Pae implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade= {CascadeType.PERSIST})
+	@OneToMany(fetch = FetchType.EAGER ,cascade= CascadeType.PERSIST)
 	private List<LearningUnit> ueList;
 	
 	private EPaeProgress paeProgress;
