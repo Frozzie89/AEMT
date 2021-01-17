@@ -41,7 +41,7 @@ public class ImportController {
 	File file;
 	
 	public void importXLSX(File l_file) {
-		ejbStudent.clean();
+		//ejbStudent.clean();
 		List<LearningUnit> ue = new ArrayList<>();
 		List<Student> students = new ArrayList<>();
 		List<Student> studentToDel = new ArrayList<>();
@@ -73,8 +73,13 @@ public class ImportController {
 		file = new File(l_file.getFileName());
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++ OK SALE MERDE ++++++++++++++++++++++++++++++++++++++++++++++++=");
 		FileUtils.copyInputStreamToFile(l_file.getInputstream(), file);
+		cleanTable();
 		importXLSX(file);
 		
+	}
+	
+	public void cleanTable() {
+		ejbStudent.clean();
 	}
 	
 	

@@ -121,24 +121,24 @@ public class StudentDAO{
 	public void cleanTables()  {
 		
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4");
-		EntityManager eManager = entityManagerFactory.createEntityManager();
-		EntityTransaction tx = eManager.getTransaction();
+//		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("groupeB4");
+//		EntityManager eManager = entityManagerFactory.createEntityManager();
+//		EntityTransaction tx = eManager.getTransaction();
 
-		   	Query q1 = eManager.createQuery("DELETE FROM Student");
-		    Query q4 = eManager.createQuery("DELETE FROM LearningActivity");
-		    Query q2 = eManager.createQuery("DELETE FROM Pae");
-		    Query q3 = eManager.createQuery("DELETE FROM LearningUnit");
+		   	Query q1 = em.createQuery("DELETE FROM Student");
+		    Query q4 = em.createQuery("DELETE FROM LearningActivity");
+		    Query q2 = em.createQuery("DELETE FROM Pae");
+		    Query q3 = em.createQuery("DELETE FROM LearningUnit");
 
 		    q1.executeUpdate();
 		    q2.executeUpdate();
 		    q3.executeUpdate();
 		    q4.executeUpdate();
 
-		    tx.commit();
-			
-			eManager.close();
-			entityManagerFactory.close();
+//		    tx.commit();
+//			
+//			eManager.close();
+//			entityManagerFactory.close();
 		
 
 		
