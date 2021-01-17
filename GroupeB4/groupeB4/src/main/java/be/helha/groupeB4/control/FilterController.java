@@ -127,8 +127,6 @@ public class FilterController implements Serializable{
 		listSections.add("Comptabilite");
 		listSections.add("Informatique");
 		listSections.add("Assistant");
-		
-		System.out.println(listSections.toString());
 		return listSections;
 	}
 	
