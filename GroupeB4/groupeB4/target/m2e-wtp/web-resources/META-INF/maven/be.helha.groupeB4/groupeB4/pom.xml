@@ -19,7 +19,7 @@
             <version>4.12</version>
             <scope>src/main/java/be/helha/groupeB4/test</scope>
         </dependency>
-        
+
         <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa -->
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -87,16 +87,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    
-    <dependencyManagement>
-	    <dependencies>
-	        <dependency>
-	            <groupId>org.jboss.arquillian</groupId>
-	            <artifactId>arquillian-bom</artifactId>
-	            <version>1.1.14.Final</version>
-	            <type>pom</type>
-	            <scope>import</scope>
-	        </dependency>
-	    </dependencies>
-	</dependencyManagement>
 </project>
