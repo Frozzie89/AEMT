@@ -3,24 +3,23 @@
     xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Helha | Accueil</title>
-<link href="Styles/home.css" rel="stylesheet" />
-<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Helha | Accueil</title>
+    <link href="Styles/home.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
 </h:head>
 <h:body>
 
     <ui:include src="navbar.xhtml" />
 
-<div class="tableStudent">
-<h:form>
-        <p:dataTable id="tbl" var="student" value="#{fc.students}"
-                     filteredValue="#{fc.filteredStudents}"
-                     widgetVar="studentWidget">
-            
-            <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
-                <h:outputText value="#{student.registrationNumber}"/>
-            </p:column>
+    <div class="tableStudent">
+        <h:form>
+            <p:dataTable id="tbl" var="student" value="#{fc.students}" filteredValue="#{fc.filteredStudents}"
+                widgetVar="studentWidget">
+
+                <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
+                    <h:outputText value="#{student.registrationNumber}" />
+                </p:column>
 
                 <p:column headerText="Matricule" filterBy="#{student.registrationNumber}" filterMatchMode="contains">
                     <h:outputText value="#{student.registrationNumber}" />
@@ -30,14 +29,14 @@
                     <h:outputText value="#{student.firstName}" />
                 </p:column>
 
-        </p:dataTable>
-        
-         <h:commandLink value="pdf generator2001">
-			        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
-  				  </h:commandLink>
-  				  
-    </h:form>
+                <!-- </p:dataTable>
 
+            <h:commandLink value="pdf generator2001">
+                <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
+            </h:commandLink>
+
+
+            <p:dataTable> -->
                 <p:column headerText="Section" filterBy="#{student.section}" filterMatchMode="contains">
                     <f:facet name="filter">
                         <p:selectOneMenu onchange="PF('studentWidget').filter()">
@@ -68,11 +67,8 @@
                     <h:commandLink value="#{student.getPae().getPaeProgressValue()}"
                         action="#{pc.doSelectPae(student)}" />
                 </p:column>
-
-
             </p:dataTable>
         </h:form>
-
     </div>
 </h:body>
 
