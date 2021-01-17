@@ -2,7 +2,6 @@ package be.helha.groupeB4.control;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -15,7 +14,6 @@ import javax.inject.Named;
 import be.helha.groupeB4.ejb.StudentEJB;
 import be.helha.groupeB4.entities.Student;
 import be.helha.groupeB4.enumeration.EPaeProgress;
-import be.helha.groupeB4.enumeration.ESection;
 import be.helha.groupeB4.excel.InsertStudentFromExcel;
 
 
@@ -73,6 +71,7 @@ public class FilterController implements Serializable{
 		return "";
 	}
 	
+	// GET & SET
 	public HtmlDataTable getTable() {
 		return table;
 	}
@@ -97,15 +96,13 @@ public class FilterController implements Serializable{
 		this.filteredStudents = filteredStudents;
 	}
 	
+	// Retourne la liste des progress de l'enum EPaeProgress
 	public List<String> getListPaeProgress(){
 		List<String> paeProgress = new ArrayList<>();
 		
-
 		for (EPaeProgress pae : EPaeProgress.values()) { 
 			paeProgress.add(pae.getProgress().toString());
 		}
-		
-		
 		return paeProgress;
 	}
 	
@@ -119,16 +116,15 @@ public class FilterController implements Serializable{
 	
 	public List<String> getListSections(){
 		List<String> listSections = new ArrayList<>();
-
-	/*	for (ESection s : ESection.values()) { 
-			listSections.add(s.getSection().toString());
-		}*/
 		
 		listSections.add("Comptabilite");
 		listSections.add("Informatique");
 		listSections.add("Assistant");
 		return listSections;
 	}
+	// Fin GET & SET
+	
+	
 	
 	
 	

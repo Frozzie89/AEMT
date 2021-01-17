@@ -25,11 +25,7 @@ import be.helha.groupeB4.enumeration.ESection;
 @SessionScoped
 public class PaeController implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
 	
 	@Inject
 	private PaeEJB ejb;
@@ -43,6 +39,61 @@ public class PaeController implements Serializable{
 	
 	private List<LearningUnit> listUEAvailable;
 
+	public void addUEToPAE(LearningUnit lu){
+		student.getPae().addLearningUnit(lu);
+		updatePae();
+	}
+	
+	public void removeUEFromPAE(LearningUnit lu){
+		student.getPae().removeLearningUnit(lu);
+		updateStudent();
+	}
+	
+	public void getAllUEFromSection(){
+		LearningUnitController luc = new LearningUnitController();
+		List<LearningUnit> tmp = new ArrayList<>();
+		tmp = student.getPae().getUeList();
+		listUEAvailable =  luc.doSelectSectionUE(student);
+		for (int i = 0; i < tmp.size(); i++) {
+			if(listUEAvailable.contains(tmp.get(i))) {
+				listUEAvailable.remove(tmp.get(i));
+			}
+		}
+	}
+	
+	// Update
+	public void updatePae() {
+		ejb.updatePae(studentCopy.getPae(), student.getPae());
+	}
+	
+	public void updateStudent() {
+		ejbStudent.updateStudent(studentCopy, student);
+	}
+
+	public int calculCredit() {
+		
+		int total = 0;
+		
+		for(LearningUnit ue : student.getPae().getUeList()) {
+			total += ue.getTotalCredits();
+		}
+		
+		return total;
+	}
+
+	// GET & SET
+	public List<LearningUnit> getlists(){
+		setPaeList(student.getPae().getUeList());
+		return student.getPae().getUeList();
+	}
+	
+	public List<LearningUnit> getPaeList() {
+		return paeList;
+	}
+
+	public void setPaeList(List<LearningUnit> paeList) {
+		this.paeList = paeList;
+	}
 	public Student getStudent() {
 		return student;
 	}
@@ -67,6 +118,14 @@ public class PaeController implements Serializable{
 		this.listUEAvailable = listUEAvailable;
 	}
 
+	
+	// Redirect method
+	public String endPae() {
+		student.getPae().setPaeProgress(EPaeProgress.TERMINE);
+		updateStudent();
+		return "paeCreation.xhtml?faces-redirect-true";
+	}
+	
 	public String doSelectPae(Student s){
 		
 		setStudent(s);
@@ -75,65 +134,4 @@ public class PaeController implements Serializable{
 		return "paeCreation.xhtml?faces-redirect-true";
 	}
 	
-	public List<LearningUnit> getlists(){
-		setPaeList(student.getPae().getUeList());
-		return student.getPae().getUeList();
-	}
-	
-	public List<LearningUnit> doGetUEFromLUC(){
-		LearningUnitController luc = new LearningUnitController();
-		//return luc.doSelectSectionUE(getStudent());
-		return luc.doSelectAll();
-	}
-	
-	public void addUEToPAE(LearningUnit lu){
-		student.getPae().addLearningUnit(lu);
-		updatePae();
-	}
-	
-	public void removeUEFromPAE(LearningUnit lu){
-		student.getPae().removeLearningUnit(lu);
-	//	updatePae();
-		updateStudent();
-	}
-	
-	
-	public void getAllUEFromSection(){
-		LearningUnitController luc = new LearningUnitController();
-		List<LearningUnit> tmp = new ArrayList<>();
-		tmp = student.getPae().getUeList();
-		listUEAvailable =  luc.doSelectSectionUE(student);
-		for (int i = 0; i < tmp.size(); i++) {
-			if(listUEAvailable.contains(tmp.get(i))) {
-				listUEAvailable.remove(tmp.get(i));
-			}
-		}
-	}
-	
-	public void updatePae() {
-		ejb.updatePae(studentCopy.getPae(), student.getPae());
-	}
-	
-	public void updateStudent() {
-		ejbStudent.updateStudent(studentCopy, student);
-	}
-
-	public int calculCredit() {
-		
-		int total = 0;
-		
-		for(LearningUnit ue : student.getPae().getUeList()) {
-			total += ue.getTotalCredits();
-		}
-		
-		return total;
-	}
-
-	public List<LearningUnit> getPaeList() {
-		return paeList;
-	}
-
-	public void setPaeList(List<LearningUnit> paeList) {
-		this.paeList = paeList;
-	}
 }

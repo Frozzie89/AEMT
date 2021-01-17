@@ -6,41 +6,52 @@
 		xmlns:ui= "http://xmlns.jcp.org/jsf/facelets"
 		xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Visualize a PAE</title>
-<link href="Styles/home.css" rel="stylesheet" />
-<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Visualize a PAE</title>
+	<link href="Styles/home.css" rel="stylesheet" />
+	<link href="Bootstrap/css/bootstrap.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-
+	<ui:include src="navbar.xhtml"/>
 		<div class="pae" >
 			<h:form>
-				<h1>PAE</h1>
-				<p:dataTable id="pae" class="tableEtudiants table table-striped table-bordered" value="#{pc.paeList}" var="pae">
+				<!-- <a href="paeCreation.xhtml" class="nav-link">Retour à la modification</a>
+				<a href="home.xhtml" class="nav-link">Terminer PAE</a> -->
 				
-							<p:column>
-						  	 	<h:outputText value="#{pae.id}"></h:outputText>
-						   	</p:column>
-						   	
-						    <p:column>
-						   		<f:facet name="header">U.E.</f:facet>
-						             <h:outputText value="#{pae.label}"></h:outputText>
-						   	</p:column>
-						   		
-						   
-						   	<p:column>
-						   		<h:outputText value="#{pae.totalCredits}"></h:outputText>
-						   	</p:column>
-						   	<p:row></p:row>
-						   	<p:column>
-						   	 	<h:outputText  value="#{pae.getAaList()}" />
-						   	</p:column>
-						    </p:dataTable>
-						   
-						
-						 <h:commandLink value="pdf generator2001">
-					        <p:dataExporter type="pdf" target="pae" fileName="#{pc.student.getLastName()}" pageOnly="true" />
-		  				  </h:commandLink>
+				<h:commandLink value="Retour à la modification" action="paeCreation.xhtml"/>
+  				<br/>
+  				<h:commandLink value="Terminer PAE" action="#{pc.endPae()}"/>
+  				<br/>
+				<p:commandButton value="Export" ajax="false" >
+						<p:dataExporter type="pdf" target="pae" fileName="#{pc.student.getLastName()}" pageOnly="true" />
+				</p:commandButton>
+				
+				
+				<p:dataTable id="pae" class="tableEtudiants table table-striped table-bordered" value="#{pc.paeList}" var="pae">
+					
+					<f:facet name="header">#{pc.student.getFirstName()} #{pc.student.getLastName()}       Credits: #{pc.calculCredit()}</f:facet>
+					
+					<p:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{pae.id}"></h:outputText>
+					</p:column>
+											   	
+					<p:column>
+						<f:facet name="header">U.E.</f:facet>
+						<h:outputText value="#{pae.label}"></h:outputText>
+					</p:column>
+											   	
+					<p:column>
+						<f:facet name="header">Credit</f:facet>
+						<h:outputText value="#{pae.totalCredits}"></h:outputText>
+					</p:column>
+											   	
+					<p:column>
+						<f:facet name="header">AA</f:facet>	
+						<h:outputText  value="#{pae.toStringAAList()}" />
+					</p:column>
+					
+				</p:dataTable>
 			</h:form>
 		</div>
 </h:body>

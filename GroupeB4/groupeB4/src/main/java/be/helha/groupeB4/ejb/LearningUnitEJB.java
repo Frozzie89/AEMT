@@ -6,9 +6,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import be.helha.groupeB4.dao.LearningUnitDAO;
-import be.helha.groupeB4.entities.LearningActivity;
 import be.helha.groupeB4.entities.LearningUnit;
-import test.LUDAO;
 
 @Stateless
 public class LearningUnitEJB {

@@ -7,7 +7,6 @@ import javax.ejb.Stateless;
 
 import be.helha.groupeB4.dao.LearningActivityDAO;
 import be.helha.groupeB4.entities.LearningActivity;
-import test.LADOA;
 
 @Stateless
 public class LearningActivityEJB{
