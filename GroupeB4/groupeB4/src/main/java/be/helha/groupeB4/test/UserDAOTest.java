@@ -2,7 +2,10 @@ package be.helha.groupeB4.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.ejb.EJB;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,6 +16,7 @@ import be.helha.groupeB4.entities.User;
 
 public class UserDAOTest {
 
+	@EJB
     private UserDAO userDao;
 
     @Before
@@ -29,9 +33,11 @@ public class UserDAOTest {
     public void addUser() {
         // fail("Not yet implemented");
         User userInput = new User("TEST_USERNAME", "TEST_PASSWORD", "TEST_ROLE");
+        User userTest = null;
         userDao.addUser(userInput);
 
-        List<User> userList = userDao.getAllUsers();
+        List<User> userList = new ArrayList<>();
+        userList = userDao.getAllUsers();
         User userOutput = null;
 
         for (User u : userList) {
@@ -44,7 +50,10 @@ public class UserDAOTest {
 
     @Test
     public void testGetAllUsers() {
-        fail("Not yet implemented");
+    	 List<User> userList = new ArrayList<>();
+         userList = userDao.getAllUsers();
+
+         assertTrue(userList.size() > 0);
     }
 
     @Test

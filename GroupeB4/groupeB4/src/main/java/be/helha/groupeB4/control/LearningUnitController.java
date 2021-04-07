@@ -41,33 +41,42 @@ public class LearningUnitController implements Serializable{
 	}
 	
 	public List<LearningUnit> doSelectSectionUESuccess(Student s){
+		// Initialize lists that will contain student's UE and AA
 		List<LearningUnit> listUE = new ArrayList<>();
 		List<LearningUnit> listAllUE = new ArrayList<>();
 		List<LearningActivity> listfromBU = new ArrayList<>();
 		List<Double> listePointFromBulletin = new ArrayList<>();
 		
-	
+		// Set student's current PAE in map
+		// Binds student's grades with its AA
 		Map<LearningActivity, Double> test = s.getBulletin();
 		
+		// For each AA, append it to lists
 		for (Map.Entry<LearningActivity, Double> entry : test.entrySet()) {
             LearningActivity key = entry.getKey();
             Double value = entry.getValue();
-         //   System.out.println("Clé: " + key + ", Valeur: " + value);
+            
             listfromBU.add(key);
             listePointFromBulletin.add(value);
         }
 		
+		// get all UE
 		listAllUE = doSelectAll();
 		
+		// for each UE, gets means UE grades of all AA
 		for(LearningUnit ue : listAllUE) {
 			Double compteur = 0.;
-			for (int i = 0; i < listfromBU.size(); i++) {
-				  if(ue.getAaList().contains(listfromBU.get(i))) {
+			
+			for (int i = 0; i < listfromBU.size(); i++) {	  
+				if(ue.getAaList().contains(listfromBU.get(i))) {	  
+					  // if course is a suspended course (-5 and -4 are flags for suspended courses)
 					  if(listePointFromBulletin.get(i) == -5 || listePointFromBulletin.get(i) == -4) {
+						  // we add 24 to the counter to make sure that the UE si passed
 						  compteur += 24;
 					  }
 					  compteur += listePointFromBulletin.get(i);
 					  
+					  // if AA is optional course, do not divide per number of AA 
 					  if(ue.getId().contains("UP")) {
 						  if(compteur >= 10)
 						  {
@@ -75,6 +84,7 @@ public class LearningUnitController implements Serializable{
 								  listUE.add(ue);
 							  }
 						  }
+				       // else divide per number of AA to get mean grades
 					  }else {
 						  if((compteur/ue.getAaList().size()) >= 9.75)
 						  {
@@ -89,6 +99,8 @@ public class LearningUnitController implements Serializable{
 				  }
 				}
 		}
+		
+		// When loop is done, returns the ue list
 		return listUE;
 	}
 	
